@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>load 이벤트1</title>
+<script src = 'jquery-1.11.1.js'></script>
+<script>
+//DOM 트리가 완성되었을 때 load 이벤트 발생
+window.onload = function(event){
+    alert('onload');	
+};
+
+alert('111111');
+$('#bbtn1').click(function(event){
+    
+    $('#formDiv').css('display','');
+});
+
+    
+</script>
+
+</head>
+<body>
+<button id = 'btn1'>버튼1</button>
+<div id = 'formDiv' style='display:none;'>
+<form>
+    이름 : <input type = 'text' name = 'name'><br>
+    나이 : <input type = 'text' name = 'age'><br>
+</form>
+</div>
+<script>
+alert('222222');
+</script>
+
+</body>
+</html>

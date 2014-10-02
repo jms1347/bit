@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반복문:while</title>
+
+</head>
+
+<body>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+// while(조건) 문장;
+var a = 1;
+var result = 1;
+
+while(a < 5) {
+	a++;
+	result *= a;
+}
+console.log(a, result);
+// while(조건) {
+	//문장1;
+	//문장2;
+	//...
+//}
+// do ~ while(조건);
+a = 1;
+result = 1;
+do{
+	a++;
+	result *= a;
+}while(a<5);
+console.log(a, result);
+
+//for(초기식; 조건; 증감/감소식){ ... }
+for(var a = 0; a < 10; a++){
+	console.log(a);
+}
+
+//구구단
+for(var x = 2 ; x < 10; x++){
+	for(var y = 1; y < 10; y++)){
+		console.log(x + " * " + y + " = " + (x*y));
+		
+	}
+}
+
+//for..in
+console.log('for..in ---------------------');
+var arr3 = [10, 20, 30, 40, 50, 60];
+for(var i = 0; i<arr3.length;i++){
+	console.log(arr3[i]);
+}
+
+for(var i in arr3){
+	console.log(arr3[i]);
+}
+
+</script>
+
+
+
+</body>
+</html>

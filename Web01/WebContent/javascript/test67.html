@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>엘리먼트 만들기: 값 설정2</title>
+<style>
+div{
+    border:1px solid red;
+    margin: 10px;
+}
+p{
+    border:1px dashed blue;
+    margin: 10px;
+}
+span{
+    border:2px solid black;
+
+    }
+</style>
+</head>
+<body>
+<input id = 'input1' type = "text"><br>
+<p id='p1'></p>
+<p id='p2'></p>
+
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+//innerHTML : 콘텐츠에 HTML이 포함되어 있으면 웹 브라우저는
+// 그 태그들을 생성한다.
+var p1 = document.getElementById('p1');
+
+p1.innerHTML = '오호라.. <b>비트교육센터</b>에서 공부한다.<br>' +
+'열심히 공부해서 멋진 개발자 되자!<br>'+
+'<a href="http://www.bitacademy.net">비트교육센터</a>';
+
+//textContent : 콘텐츠에 HTML이 있어도 웹 브라우저는
+// 그냥 단순한 문자로 취급한다.
+// = >콘텐츠에 임의의 스크립트가 들어가는 것을 방지할 수 있어, 보안에 유리하다.
+var p2 = document.getElementById('p2');
+p2.textContent = '오호라.. <b>비트교육센터</b>에서 공부한다.<br>' +
+'열심히 공부해서 멋진 개발자 되자!<br>'+
+'<a href="http://www.bitacademy.net">비트교육센터</a>';
+
+
+</script>
+</body>
+</html>

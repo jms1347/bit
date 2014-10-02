@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>데이터 타입 바인딩</title>
+
+</head>
+
+<body>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+/* 타입 바인딩
+       변수의 종류(number, string, boolean...)를 정의하는 것.
+       1) 정적 타입 바인딩
+        => 한번 변수의 종류가 결정되면 바뀌지 않는다.
+        => 변수를 선언할 때 결정된다.
+         예) 자바
+           int v1; //정수값 담을 변수
+            char v2; //문자 한 자를 저장할 변수
+            bollean v3; //논리값을 저장할 변수
+        2) 동적 타입 바인딩
+         => 값을 할당할 때 변수의 종류(데이터 타입)가 결정된다.
+         => 자바스크립트는 동적 타입 바인딩으로 동작한다.
+         */
+      var v1;
+         var v2;
+         var v3;
+         var v4;
+         var v5;
+         var v6;
+         var v7;
+         
+         console.log(typeof(v1));
+         console.log(typeof(v2));
+
+         console.log(typeof(v3));
+
+         console.log(typeof(v4));
+
+         console.log(typeof(v5));
+         console.log(typeof(v6));
+         console.log(typeof(v7));
+
+
+
+         v1 = 10;
+         v2 = 3.14;
+         v3 = "홍길동";
+         v4 = true;
+         v5 = null;
+         v6 = {name:"홍길동",age:30};
+         v7 = function() {};
+         
+         console.log(typeof(v1));
+         console.log(typeof(v2));
+
+         console.log(typeof(v3));
+
+         console.log(typeof(v4));
+
+         console.log(typeof(v5));
+         console.log(typeof(v6));
+         console.log(typeof(v7));
+         
+
+</script>
+
+</body>
+</html>

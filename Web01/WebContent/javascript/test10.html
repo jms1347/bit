@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>동적 타입 바인딩3</title>
+
+</head>
+
+<body>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+/* 동작 타입 바인딩 => 
+ * 
+ */
+         
+         //명령어(코드)들을 묶기=>함수 정의
+         function displayVarType(){
+        	 console.log("----------------------------------");
+        	 console.log(typeof(v1));
+             console.log(typeof(v2));
+
+             console.log(typeof(v3));
+
+             console.log(typeof(v4));
+
+             console.log(typeof(v5));
+             console.log(typeof(v6));
+             console.log(typeof(v7));
+	
+}
+      var v1;
+         var v2;
+         var v3;
+         var v4;
+         var v5;
+         var v6;
+         var v7;
+         
+         //묶인 명령어 블록을 실행 => 함수호출
+         
+        
+         v1 = 10;
+         v2 = 3.14;
+         v3 = "홍길동";
+         v4 = true;
+         v5 = null;
+         v6 = {name:"홍길동",age:30};
+         v7 = function() {};
+         
+         displayVarType();
+         v1 = "문자열";
+         v2 = true;
+         v3 = 500;
+         v4 = 20;
+         v5 = "okok";
+         v6 = true;
+         v7 = 20;
+
+         displayVarType();
+         
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스크립트 실행 순</title>
+<script>
+alert('1');
+</script>
+</head>
+
+<body>
+<!-- 
+스크립트태그의 실행은 선언된 순서대로 실행한다. 
+ -->
+<h1>2</h1>
+
+<script>
+   alert('3'); 
+   
+
+   
+</script>
+
+<h1>4</h1>
+<script>
+alert('5');
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판</title>
+<style>
+form th {
+  text-align: right;
+}
+</style>
+</head>
+
+<body>
+<!-- 게시판 목록 -->
+<h1>게시판 목록</h1>
+<table id='boardTable' border='1'>
+<tr>
+  <th>번호</th>
+  <th>제목</th>
+  <th>작성자</th>
+  <th>등록일</th>
+  <th>조회수</th>
+</tr>
+</table>
+<hr>
+<h2>게시물 상세정보</h2>
+<form>
+<table>
+<tr class="detail">
+  <th>번호</th> 
+  <td><input type="text" id="no"></td>
+</tr>
+<tr>
+  <th>제목</th> 
+  <td><input type="text" id="title"></td>
+</tr>
+<tr> 
+  <th>내용</th> 
+  <td><textarea id="content"></textarea></td>
+</tr>
+<tr>
+  <th>작성자</th> 
+  <td><input type="text" id="writer"></td>
+</tr>
+<tr class="create">
+  <th>암호</th> 
+  <td><input type="password" id="password"></td>
+</tr>
+<tr class="detail">
+  <th>등록일</th> 
+  <td><input type="text" id="date"></td>
+</tr>
+</table>
+<button id='btnAdd' type='button' class='create'>추가</button>
+<button id='btnChange' type='button' class='detail'>변경</button>
+<button id='btnDelete' type='button' class='detail'>삭제</button>
+<button id='btnCancel' type='reset'>취소</button>
+</form>
+
+<!-- 목표: 자바스크립트와 HTML 소스 분리 -->
+<script src='test69_common.js'></script>
+<script src='test69.js'></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

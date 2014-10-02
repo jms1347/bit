@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 전달:stopPropagation()/stopImmediatePropagation()</title>
+<style>
+div{
+    border:1px solid red;
+    margin: 10px;
+}
+p{
+    border:1px dashed blue;
+    margin: 10px;
+}
+span{
+    border:2px solid black;
+
+    }
+</style>
+</head>
+<body>
+<div id = "d1">d1
+    <div id = "d11">d11<p id ="p1">비트 <span id="s1">강남</span> 교육센터</p></div>
+    <div id = "d12">d12<p id ="p2">비트 <span id="s2">종로</span> 교육센터</p></div>
+</div>
+<div id = "d2">d2
+    <div id = "d21">d21<p id ="p3">비트 <span id="s3">대전</span> 교육센터</p></div>
+    <div id = "d22">d22<p id ="p4">비트 <span id="s4">부산</span> 교육센터</p></div>
+</div>
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+//stopPropagation 이벤트의 버블링 중단
+document.getElementById('d1').onclick = function(event){
+	console.log('d1....');
+}
+
+document.getElementById('d11').onclick = function(event){
+    console.log('d11....');
+}
+
+document.getElementById('d12').onclick = function(event){
+    console.log('d12....');
+}
+
+document.getElementById('p1').onclick = function(event){
+    console.log('p1....p1');
+}
+
+document.getElementById('p2').onclick = function(event){
+    console.log('p2....p2');
+}
+
+document.getElementById('s1').onclick = function(event){
+    console.log('s1....s1');
+    event.stopPropagation(); // 부모로 버블하지 말라!
+}
+
+document.getElementById('s2').onclick = function(event){
+    console.log('s2....s2');
+}
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

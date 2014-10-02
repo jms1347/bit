@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bit Paint</title>
+
+<link rel="stylesheet" href="general.css">
+
+
+</head>
+<body>
+
+	<div id='main' >
+		<div>
+			<img id='logo' src='logo3.png'><!-- <img id='img' src="paint.png"> -->
+		</div>
+	</div>
+	<hr>
+
+	<div id='menu1'>
+		<div>
+		</div>
+		<div id='menu2'>
+			<a id="pencil" title="pencil" href="#">연필</a> 
+			<a id="eraser" title="eraser" href="#">지우개</a> 
+			<a id="shapes" title="shapes" href="#">도형</a>		
+		</div>
+	</div>
+	<div id='option' style='display: none;'>
+
+		<div id="chooserWidgets">
+
+			<h4>
+				굵기선택
+			</h4>
+			<canvas id="lineWidthChooser" width="275" height="50">
+			
+            </canvas><br>
+
+		</div>
+
+
+		<div>
+
+			<div>
+				<canvas id='view' width='950' height='450'></canvas>
+			</div>
+		</div>
+	</div>
+	<div id='setmenu'>
+
+		<div id=btnset style='display: none;'>
+
+			<span id='black' title='black' class='color'></span> 
+			<span id='red' title='red' class='color'></span> 
+			<span id='blue' title='blue' class='color'></span> 
+			<span id='green' title='green' class='color'></span>
+			<br> 
+			<span id='white' title='white' class='color'></span> 
+			<span id='yellow' title='yellow' class='color'></span> 
+			<span id='orange' title='orange' class='color'></span> 
+			<span id='gray' title='gray' class='color'></span>
+
+		</div>
+
+	</div>
+
+	<!-- 목표: 자바스크립트와 HTML 소스 분리 -->
+
+	<!-- <script src='test69_common.js'></script> -->
+	<script src='imageview.js'></script>
+	<script type="text/javascript"
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+	<script type="text/javascript" src="CanvasBase.js"></script>
+	<script type="text/javascript" src="ColorPicker1.js"></script>
+</body>
+</html>

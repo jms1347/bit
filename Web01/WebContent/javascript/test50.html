@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Array()</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+var arr1 = [100, 200, 300];
+var arr2 = new Array();
+var arr3 = new Array(100, 200, 300);
+
+console.log(Array.constructor);
+console.log(arr1.constructor);
+console.log(arr2.constructor);
+console.log(arr3.constructor);
+
+console.log(arr1.length);
+
+//concat() : 기존 배열에 파라미터들을 합친다.
+console.log(arr1.concat(400, 500, 600));
+//join() : 배열에 들어 있는 값을 문자열로 만들어 리턴한다.
+console.log(typeof arr1.join());
+
+//pop() : 마지막 인덱스의 값을 꺼낸다. 배열에서 제거한다.
+console.log("------------------------------");
+console.log(arr1.pop());
+console.log(arr1.pop());
+console.log(arr1);
+arr1.push(201);
+arr1.push(301);
+console.log(arr1);
+
+console.log("------------------------------");
+console.log(arr1.reverse());
+console.log(arr1);
+
+// slice() 
+arr.push(1,2,3,4,5,6);
+console.log(arr1.slice(2,4));
+
+console.log(arr1.splice(2,4));;
+
+console.log(arr1.sort());
+function mySort(v1, v2){
+	/*if(v1>=v2)
+		return true;
+	else
+		return false;*/
+	return (v1>=v2)? true : false ;
+		
+		
+		console.log(arr1.sort(function(p1,p2){}));
+}
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클로저3</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+var score = [100, 90, 80, 70, 80];
+var sum=0;
+// 문제 : 5개 과목의 성적 합계를 구하시오!
+// 클로저 사용 전 
+for(var i = 0 in score){
+    
+    sum += score[i];
+    console.log("score["+i+"] = ", score[i]);
+    console.log("sum = ", sum);
+}
+
+// 클로저 사용 후
+function each(arr, func){
+    for(var i in arr){
+    	console.log("for문안"); //2   
+        func(i, arr[i]);
+        
+        console.log("arr["+i+"]=", arr[i]);
+    }
+}
+
+var result2 = 0;
+console.log("result2 = ",result2); //1 
+
+each(score, function(index, value){
+	console.log("each함수 안의 함수 안"); //3 
+	console.log("each함수 안 result2 = ",result2);
+	console.log("each함수 안 value = ",value);
+    result2 += value;
+    console.log("each함수 안 result2222 = ",result2);
+});
+
+console.log("result2 = ",result2/(score.length));//평균
+
+
+</script>
+
+
+
+</body>
+</html>

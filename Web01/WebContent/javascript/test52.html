@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>브라우저 객체들</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+//브라우저에서 제공하는 객체들
+//  window
+//      L location 
+//      L navigator
+//      L history
+//      L screen
+//      L document
+
+// window 객체에 들어있는 모든 값 출력
+/*for (var key in window) {
+	console.log(key, "----->", window[key]);
+}
+// open(url, 윈도우이름, 특징들) : 새창
+window.open('http://www.google.com', 'w1');
+window.open('http://www.google.com', 'w2', 'menubar=no, location = no, resizable=no, scrollbars=no, status=no'+
+		' left=220, top=10, width=400, height=300');
+		
+// setTimeout(callback, 밀리초): 지정된 시간이 경과하면 callback을 호출한다.
+window.setTimeout(function(){
+	location.href = "http://www.daum.net";
+	
+},3000);*/
+
+// setInterval(callback, 밀리초) : 반복하여 지정된 시간이 경과할 때마다 callback 호출.
+/*window.setInterval(function(){
+	var today = new Date()
+	
+	document.body.innerHTML = today.getFullYear() + '-'+
+	(today.getMonth()+1)+'-'+
+	today.getDate() + ' '+
+	today.getHours() + ':'+
+	today.getMinutes() + ':'+
+	today.getSeconds() ;
+}, 1000);*/
+
+//window.moveTo(x, y) : 특정 위치로 윈도우 이동하기
+//window.moveBy(x, y) : 현재 위치에서 x, y만큼 이동하기
+var child = window.open('http://www.naver.com', 'w1',
+		'left=0, top=0, width=300 , height=200');
+		child.moveTo(100, 100);
+window.setIntervale(function(){
+	child.moveBy (10, 10);
+},1000);
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

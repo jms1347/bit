@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DIV 다루기</title>
+<style>
+/* 
+    1. 배경
+        1. background-image : url();
+         2. 배경 위치 지정 -> background-position : top left;
+            top,
+         
+         
+*/
+div#main {
+    width : 600px;
+	border-width: 1px;
+	border-color: red;
+	border-style: solid;
+	padding:10px;
+	margin: 0px auto;
+}
+#header{
+    border : 1px solid red;
+    background-image : url(bg1.jpg);
+    /*background-position: right bottom;*/
+    background-position: -370px 450px
+    
+    }
+#sidebar{
+    
+    border : 1px solid green;
+    /*
+    background-image: url(bg2.png);
+    background-position : top right;
+    background-repeat:no-repeat; */
+    /* repeat-left */
+    background: url(bg2.png) no-repeat bottom right;
+}
+#content{
+    border : 1px solid blue;
+}
+#footer{
+    border : 1px solid yellow;
+}
+div{
+    padding:10px;
+    margin : 5px;
+}
+
+</style>
+</head>
+<body>
+<div id='main'> 
+	<div id='header'>
+		<img src='http://dummyimage.com/140x50/ffff00/f00&text=Bit+Talk'>
+		<div>
+			<a href='#'>공지사항</a> <a href='#'>자료실</a> <a href='#'>수업</a>
+		</div>
+		<a href='#'>로그아웃</a>
+	</div>
+
+	<div id='sidebar'>
+		<div id='user'>
+			<img src=''>홍길동
+		</div>
+		<h1>알림</h1>
+		<ul>
+			<li>출석률이 저조합니다.</li>
+			<li>과제 제출하세요.</li>
+			<li>수당 지급이 연기되었습니다.</li>
+		</ul>
+		<h1>소식</h1>
+		<p>우리가 이길거야</p>
+		<p>내일 공모전 합니다.</p>
+		<p>책 공동구매 하려 합니다.</p>
+	</div>
+	<div id='content'>
+		<div id='breadcrumb'>공지사항</div>
+		<p>공지제목</p>
+		<p>1255555555555555555732ㅜ9ㅛ두8ㅍ홍대포]
+		34쇼93ㅗ934ㅎㅍ39호39ㅗ
+		3ㅂㄹ흐9ㅂ3ㅂ34ㅂㅎㄹ93ㅡ4ㅂㅎ브3ㄹ0ㅎㅂ3
+		3흘93025ㅎㄹㄴㅁ8ㅇㄹ8추03ㅈ뎌0즈0뎟려20ㅕㅡ34으셔9827
+		3ㅅ9ㄹ38ㅡ4ㅅ34ㅅㄹ3ㅛ4ㅅ293룟2034르ㅛ394숄3
+		3ㅡ4ㅇ9ㅅ324르034쇼0ㄹ3ㅡ4ㅛ432ㅅ04룟2034ㄹㅅ
+		432ㅅ092ㄹ3ㅡ4ㅅㄹ03스03ㅡ4쇼ㅡ2304셔르340쇼28ㅇ3ㅡㅛ40ㅗ2ㅅ384
+		394ㅅ르3ㅛ94ㅅㄹ3ㅛ04쇼30ㅡ스30쇼30쇼ㅡ0</p>
+
+	</div>
+	<div id='footer'>
+		<p>비트교육센터 자바 63기</p>
+	</div>
+</div>
+
+</body>
+</html>

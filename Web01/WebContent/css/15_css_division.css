@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+
+.alertWindow{
+	position : fixed;
+	left: 400px;
+	top: 0px;
+	
+}
+#btnClose{
+    position: absolute;
+    top: 0px;
+    right:0px;
+}
+
+.ad{
+	position : absolute;
+	top :30px;
+	right:0px;
+}
+
+.adText{
+	font-size: 30px;
+	font-weight: bold;
+	color: blue;
+	border : 1px solid darkgray;
+	background-color : #e0ffff;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>create()</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+// Object.create()를 사용하여 객체 생성
+Object.create({}, {
+	name:{value:'홍길동',writable:true,enumberable: true},
+	kor:{value:100,writable:true,enumberable:true},
+	eng:{value:100,writable:true,enumberable:true},
+	math:{value:100,writable:true,enumberable:true}
+}); 
+
+console.log(obj1.name);
+console.log(obj1.kor);
+console.log(obj1.eng);
+console.log(obj1.math);
+
+obj1.eng = 90;
+obj1.math = 90;
+
+console.log(obj1.name);
+console.log(obj1.kor);
+console.log(obj1.eng);
+console.log(obj1.math);
+
+console.log("---------------------------------");
+for(var key in obj1){
+    console.log(key);
+}
+
+</script>
+
+
+
+</body>
+</html>

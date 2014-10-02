@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>load event5</title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+// ready()의 축약법 => $(함수객체);
+
+
+    $(document).ready(function(){
+        alert("111");
+    });
+    
+    $(function(){}); //ready()의 축약
+    
+    $(function(){
+        alert("222");
+    });
+    
+    $(document).ready(function(){
+        alert("333");
+    });
+    
+    $(function(){
+        alert("444");
+    });
+
+</script>
+
+</head>
+<body>
+	<button id='btn1'>버튼1</button>
+	<div id='formDiv' style='display: none;'>
+		<form>
+			이름 : <input type='text' name='name'><br> 
+			나이 : <input type='text' name='age'><br>
+		</form>
+	</div>
+
+</body>
+</html>

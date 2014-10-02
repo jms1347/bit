@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+
+#header{
+    /*border : 1px solid red;*/
+    background-image : url(bg1.jpg);
+    /*background-position: right bottom;*/
+    background-position: -370px 450px;
+    height : 100px;
+}
+#sidebar{
+	width:150px;
+	
+    /*border : 1px solid green;*/
+    background: url(bg2.png) no-repeat bottom right;
+    background-color : #fafad2;
+    float : left;
+}
+#content{
+	line-height:1.5em;
+    /* border : 1px solid blue; */
+    margin-left : 170px;
+}
+#footer{
+    /* border : 1px solid yellow; */
+    clear :left; /* 왼쪽에 부딪히는 것이 있으면 아래로 이동한다. */
+    text-align : center;    
+}
+#logo{
+	/* border:1px solid red; */
+	float:left
+}
+#menubar{
+	/* border:1px solid green; */
+	width: 400;
+	float:left;
+	margin-left : 344px;
+	
+}
+
+#user{
+	border: 1px solid black;
+	position : relative;
+	top : -30px;
+	
+
+}
+#user > img{
+	border-radius: 7px;
+	
+	
+}
+
+#userName{
+	  border : 1px solid red;
+	  position : relative;
+	  top : -30px;
+	  font-size : 0.8em;
+	  margin-left: 5px;
+	  font-weight : bold;
+}
+div{
+    padding:10px;
+}

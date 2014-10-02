@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클로저2</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+// 함수를 아규먼트로 넘기기
+function fire(method){
+	
+	method();
+}
+
+//1) 일반 함수 넘기기
+function myGun() {
+	console.log('따따따 콩');
+}
+fire(myGun);
+
+//2) 익명 함수 넘기기
+fire(function(){
+	console.log("드르르륵.... 찌르르를........");
+	console.log("털털털................");
+	});
+
+
+//사례2
+function compute3(money, interest) {
+	console.log("money = ", money); //2 ,8
+	console.log("interest = ", interest(money)); //4, 10
+	var x = money + interest(money); 
+	console.log("원금 + 이자 = ", x); //6 ,12
+}
+	
+	console.log('--------------------1');//1
+	compute3(1000000, function(m) {
+		console.log("m1 =",m); //3 ,5
+		
+		return m * 0.021;
+	
+	});
+	console.log('--------------------2');//7
+	compute3(1000000, function(m){
+		console.log("m2 =",m); //9, 11
+		return m * 0.035;
+			});
+
+</script>
+
+
+
+</body>
+</html>

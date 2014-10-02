@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>load event4</title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+// DOM 트리가 완성된 후 다음의 순서로 호출된다.
+//      1. ready()로 등록된 함수가 순서대로 호출된다.
+//      2. onload 리스너 함수가 호출된다.
+
+    $(document).ready(function(){
+        alert("3333333333");
+    });
+
+	window.onload = function(event) {
+		alert("11111111111");
+	};
+	
+	$(document).ready(function(){
+		alert("22222222222");
+	});
+</script>
+
+</head>
+<body>
+	<button id='btn1'>버튼1</button>
+	<div id='formDiv' style='display: none;'>
+		<form>
+			이름 : <input type='text' name='name'><br> 
+			나이 : <input type='text' name='age'><br>
+		</form>
+	</div>
+
+</body>
+</html>

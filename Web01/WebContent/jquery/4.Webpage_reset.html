@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 페이지 초기화</title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+//DOM 트리가 완성되기 전에 htn1을 찾기 때문에
+//Dom 트리가 완성되면 load이벤트 발생.
+
+
+	window.onload = function(event) {
+		$('#btn1').click(function(event) {
+
+			$('#formDiv').css('display', '');
+		});
+	};
+</script>
+
+</head>
+<body>
+	<button id='btn1'>버튼1</button>
+	<div id='formDiv' style='display: none;'>
+		<form>
+			이름 : <input type='text' name='name'><br> 
+			나이 : <input type='text' name='age'><br>
+		</form>
+	</div>
+
+</body>
+</html>

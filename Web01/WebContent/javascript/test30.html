@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클로저</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+// 클로저 : 내부함수
+
+function getInterestComputer(type){
+	if(type =="보통예금"){
+		return function(money){
+			return money * 0.021;
+		};
+	}else if (type == "정기예금"){
+		return function(money){
+			return money * 0.035;
+		};
+	}else {
+		return function(money){
+			return money * 0.008;
+		};
+	}
+}
+
+var func1 = getInterestComputer("보통예금");
+var func2 = getInterestComputer("정기예금");
+var func3 = getInterestComputer("기타");
+
+console.log("보통예금 이자 : ", func1(1000000));
+console.log("정기예금 이자 : ", func2(1000000));
+console.log("기타 기본 이자 : ", func3(1000000));
+console.log("------------------------------");
+
+// 클로저를 사용하지 않는 만든 계산기
+var result = 0;
+function compute(op, v1){
+	if(op == "+"){
+		result += v1;
+	} else if (op == '-'){
+		result -= v1;
+	} else if (op == '*'){
+		result *= v1;
+	} else if (op == '/'){
+		result /= v1;
+	}
+}
+
+//식1 : 10 + 20 * 2 - 7 / 5 =
+//식2 : 7 * 3 - 5 =
+compute('+', 10);
+compute('+', 20);
+compute('*', 2);
+compute('-', 7);
+compute('/',5);
+console.log('result = ', result);
+
+// 클로저를 사용하여 독자 계산기만들기
+function makeComputer(){
+	//클로저가 사용할 로컬 변수를 지정
+	//클로저는 로컬 변수를 복제하여 자신만의 영역(클로저영역)
+	var result = 0; 
+    // 기억! 함수 안에 선언된 변수(로컬 변수)는
+    // 함수 호출이 끝나면 제거됨 => 매번 함수 호출 때마다 생성됨.
+	
+	//클로저 선언
+	//익명 함수를 사용하여 클로저 생성 및 리턴
+	// => 같은 함수를 여러 개 만들어서 사용할 경우
+	//       답 : 계산 결과를 별도로 관리하기 위해.
+    function compute2(op, v1){
+	    if(op == "+"){
+	        result += v1;
+	    } else if (op == '-'){
+	        result -= v1;
+	    } else if (op == '*'){
+	        result *= v1;
+	    } else if (op == '/'){
+	        result /= v1;
+	    }
+	    return result;
+	}
+	return compute2;
+}
+
+var c1 = makeComputer();
+
+var c2 = makeComputer();
+
+// 식1 : 10 * 7 - 5 = 
+// 식2 : 18 - 5 / 3 =
+	console.log("--------------------");
+
+console.log("식1 = " ,c1('+',10));
+console.log("식2 = " ,c2('+',18));
+console.log("식1 = " ,c1('*',7));
+console.log("식2 = " ,c2('-',5));
+console.log("식1 = " ,c1('-',5));
+console.log("식2 = " ,c2('/',3));
+
+
+</script>
+
+<script>
+function calculator(){//1
+	
+	var re = 0;
+	function compute(op,value){ //2
+		if(op == "+"){
+			re += value;
+		}
+		else if(op == "-"){
+			re -= value;
+		}
+		console.log("re1 = ",re);
+		console.log("op1 = ",op);
+	    console.log("value1 = ",value);
+		return re;
+		console.log("re2 = ",re);
+		console.log("op2 = ",op);
+        console.log("value2 = ",value);
+		return calculator;
+	}//2
+	//console.log("op3 = ",op);
+	//console.log("value3 = ",value);
+	console.log("re3 = ",re);
+	return compute;    
+	
+}//1
+var a = calculator();
+console.log("식1=",a('+',5));
+console.log("식1=",a('-',3));
+
+</script>
+
+
+
+
+
+</body>
+</html>

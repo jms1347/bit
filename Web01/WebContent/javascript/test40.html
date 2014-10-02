@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 응용:계산기</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+function Calculator(init){
+	if (init != undefined){
+		this.result = init;
+	}else {
+		this.result = 0;
+	}
+	//이 방식의 문제점? 각 객체가 동일한 함수를 갖는다.
+    //메모리 낭비가 발생
+	this.plus = function(value) { this.result += value;};
+	this.minus = function(value) { this.result -= value;};
+	this.multiple = function(value) { this.result *= value;};
+	this.divide = function(value) { this.result /= value;};
+}
+
+var calc1 = new Calculator();
+var calc2 = new Calculator(10);
+
+//0+7-3*8=?
+//10*3-7/2=?
+
+calc1.plus(7);
+calc2.multiple(3);
+
+calc1.minus(3);
+calc2.minus(7);
+
+calc1.multiple(8);
+calc2.divide(2);
+
+console.log("calc1.result = ", calc1.result);
+console.log("calc2.result = ", calc2.result);
+
+</script>
+
+
+
+</body>
+</html>

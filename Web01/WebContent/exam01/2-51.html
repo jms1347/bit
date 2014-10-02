@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 Basic</title>
+    <style>
+    div{
+        /* border: 1px solid red; */
+        /* padding-top : 10px;
+        padding-left : 10px;
+        padding-bottom : 10px;
+        padding-right : 10px;  */
+        /* padding : 10px 10px 10px 10px; */
+        /* padding : 10px 10px; */
+        padding : 10px;
+    }
+    #header {
+        background-color : skyblue;
+    }
+    
+    #sidebar{
+        background-color : #093;
+        width : 140px;
+        height : 100px;
+        float : left;
+    }
+    
+    #content{
+        background-color : #f9c;
+        margin-left : 160px;
+    }
+    #footer{
+        background-color : #99f;
+        
+    }
+    
+    a:link {
+        color : white;
+    }
+    a:hover {
+        background-color : white;
+        color : black;
+        font-weight : bold;
+        }
+        
+        #popup{
+         
+            position: absolute;
+            left : 200px;
+            top : 10px;
+          }
+    </style>
+</head>
+<body>
+    <div id = "header">
+        <h1>HTML5 Header</h1>
+    </div>
+    <div id = "sidebar">
+        <ul>
+            <li><a href="#">Menu - 1</a></li>
+            <li><a href="#">Menu - 2</a></li>
+            <li><a href="#">Menu - 3</a></li>
+        </ul>
+    </div>
+    <div id = "content">
+        <div>
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div>
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+    <div id = "footer">
+        <span>서울특별시 강서구 내발산동</span>
+    </div>
+    <div id = "popup">
+        <img src = "Nara.jpg">
+        <button id = "close">X</button>
+    </div>
+    
+    <script>
+    var e1 = document.getElementById("close");
+    e1.onclick = function(){
+    	var popup = document.getElementById("popup");
+    	popup.style.display = 'none';
+    };
+    </script>
+</body>
+</html>

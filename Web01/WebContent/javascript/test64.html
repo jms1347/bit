@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>엘리먼트 만들기 : createElement()</title>
+<style>
+div{
+    border:1px solid red;
+    margin: 10px;
+}
+p{
+    border:1px dashed blue;
+    margin: 10px;
+}
+span{
+    border:2px solid black;
+
+    }
+</style>
+</head>
+<body>
+<h1>신규 게시글</h1>
+
+<form id = 'form1'>
+제목 : <input type = "text" name="title"><br>
+내용 : <textarea name = 'content'></textarea><br>
+암호 : <input type = 'password' name = 'password'><br>
+<!-- button 태그에 타입을 지정하지 않으면 submit 타입이다.
+    type
+      1. submit : 서버에 폼데이터를 전송
+        <form> 의 action 속성에 지정된 주소로 폼 데이터를 보낸다.
+        만약, action 속성이 비어 있으면, 그냥 reload한다.
+      2. reset : 폼을 초기 상태로 만듦
+      3. button: 일반 버튼
+    -->
+<button id = 'btnAdd' type = 'button'>추가</button>
+<button id = 'btnCancel' type ='reset'>취소</button>
+
+<!-- input 태그를 사용하여 버튼을 만들 수 있다. 
+<input type = "submit" value='추가'>
+<input type = 'reset' value='취소'>  
+-->
+</form>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+if(document.attachEvent){ //IE8 이하버전
+	document.getElementById('btnAdd').attachEvent('onclick', f1 );
+	document.getElementById('btnCancel').attachEvent('onclick', f2);
+}else{
+    document.getElementById('btnAdd').addEventListener('click', f1 );
+    document.getElementById('btnCancel').addEventListener('click', f2);
+}
+
+
+
+function f1(event){
+	//display : 'none' => DOM 트리에는 존재. 숨긴다.
+	//document.getElementById('btnAdd').style.display='none';
+    var btnAdd = document.getElementById('btnAdd');
+    //DOM 트리에서 제거
+    document.getElementById('form1').removeChild(btnAdd);
+	
+	var btnUpdate = document.createElement('button');
+	btnUpdate.innerHTML = '변경';
+}
+
+function f2(event){
+	//display : '' => 보이기
+	//document.getElementById('btnAdd').style.display='';
+    var btnAdd = document.createElement('button');
+    btnAdd.type = 'button';
+    var btnCancel = document.getElementById('btnCancel');
+    btnAdd.innerHTML = '추가';
+    document.getElementById('form1').insertBefore(btnAdd,btnCancel);
+}
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

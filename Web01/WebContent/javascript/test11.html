@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>산술연산</title>
+
+<style>
+input{
+width : 50px;
+}
+</style>
+
+</head>
+
+<body>
+<input id = "v1" type = "text">
+<select id = "op"> 
+    <option>+</option>
+     <option>-</option>
+      <option>*</option>
+       <option>/</option>
+       <option>%</option>
+       
+    
+</select>
+<input id = "v2" type = "text">
+<button id ="compute">=</button>
+<input id = "result" type = "text">
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+// + -  /  */
+
+// compute 아이디의 inpute 태그 객체를 찾는다.
+var compute = document.getElementById("compute");
+
+// compute 태그 객체의 함수를 설정한다.
+// 마우스로 클릭했을 때 호출되는 함수를 설정한다.
+// onclick() 함수는 버튼을 클릭할 때마다 호출될 것이다.
+compute.onclick = function(){
+	var e1 = document.getElementById("v1");
+	var e2 = document.getElementById("v2");
+	
+	var a = parseInt(e1.value);
+	var b = parseInt(e2.value);
+	
+	var e4 = document.getElementById("op");
+	
+	var result = 0;
+	
+   if(e4.value == "+")
+	   result = a+b;
+   else if(e4.value == "-")
+	   result = a-b;
+   else if(e4.value == "*")
+	   result = a*b;
+   else if(e4.value == "/")
+	   result = a/b;
+   else if(e4.value == "%")
+	   result = a%b;
+    
+
+	
+	var e3 = document.getElementById("result");
+	e3.value = result;
+	
+	
+	
+};
+         
+
+         
+
+</script>
+
+</body>
+</html>

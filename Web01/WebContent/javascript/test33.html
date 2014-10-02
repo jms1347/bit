@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>글로벌 변수</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+//가장 바깥쪽에 선언하는 변수를 글러벌 변수라 한다.
+//글로벌 변수는 어떤 함수에서도 접근할 수 있다.
+var g1 = 100;
+
+function f1(){
+	g1 = 200;
+}
+
+function f2(){
+	g1 = 300;
+}
+
+f1();
+console.log(g1);
+
+f2();
+console.log(g1);
+
+//모든 글로벌 변수는 window 객체에 포함된다
+// window 객체란?
+// =>웹 브라우저의 자바스크립트엔진이 준비하는 객체
+// =>자바스크립트의 모든 객체를 관리한다.
+//객체란?
+// 특정 목적을 수행하기 위해 필요한 값과 함수를 보관하는 바구니다.
+console.log("window.g1=", window.g1);
+window.g1=400;
+console.log("g1=", g1);
+
+//일반적으로 선언하는 함수도 글로벌 함수이다.
+//window 객체에 포함된다.
+window.f1();
+console.log(g1);    //200
+
+</script>
+
+
+
+</body>
+</html>

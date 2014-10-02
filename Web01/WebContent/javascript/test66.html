@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>엘리먼트 만들기: 값 설정</title>
+<style>
+div{
+    border:1px solid red;
+    margin: 10px;
+}
+p{
+    border:1px dashed blue;
+    margin: 10px;
+}
+span{
+    border:2px solid black;
+
+    }
+</style>
+</head>
+<body>
+<input id = 'input1' type = "text"><br>
+<p id='p1'></p>
+
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+var input1 = document.getElementById('input1');
+var p1 = document.getElementById('p1');
+
+// innerHTML : 엘리먼트
+//input1.innerHTML = '안되네...';
+input1.value = '오호라.. 바로 이것이여..';
+
+//p1.value = '안되네...'; //<p>는 폼의 항목이 아니다.
+p1.innerHTML = '아하.. 이렇게 값을 설정하는구나..';
+</script>
+
+
+
+</body>
+</html>

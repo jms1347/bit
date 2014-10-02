@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>조건문</title>
+
+</head>
+
+<body>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+//switch 문
+var level = 3;
+
+switch(level){
+case 0: 
+	console.log('손님');
+	break;
+case 1:
+	console.log('일반');
+	break;
+case 2:
+	console.log('관리자');
+	break;
+default:
+	console.log('기타');
+}
+
+var auth = 3;
+//authenitication(인증)-> 사용자 존재 유무(login)
+
+//authorization(권한) -> 권한등급
+switch(auth){
+case 3 :
+    console.log('삭제가능');
+case 2 :
+    console.log('변경가능');
+case 1 :
+    console.log('작성가능');
+default :
+	console.log('조회가능');
+}
+
+// 조건 연산자
+//(조건) ? 문장1 : 문장2;
+//조건이 참이면 문장1, 거짓이면 문장2 수행.
+var a = 10;
+var b = 20;
+var max = 0;
+if (a > b){
+	max = a;
+} else {
+	max = b;
+}
+console.log("if.max = ", max);
+
+max = (a>b) ? a: b;
+console.log("3.max = ", max);
+
+a = 25;
+b = 18;
+// &&, || 를 활용한 조건문
+(a > b) && (max = a);
+(a > b) || (max = b);
+console.log(max);
+</script>
+
+
+
+</body>
+</html>

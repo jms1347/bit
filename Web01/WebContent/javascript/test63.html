@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>엘리먼트 만들기 : createElement()</title>
+<style>
+body{
+    border:1px solid green;
+    height :100px;
+}
+div{
+    border:1px solid red;
+    margin: 10px;
+}
+p{
+    border:1px dashed blue;
+    margin: 10px;
+}
+span{
+    border:2px solid black;
+
+    }
+</style>
+</head>
+<body>
+
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+// createElement('태그명') : 엘리먼트생성
+var e1 = document.createElement('h1');
+
+// createTextNode('내용') : 시작태그와 끝태그 사이에 들어 갈 내용
+var content = document.createTextNode('오호라... 태그생성');
+
+// 부모.appendchild(자식) : 부모의 막내 자식으로 엘리먼트를 추가한다.
+e1.appendChild(content);
+document.body.onclick = function(event){
+    document.body.appendChild(e1);
+};
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

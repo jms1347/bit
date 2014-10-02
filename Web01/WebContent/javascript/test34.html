@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+// 배열은 인덱스를 사용하여 값을 관리
+// 객체는 키를 사용하여 값을 관리
+var scoreArray = ["홍길동", 100, 89, 100];
+
+var scoreObject = {
+		"name": "홍길동",
+		"kor" : 100,
+		"eng" : 89,
+		"math": 100
+};
+//키가 변수의 이름 짓는 규칙에 따라 작성되었다면, 
+//인용부호를 생략할 수 있다.
+var scoreObject2 = {
+        name: "홍길동",
+        kor : 100,
+        eng : 89,
+        math: 100
+};
+
+//배열 값 출력
+console.log("배열 값 출력---------------");
+console.log("이름=",scoreArray[0]);
+console.log("국어=",scoreArray[1]);
+console.log("영어=",scoreArray[2]);
+console.log("수학=",scoreArray[3]);
+
+//객체 값 출력
+//=>키는 문자열로 표현하고, 공백이나 특수 문자 모두 사용 가능
+console.log("객체 값 출력***************");
+console.log("이름=",scoreObject['name']);
+console.log("국어=",scoreObject['kor']);
+console.log("영어=",scoreObject['eng']);
+console.log("수학=",scoreObject['math']);
+
+//객체 값 출력
+//=>키는 변수명 규칙에 따라야 한다.
+//=>변수 이름 짓는 규칙
+//=>변수 이름 짓는 규칙? 공백 포함 불가, 문자로 시작(알파벳,$,_)
+//=>중간에 숫자가 들어갈 수 잇다.
+console.log("객체 값 출력2**************");
+console.log("이름=",scoreObject.name);
+console.log("국어=",scoreObject.kor);
+console.log("영어=",scoreObject.eng);
+console.log("수학=",scoreObject.math);
+
+
+</script>
+
+
+
+</body>
+</html>

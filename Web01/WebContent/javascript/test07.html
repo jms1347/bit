@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>값과 값의 표현(Literal)</title>
+
+</head>
+
+<body>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+/* 자바스크립트의 데이터 형
+    1) number
+    2) boolean
+    3) string
+    4) null
+    5) undefined
+ */
+//number 형의 데이터
+//v1 <== 변수
+//10 <== 리터럴 (정수를 표혀한 값 = 값의 표현)
+var v1 = 10;
+var v2 = 3.14;
+
+//boolean 형의 데이터
+var v3 = true;
+var v4 = false;
+
+//string 형의 데이터
+var v5 = "홍길동";
+var v6 = '홍길동';
+
+//인용부호 안에 인용부호 상ㅇ하기
+var v7 = "나의 이름은 '홍길동'입니다.";    //""안에서 ''는 단순 문자로 취급
+var v8 = '나의 이름은 "홍길동"입니다.';    //''안에서 ""는 단순 문자로 취급
+console.log(v7,v8);
+//var v9 = "나의 이름은 "홍길동"입니다."; //오류 
+//var v10 = '나의 이름은 '홍길동'입니다.'; //오류
+
+//escape 명령을 사용하여 특수문자 넣기
+// \", \', \t, \n, \\
+var v11 = "나의 이름은 \"임꺽정\"입니다.\n";
+var v12 = '나의 이름은 \'임꺽정\'입니다.';
+
+console.log(v11, v12);
+
+var v13 = null;
+var v14 = undefined;
+var v15;
+
+console.log(v13,v14,v15);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color : white; 
+}
+
+.c {
+	border: 1px solid black;
+}
+
+#logo {
+	margin-left: 350px;
+	margin-top: 13px;
+}
+
+#main {
+	background-image: url('bg5.jpg')  ;
+	background-position: -1300px  270px;
+	height: 100px;
+}
+
+#menu1 {
+	position: relative;
+	width: 200px;
+	height: 505px;
+	float: left;
+}
+
+#menu2 {
+	background-color: pink;
+}
+
+#menu2 a {
+	display: block;
+	padding: 150px 0 0 0;
+	height: 0;
+	overflow: hidden;
+	margin: 10px 0 40px 20px;
+	z-index: 2020;
+	float: left;
+	width: 155px;
+}
+
+#menu2 a#pencil {
+	
+	background: url('pcbefore.png') no-repeat  ;
+}
+
+#menu2 a#eraser {
+	background: url('erbefore.png') no-repeat;
+}
+
+#menu2 a#shapes {
+	background: url('cpbefore.png') no-repeat;
+}
+
+#menu2 a#pencil.active {
+	background: url('pcafter.png') no-repeat;
+}
+
+#menu2 a#eraser.active {
+	background: url('erafter.png') no-repeat;
+}
+
+#menu2 a#shapes.active {
+	background: url('cpafter.png') no-repeat;
+}
+
+#option {
+	margin-left: 205px;
+}
+
+.tool {
+	border: 1px solid green;
+	height: 100px;
+}
+
+hr {
+	border: 1px solid #AAAAAA;
+}
+
+canvas {
+	background-color: white;
+	margin: 10px;
+	border: 1px solid #AAAAAA;
+}
+
+#canvas {
+	position: absolute;
+	left: 90px;
+	top: 10px;
+}
+
+#btnset {
+	float: left;
+	position: absolute;
+	top: 130px;
+	right: 450px;
+	height: 150px;
+	width: 500px;
+}
+
+#btnset span {
+	border-radius: 11px;
+	float: left;
+	margin: 5px;
+	overflow: hidden;
+	padding: 50px 0 0 0;
+	width: 100px;
+	z-index: 200;
+}
+
+#black {
+	background-color: black;
+}
+
+#white {
+	background-color: white;
+	border: 1px solid black;
+}
+
+#green {
+	background-color: green;
+}
+
+#red {
+	background-color: red;
+}
+
+#orange {
+	background-color: orange;
+}
+
+#yellow {
+	background-color: yellow;
+}
+
+#gray {
+	background-color: gray;
+}
+
+#blue {
+	background-color: blue;
+}
+
+#chooserWidgets {
+	display: block;
+	position: relative;
+	width: 300px;
+	height: 120px;
+	bottom: 50 px;
+	left: 10px;
+	margin-left: 500px;
+}
+
+#pickerView {
+	border: 1px solid red;
+	position: absolute;
+	margin-left: 310px;
+	margin-top: -125px;
+	height: 120px;
+	width: 270px;
+}
+
+.picker {
+	position: relative;
+}
+
+.picker * {
+	position: relative;
+	cursor: crosshair;
+}

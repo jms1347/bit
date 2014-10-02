@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>기본 객체:String()</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+var str1 = "Hello, World!";
+var str2 = new String("Hello, World!");
+
+console.log(typeof str1);
+console.log(typeof str2);  
+
+console.log(str2.length);  //13
+console.log(str1.length);  //13
+
+console.log(str1 instanceof Object);
+console.log(str1 instanceof String);
+
+console.log(str2 instanceof Object);
+console.log(str2 instanceof String);
+
+console.log(str1.charAt(5)); // ,
+/*
+var x = str1.charCodeAt(0); //문자열에서 지정된 위치(H)의 Unicode 값 리턴
+var y = x.toString(16);
+*/
+console.log(str1.charCodeAt(0)); //72
+console.log(str1.charCodeAt(0).toString(16)); //72 -> 0x48
+
+// immutable: 스트링 객체에 대해 concat() 호출하더라도 기존 값은
+//              변하지 않는다.
+//              다만, 리턴 값은 새로운 스트링 객체이다.
+console.log(str1.concat("okok","nono","ohora"));
+console.log(str1); //불변
+
+// replace() => 특정 문자열을 다른 문자열로 대체한 새로운 문자열 리턴.
+var str3 = str1.replace('o','x');
+console.log(str3);
+console.log(str1); //불변
+
+// split() -> 특정 구분자로 문자열을 나눈다. 리턴 값은 배열.
+var str4 = "http://test.com/board/list?pageno=0&page=3&count=10";
+console.log((str4.split("?")[1]).split("&")[0].replace('=',':'));
+console.log((str4.split("?")[1]).split("&")[1].replace('=',':'));
+console.log((str4.split("?")[1]).split("&")[2].replace('=',':'));
+
+//강사님이 한것
+var arr = str4.split('?')[1].split('&');
+for(var i in arr){
+	var kv = arr[i].split('=');
+	console.log(kv[0], ":",kv[1]);
+}
+console.log("-----------------------------");
+var i = str4.indexOf('?');
+console.log(i);
+
+// lastIndexOf(찾을문자열, 시작점); 거꾸로 찾기
+var i2 = str4.indexOf('&');
+var i3 = str4.lastIndexOf('&');
+console.log(i2,i3);
+
+//substr(시작인덱스, 개수)
+//substring(시작인덱스, 끝인덱스);
+console.log(str4.substr(7,8));
+console.log(str4.substring(7,15));
+console.log(str4.slice(7,15));
+
+// 대문자 -> 소문자 변환 => toLowerCase()
+// 소문자 -> 대문자 변환 => toUpperCase()
+
+var str5 = "Hello, World!";
+console.log(str5.toLowerCase());
+console.log(str5.toUpperCase());
+
+</script>
+
+
+
+</body>
+</html>

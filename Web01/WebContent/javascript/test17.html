@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>== 과 ===의 비교</title>
+
+</head>
+
+<body>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+/* == 연산자
+ * 암시적 형변환(implicit type conversion)
+ * 연산을 위해 두 개의 값을 같은 타입으로 자동으로 형 변환하는 것.
+ == 연산에서 암시적 형변환은 어떤 타입의 값을 number로 변환한여 비교한다.
+ */
+ // 'false' => Boolean('false') = true
+ console.log("== 연산자 암시적 형변환 테스트--------------");
+ console.log("'false' == 0",'false'==0);
+ console.log("0 == 'false'", 0 == 'false');
+ console.log("'true' ==1", 'true' ==1);
+ console.log("1=='true'", 1 == 'true');
+ console.log("'okok' == 1", 'okok' ==1);
+ console.log("1 == 'okok'", 1== 'okok');
+ console.log("'1' == true", '1' == true);
+ console.log("'10' == true", '10' == true);
+ console.log("'10$' == 10", '10$' ==10);
+ 
+ 
+ console.log("'false' == false", 'false' == false); //false
+ console.log("100 == '100'", 100 == '100'); //true
+ 
+ var x = '100';
+ if(x == 100){
+	 console.log('x = 100');
+ }
+ 
+ // ===은 **타입과 **과 값이 일치할 때만 true
+ if (x === 100){
+	 console.log('x = very very 100');
+ }else{
+	 console.log('2번째 if문 출력안됨');
+ }
+ 
+ console.log("'' == false", '' == false);
+		 console.log("'' === false", '' === false);
+				    console.log("0 == false", 0 == false);
+				    console.log("0 === false", 0 === false);
+      
+</script>
+
+
+
+</body>
+</html>

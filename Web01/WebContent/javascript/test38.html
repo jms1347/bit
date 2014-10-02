@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>생성자 함수</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+// 생성자 함수란?
+// 객체 생성 후 호출하는 함수
+// 객체에 필요한 변수와 함수 등록
+// 일반적인 용도로 호출하지 않는다.
+// 생성자 함수는 자바와 달리 별도의 문법이 존재하지 않는다.
+// 보통 생성자 함수는 대문자로 이름을 시작한다.
+
+// 일반 객체 생성 후
+var student1 = {name:"홍길동", kor :100, eng:100, math:100}
+var student2 = {name:"임꺽정", kor :90, eng:90, math:90}
+var student3 = {name:"장보고", kor :80, eng:80, math:80};
+
+// 팩토리 함수 사용후
+function makeStudent(v1, v2, v3, v4){
+	var obj = {
+			"name" : v1, "kor":v2, "eng":v3, "math":v4
+			
+	}
+	return obj;
+}
+
+function Student(v1,v2,v3,v4)
+{
+	this.name = v1;
+	this.kor = v2;
+	this.eng = v3;
+	this.math = v4; 
+	}
+var student4 = makeStudent("홍길동",100,100,100);
+var student5 = makeStudent("임꺽정",90,90,90);
+var student6 = makeStudent("장보고",80,80,80);
+
+var student7 = new Student("홍길동",100,100,100);
+var student8 = new Student("임꺽정",90,90,100);
+var student9 = new Student("장보고",80,80,00);
+
+function displayScore(obj){
+	console.log("이름:", obj.name);
+	console.log("국어:", obj.kor);
+	console.log("영어:", obj.eng);
+	console.log("수학:", obj.math);
+	
+}
+displayScore(student4);
+displayScore(student5);
+displayScore(student6);
+displayScore(student7);
+displayScore(student8);
+displayScore(student9);
+
+//var studentx = Student("오호라",100,100,100); 오류
+//생성자 함수는 내부에서 this를 사용하기 때문에
+//객체를 생성하지 않고 호출하면 오류가 발생한다.
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>비트 연산자</title>
+
+</head>
+
+<body>
+<!-- 비트 이동 연산자
+    << : 왼쪽으로 이동. 빈칸은 0으로 채운다.
+    >> : 오른쪽으로 이동. 빈칸은 부호 비트로 채운다
+    >>>: 오른쪽으로 이동. 빈칸은 0으로 채운다
+ -->
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+var a = 10; // 0000 1010
+console.log(a>>2);  //=2
+a = -10;
+console.log (a>>2); //=-3; 
+
+a = -10;
+console.log (a>>>2);
+
+a=10;
+console.log(a << 1);
+console.log(a << 2);
+console.log(a << 3);
+
+a = 15;
+console.log(a<<1);
+console.log(a<<2);
+console.log(a<<3);
+
+/*비트 논리 연산자 & , | , ^, !
+ * &(AND) : 둘다 1일 때만 결과는 1
+   ~(NOT) : 1->0 , 0->1
+   |(OR) : 둘 중 하나의 비트라도 1이면 결과는 1
+   ^(XOR) : 두 비트의 값이 다를 대 결과는 1
+ */
+ 
+ var a = 10;
+   var b= 7;
+   console.log(a & b);
+   console.log(a | b);
+   console.log(a ^ b);
+   console.log(~a);
+</script>
+
+
+
+</body>
+</html>

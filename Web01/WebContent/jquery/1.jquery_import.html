@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery import</title>
+<!-- 
+jQuery의 장점 : No1. Cross-Browser -> 모든 브라우져에서 사용가능.
+jQuery 라이브러리 가져오기
+    1. 라이브러리 파일을 로컬로 다운로드 받기 => 사용
+        -> 미압축 버전은 개발하는 동안 사용하고, 압축 버전은 배포할 때 사용하라.
+    2. CDN(content Delivery Network) 링크
+        -> 외부의 신뢰있는 서버에 자원을 링크함.
+        -> 사이트 별로 같은 파일을 중복 다운로드해야 하는 경우를 줄일 수 있다.
+    
+ -->
+<!--  <script src ='jquery-1.11.1.js'></script> -->
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+jQuery('<h1>').html('오호라... 그렇군...').appendTo(document.body);
+$('<h1>').html('오호라... 그렇군...').appendTo(document.body);
+
+</script>
+
+</body>
+</html>

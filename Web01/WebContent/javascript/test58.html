@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 처리:KeyEvent</title>
+</head>
+<body>
+<input id = "input1" type = "text"><br>
+<input id = "input2" type = "text"><br>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+// change 이벤트 : 포커스를 잃었을 때, 기존 값과 다르면 이벤트 발생.
+document.getElementById('input1').onchange = function(event){
+	console.log(event.constructor);
+};
+/*
+document.getElementById('input1').onkeydown = function(event){
+	if(event.keyCode == 13){
+		console.log('엔터키');
+		//this.blur();
+		document.getElementById('input2').focus(); //명령
+	
+	}else{
+		console.log('다른키');
+		return;
+	}
+};*/
+
+
+
+</script>
+
+
+
+</body>
+</html>

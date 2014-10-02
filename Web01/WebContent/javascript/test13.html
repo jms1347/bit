@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>논리연산자</title>
+
+<style>
+input{
+width : 50px;
+}
+</style>
+
+</head>
+
+<body>
+<!-- 논리 연산자
+    ! (not)  - !true = false
+    && (AND; 둘다 true 일 때만 true) - true && true = true
+    || (OR; 둘 중 하나라도 true 면 true) - true || false = true
+ -->
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+console.log("!true", !true);
+console.log("!false", !false);
+console.log("true && true", true&& true);
+console.log("true && false", true&& false);
+console.log("false && true", false&& true);
+console.log("false && false", false&&false);
+console.log("true || true", true|| true);
+console.log("true || false", true|| false);
+console.log("false || true", false|| true);
+console.log("false || false", false||false);
+console.log("----------------------------");
+
+//&& 와 &의 차이점
+//&& : 앞의 값이 참일 경우에만 뒤의 문장을 수행
+//& : 앞의 결과와 상관없이 뒤의 문장 수행
+//|| 와 |의 차이점
+//|| : 앞의 값이 참이면 뒤의 문장을 수행 하지 않음
+//| : 앞의 결과와 상관없이 뒤의 문장 수행
+var a = false;
+var b = true;
+var r = 0;
+
+var x = a & (r=30);
+console.log(r);
+
+r=0;
+var x = a && (r=30);
+console.log(r);
+
+         
+
+</script>
+
+</body>
+</html>

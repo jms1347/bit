@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>형변환</title>
+
+</head>
+
+<body>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+/* 형변환 : 값을 특정 데이터형으로 변환하는 것.
+       1) boolean형으로 변환
+       2) string형으로 변환
+       3) number형으로 변환
+ */
+ // boolean 형으로 변환 : Boolean() 함수 제공
+ console.log("값 -> boolean------------");
+ console.log("0 -> ", Boolean(0)); //0 외 모두 true
+ console.log("2 -> ", Boolean(2));
+ console.log("-2 -> ", Boolean(-2));
+ console.log("NaN -> ", Boolean(NaN));
+ console.log("'' -> ", Boolean(''));
+ console.log("'aa' -> ", Boolean('aa')); //빈문자열 외 모두 true
+ console.log("'false' -> ", Boolean('false'));
+ console.log("null -> ",Boolean(null));
+ console.log("undefined -> ",Boolean(undefined));
+ 
+ // number 형으로 변환 : Number() 함수 제공
+ console.log("값 -> number--------------");
+ console.log("'100' -> ", Number('100')); //100
+ console.log("true -> ", Number(true)); //1
+ console.log("false -> ", Number(false)); //0
+ console.log("'' -> ", Number('')); //0
+ console.log("'kfc' -> ", Number('kfc')); //NaN
+ console.log("null -> ", Number(null)); // 0
+ console.log("undefined -> ", Number(undefined)); //NaN
+ console.log("'100$' -> ", Number('100$'));
+ console.log("'100$' -> ", parseInt('100$'));
+ 
+ // string 형으로 변환 : String() 함수 제공
+ console.log("값 -> string---------------");
+ console.log("100 ->", String(100));
+ console.log("true ->", String(true));
+ console.log("false ->", String(false));
+ console.log("null -> ", String(null)); 
+ console.log("undefined -> ", String(undefined));
+ console.log("NaN -> ", String(NaN));
+ 
+      
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 분리하기</title>
+<link href="15_common.css" rel="stylesheet" type="text/css">
+<link href="15_generalpage.css" rel="stylesheet" type="text/css">
+<link href="15_css_division.css" rel="stylesheet" type="text/css">
+<!-- 
+레이아웃 => 위치 이동
+    1. float    
+            => 출력될 현재 위치에서 오른쪽 또는 왼쪽으로 이동.
+            => 기본 출력 순서에서 제외됨.
+                * 기본 출력 순서 
+                    => 웹 브라우저는 콘텐츠를 출력할 때 항상 좌->우, 위->아래로 출력한다  
+                * 사용법
+                 => float : left 또는 right;          
+    2. absolute 
+            => absolute 또는 fixed 조상을 기준으로 위치 지정
+            => absolute 조상이 없으면 body 태그를 기준으로 위치 지정한다.
+            => left, right, top, bottom의 속성 값으로 위치를 조정한다. 
+    3. relative 
+            => 기본 출력 순서를 고수하면서, 위치를 상/하/좌/우로 움직이고 싶을 때 사용.
+    4. fixed    
+            => 브라우저 클라이언트 창(내용이 출력되는 창)을 기준으로 위치를 지정한다.
+            => 스크롤해도 움직이지 않는다.
+    
+    * div 와 span
+        1. div => 블록 타입(라인 점유). UI 객체를 묶어서 다루고자 할 때
+        2. span => 인라인 타입(라인에 포함). 내용을 구분하고자 할 때
+ -->
+
+ 
+</head>
+
+<div class='ad'>
+<img id='image1' src='img2.png'>
+<p id='adText' style='display: none;' class='adText'>오호라..광고구나!</p>
+</div>
+
+<div id='main'>
+	<div id='header'>$()
+		<img id = 'logo' src='http://dummyimage.com/140x50/ffff00/f00&text=Bit+Talk'>
+		<div id = 'menubar'>
+			<a href='#'>공지사항</a> 
+			<a href='#'>자료실</a> 
+			<a href='#'>수업</a>
+			<a href='#'>로그아웃</a>
+		</div>
+		
+	</div>
+
+	<div id='sidebar'>
+		<div id='user'>
+			<img src='Nara3.jpg' width="80" height="80">
+			<span id = 'userName'>장나라</span>
+		</div>
+		<h1>알림</h1>
+		<ul>
+			<li>출석률이 저조합니다.</li>
+			<li>과제 제출하세요.</li>
+			<li>수당 지급이 연기되었습니다.</li>
+		</ul>
+		<h1>소식</h1>
+		<p>우리가 이길거야</p>
+		<p>내일 공모전 합니다.</p>
+		<p>책 공동구매 하려 합니다.</p>
+	</div>
+	<div id='content'>
+		<div id='breadcrumb'>공지사항</div>
+		<h1>공지제목</h1>
+		<p>1255555555555555555732ㅜ9ㅛ두8ㅍ홍대포]
+		34쇼93ㅗ934ㅎㅍ39호39ㅗ
+		3ㅂㄹ흐9ㅂ3ㅂ34ㅂㅎㄹ93ㅡ4ㅂㅎ브3ㄹ0ㅎㅂ3
+		3흘93025ㅎㄹㄴㅁ8ㅇㄹ8추03ㅈ뎌0즈0뎟려20ㅕㅡ34으셔9827
+		3ㅅ9ㄹ38ㅡ4ㅅ34ㅅㄹ3ㅛ4ㅅ293룟2034르ㅛ394숄3
+		3ㅡ4ㅇ9ㅅ324르034쇼0ㄹ3ㅡ4ㅛ432ㅅ04룟2034ㄹㅅ
+		432ㅅ092ㄹ3ㅡ4ㅅㄹ03스03ㅡ4쇼ㅡ2304셔르340쇼28ㅇ3ㅡㅛ40ㅗ2ㅅ384
+		394ㅅ르3ㅛ94ㅅㄹ3ㅛ04쇼30ㅡ스30쇼30쇼ㅡ0</p>
+
+	</div>
+	<div id='footer'>
+		<p>비트교육센터 자바 63기</p>
+	</div>
+	
+	<div id='msg1' class='msgMsg alertWindow'>
+	<button id ='btnClose'>x</button>
+	<p>'장나라'님이 신규 자료를 등록하였습니다.</p>
+	
+	</div>
+	
+</div>
+
+
+
+ <script src='../javascript/test69_common.js'></script>
+ <script>
+ $('#btnClose').click(function(event) {
+	    $('#msg1').css('display', 'none'); 
+	});
+
+	document.getElementById('image1').onmouseover = function(event) {
+	    $('#image1').css('display', 'none');
+	    $('#adText').css('display', '');
+	};
+ </script>
+
+
+
+</body>
+</html>

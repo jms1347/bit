@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>브라우저 객체들 :navigator</title>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+//브라우저에서 제공하는 객체들
+//  window
+//      L location 
+//      L navigator
+//      L history
+//      L screen
+//      L document
+
+// location 객체에 들어있는 모든 값 출력
+for (var key in navigator) {
+	console.log(key, "----->", navigator[key]);
+}
+
+// appCodeName : 브라우저 코드명
+console.log(navigator.appCodeName);
+// appName : 브라우저 이름
+console.log(navigator.appName);
+// appVersion: 브라우저 버전
+console.log(navigator.appVersion);
+// 현재 운영체제 정보
+console.log(navigator.platform);
+// userAgent : 브라우저 전체정보
+console.log(navigator.usrAgent);
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

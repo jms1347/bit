@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수3</title>
+
+</head>
+
+<body>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+/* 함수
+ * => 반복적으로 사용되는 명령어들.
+ => 나중에 변경하기 쉽게 만들기 위해.
+ => 함수를 사용하여 명령어들을 묶는다.
+ */
+ function boundary() {
+     console.log("---------------------------");
+     
+ }
+ //파라미터 : O, 리턴값: X
+ //파라미터란? 함수를 호출할 때 넘어노는 값을 담는 변수.
+    // 아규먼트란? 함수를 호출할 때 넘겨주는 값.
+ function displayScore(score) {
+	 console.log("---------------------------");
+	 console.log("이름 : ", score[0]);
+	 console.log("국어 : ", score[1]);
+	 console.log("영어 : ", score[2]);
+	 console.log("수학 : ", score[3]);
+	 console.log("과학 : ", score[4]);
+	 console.log("사회 : ", socre[5]);
+	 
+ }
+ 
+ function computeTotal(score){
+	 var sum = 0;
+	 for(int i=1; i<score.length;i++){
+		 sum += score[i];
+	 }
+	 score[6] = sum;
+ }
+ function computeAverage(sum,count){
+	 return sum/count;
+	 
+ }
+ 
+ var s1 = ["홍길동", 100, 100, 50, 80 , 90];
+ var s2 = ["임꺽정", 80, 90, 90, 100, 100];
+ var s3 = ["장보고", 100, 100, 100, 80, 80];
+ 
+ computeTotal(s1);
+ s1[7] = computeAverage(s1[6],5)
+ computeTotal(s2);
+ s2[7] = computeAverage(s2[6],5)
+ computeTotal(s3);
+ s3[7] = computeAverage(s3[6],5)
+ 
+ boundary();
+ //console.log("---------------------------");
+ displayScore(s1);
+ 
+ boundary();
+ displayScore(s2);
+ 
+ boundary();
+ displayScore(s3);
+ 
+ 
+
+</script>
+
+
+
+</body>
+</html>

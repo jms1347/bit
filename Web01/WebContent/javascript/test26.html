@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실행순서2</title>
+
+</head>
+
+<body>
+
+<script>
+"use strict"; //엄격한 문법 검사를 요구함.
+
+/* 함수
+ * => 각 <script> 태그의 실행순서
+     1) 함수 선언을 먼저 실행한다.
+     2) 일반 명령문을 실행한다
+ */
+ function f1(){
+    	 console.log("f1..........");
+   
+ }
+
+ f1();
+ f2();
+ //f3();  오류
+ 
+ function f2(){
+	 console.log("f2................");
+ }
+ </script>
+    f1();
+
+ 
+    
+ <script>
+ console.log("두번째 태그------------");
+    f1();
+  f2();
+  f3();
+  
+  function f3(){
+	  console.log("f3............");
+  }
+ 
+
+</script>
+<script>
+console.log("세번째 태그---------------");
+f1();
+f2();
+</script>
+
+
+
+</body>
+</html>
