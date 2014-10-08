@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>on()</title>
+<style>
+    .selected{
+        background-color : blue;
+        color : white;
+    }
+    
+    .head{
+        background-color : black;
+        color : white;
+    }
+    .no{
+        background-color : yellow;
+    }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+    on() -> 이벤트 리스너 등록. 
+    $().on(이벤트명, 함수) //bind와 같다. on을 요새 많이 씀
+        
+ */
+
+// ready 이벤트 리스너 등록의 단축 표기법.
+
+$(function(){
+	// DOM 트리에서 img 태그를 찾아 리스너를 추가하라!
+		$('#hj').on('click',listener1 = function(event){
+			console.log($(this).attr('src'));
+		});
+	
+	// DOM 트리에서 btn1 아이디의 태그를 찾아 리스너를 추가하라.
+		$('#btn1').on('click', function(evnet){
+			$('<img>').attr('src','Nara3.jpg')
+			.css('width', '100px')
+			
+			.css('border', '5px solid green')
+	
+			.on('click', function(event){
+				console.log($(this).attr('src'));
+			})
+			.appendTo('body');
+		});
+});
+
+</script>
+
+</head>
+<body>
+<button id ='btn1'>이미지추가</button><br>
+    <img id = 'hj' src = 'Hyojoo.jpg' width='200' height='200'>
+     <img id = 'nr' src = 'Nara3.jpg' width='200' height='200'>
+     <img id = 'bm' src = 'Bomi.jpg' width='200' height='200'>
+     
+   
+
+
+</body>
+</html>

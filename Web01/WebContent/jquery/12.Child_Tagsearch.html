@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector</title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/*  자식 및 자손 태그찾기
+ *  CSS 셀렉터 문법 : 부모 > 자식
+    CSS 셀렉터 문법 : 부모 자식
+ */
+
+$(function(){
+	// main div의 직계 자식을 찾기
+	 $('#main h2').css('color','red');
+	 //$('#main').css('color', 'gray').css('background-color','yellow');
+	// $('#d1 > h2').css('color','red');
+	// $('#d2 > h2').css('background', 'lightgray');
+	// color 속성은 자식 태그로 상속된다.
+	// border 속성은 자식 태그로 상속되지 않는다.
+	   $('#main').css('color','gray').css('border','1px solid red');
+	// border 속성은 상속되지 않기 때문에 일일이 태그를 찾아 지정해야 한다.
+	   $('#d1 > h2').css('border', '1px dashed blue');
+	   
+ });
+
+</script>
+
+</head>
+<body>
+<div id = 'main'>
+    <h2>main...h2..1</h2>
+    <h2>main...h2..1</h2>
+    <h2>main...h2..1</h2>
+	<div id='d1'>
+		<h2 class='tf' id='header1'>제목1111111111111111</h2>
+		<p>내용..............1</p>
+		<h2 class='ttf' id='header2'>제목2222</h2>
+		<p>내용..............2</p>
+	</div>
+
+	<div id='d2'>
+		<h2 class='ttf tf' id='header3'>제목333</h2>
+		<p>내용..............3</p>
+		<h2 class='tf' id='header4'>제목444</h2>
+		<p>내용..............4</p>
+		<h2 class='ttf' id='header5'>제목444</h2>
+		<p>내용..............5</p>
+	</div>
+</div>
+
+
+
+</body>
+</html>

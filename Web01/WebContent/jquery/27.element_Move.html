@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>element 이동하기</title>
+<style>
+    .selected{
+        background-color : blue;
+        color : white;
+    }
+    
+    .head{
+        background-color : black;
+        color : white;
+    }
+    .no{
+        background-color : yellow;
+    }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+    $(자식).appendTo(부모) -> 부모의 막내 자식으로 추가
+    $(자식).prependTo(부모) -> 부모의 첫째 자식으로 추가
+    $(엘리먼트).insertAfter(형제) -> 엘리먼트를 형제 다음에 추가
+    $(엘리먼트).insertBefore(형제) -> 엘리먼트를 형제 전에 추가
+    $(부모).append(자식) -> 해당 부모의 막내 자식으로 추가
+    $(부모).prepend(자식) -> 해당 부모의 첫째 자식으로 추가
+    $(형제).after(엘리먼트) -> 형제의 바로 다음동생으로 엘리먼트 추가
+    $(형제).after(엘리먼트) -> 형제의 바로 위형으로 엘리먼트 추가
+ */
+
+
+$(function(){
+
+	setInterval(function(){
+		$('img:first').appendTo('body');
+	}, 1000);
+});
+
+</script>
+
+</head>
+<body>
+   <img src = 'Nara.jpg' width='200' height='250'>
+    <img src = 'Hyojoo.jpg' width='200' height='250'>
+     <img src = 'Sora.JPG' width='200' height='250'>
+     <img src = 'Nara3.jpg' width='200' height='250'>
+     <img src = 'Bomi.jpg' width='200' height='250'>
+     
+   
+
+
+</body>
+</html>

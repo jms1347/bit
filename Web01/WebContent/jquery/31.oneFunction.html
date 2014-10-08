@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>one()</title>
+<style>
+    .selected{
+        background-color : blue;
+        color : white;
+    }
+    
+    .head{
+        background-color : black;
+        color : white;
+    }
+    .no{
+        background-color : yellow;
+    }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+    one() -> 이벤트 리스너 등록. 리스너 호출 후 자동 삭제
+    $().one(이벤트명, 함수);
+        
+ */
+
+// ready 이벤트 리스너 등록의 단축 표기법.
+
+$(function(){
+		$('#hj').one('click',listener1 = function(event){
+			console.log('한효주');
+		});
+
+});
+
+</script>
+
+</head>
+<body>
+<button id ='btn1'>이벤트 처리 해제</button><br>
+    <img id = 'hj' src = 'Hyojoo.jpg' width='200' height='200'>
+     <img id = 'nr' src = 'Nara3.jpg' width='200' height='200'>
+     <img id = 'bm' src = 'Bomi.jpg' width='200' height='200'>
+     
+   
+
+
+</body>
+</html>

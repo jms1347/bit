@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 리스너 등록</title>
+<style>
+    .selected{
+        background-color : blue;
+        color : white;
+    }
+    
+    .head{
+        background-color : black;
+        color : white;
+    }
+    .no{
+        background-color : yellow;
+    }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+    bind() -> 이벤트 리스너 등록
+       $().bind(이벤트명, 함수);
+        $().bind({이벤트명:함수, 이벤트명:함수, ...});
+ */
+ // ready 이벤트 : DOM 트리가 완성되었을 때 이벤트 발생.
+ $(document).bind('ready',function(event){
+	 alert('okok');
+ });
+
+// ready 이벤트 리스너 등록의 단축 표기법.
+$(function(){
+		$('img').bind('click', function(event){
+			// 이미지를 클릭하면 맨 뒤로 해당 이미지를 옮긴다.
+			$(this).appendTo('body');
+		});
+
+});
+
+</script>
+
+</head>
+<body>
+<button id ='btn1'>이벤트 처리 해제</button><br>
+    <img id = 'hj' src = 'Hyojoo.jpg' width='200' height='200'>
+     <img id = 'nr' src = 'Nara3.jpg' width='200' height='200'>
+     <img id = 'bm' src = 'Bomi.jpg' width='200' height='200'>
+     
+   
+
+
+</body>
+</html>

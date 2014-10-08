@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hover()</title>
+<style>
+ #d1{
+ position : relative;
+ width:200px;
+ height:200px;
+ }
+ #btnClose{
+    border : 3px solid red;
+    position : absolute;
+    right : 0px;
+    top : 0px;
+ }
+ #img{
+    position : relative;
+ }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+   hober() => mouseenter, mouseleave 이벤트 리스너 등록 단축함수
+               mouseenter : 해당 엘리먼트 위에 마우스 커서가 있을 때
+                                자식 엘리먼트에 가려졌다가 다시 나타나도 이벤트 발생.
+               mouseleave : 해당 엘리먼트 위에 마우스 커서가 떠날 때
+                                자식 엘리먼트에 의해 가려질 때도 이벤트 발생.
+ */
+
+
+$(function(){
+    	$('#d1').hover(function(event){
+    		// 마우스 커서를 이미지에 올리면 이미지 오른쪽 상단 구석에 [x] 버튼이 출력됨
+    		
+    		$(this).css('border','3px solid green')		
+    		$('#btnClose').css('display', '');
+    		console.log('mouseenter');
+    		
+    		
+    	}, function(event){
+    		$(this).css('border','none');	
+    		$('#btnClose').css('display', 'none');
+    		console.log('mouseleave');
+		});
+
+});
+
+</script>
+
+</head>
+<body>
+<button id ='btn1'>이미지추가</button>
+<div id='d1'>
+    <img id = 'hj' src = 'Hyojoo.jpg' width='200' height='200'>
+     <!-- <img id = 'nr' src = 'Nara3.jpg' width='200' height='200'> -->
+     <button id = 'btnClose' style = 'display:none;'>X</button>
+</div>
+</body>
+</html>

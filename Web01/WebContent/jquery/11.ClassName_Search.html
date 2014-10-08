@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector</title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/*  클래스로 태그 찾기
+ *  CSS 셀렉터 문법: #아이디
+    CSS 셀렉터 문법: 태그명#아이디
+    CSS 셀렉터 문법: 클래스명#아이디
+ */
+
+$(function(){
+	$('h1, p').each(function(index, element){
+		console.log(index, $(element).html());
+	});
+});
+
+$(function(){
+	 $('.tf').css('background-color','yellow');
+	 $('.ttf').css('color','blue');
+	 $('.tf.ttf')css('font-style','italic');
+ });
+
+</script>
+
+</head>
+<body>
+	<h1 class = 'tf' id='header1'>제목1111111111111111</h1>
+	<p>내용..............1</p>
+	<h1 class = 'ttf' id='header2'>제목2222</h1>
+	<p>내용..............2</p>
+	<h1 class = 'ttf tf', id='header3'>제목333</h1>
+	<p>내용..............3</p>
+	<h1 class = 'tf' id='header4'>제목444</h1>
+	<p>내용..............4</p>
+	<h1 class = 'ttf' id='header5'>제목444</h1>
+    <p>내용..............5</p>
+
+
+
+</body>
+</html>

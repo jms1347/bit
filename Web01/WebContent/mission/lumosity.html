@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+ <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+
+</head>
+
+<style>
+.myhover
+{
+/*background-color: blue;*/
+ 
+}
+
+.mydishover
+{
+ /* background-color: white;*/
+}
+</style>
+
+<body>
+      
+<table id = 'mytable'>
+<tr></tr>
+</table>
+
+<script> 
+var score = 0;
+var stop = true;
+var rowNum = 5;
+var colNum = 5;
+var JungdapNum = 0;
+var OdapNum =0;
+var MunjeNum = 5;
+var board = [];
+
+function Make( za  , val   )
+{
+    this.za = za;
+    //this.y = y;
+    this.val = val;
+}
+
+function showAnswer(  )
+{
+	var mySwitch = [ ];
+	for( var a = 0; a <  rowNum * colNum; ++a)
+		mySwitch[a] = false;
+		
+	//var ran = Math.ceil( Math.random( ) * rowNum * colNum ) - 1;
+	var mun = 0;
+	while(  true  )
+  {
+		 var ran = Math.ceil( Math.random( ) * rowNum * colNum ) - 1;
+	
+	 	if( mySwitch[ran] == true )
+			 continue;
+		
+	 
+    //console.log(  'showAnswer  ' , ran );
+       
+    mySwitch[ ran ] = true;
+      
+    var idName = 'Myid' + ran;
+      
+    var tbu = document.getElementById( idName );
+    tbu.style['background-color'] = 'red';
+    
+    board[ran].val = 1;
+    
+    ++ mun;
+    if(  mun > MunjeNum - 1)
+    	break;
+     
+   // board[ran].x = ran % rowNum;
+   // board[ran].y = ran / colNum;
+     
+	}
+	 
+	setTimeout( HideAnswer, 3000 ); 
+}
+
+
+function HideAnswer(  )
+{
+	  for( a = 0;  a< rowNum * colNum; ++a )
+		 { 
+		  var idName = 'Myid' + a;
+		  var tbu = document.getElementById( idName );
+		  
+		 /*  if(  tbu.hasClass('myhover')  )
+			  {
+			  
+			  }
+		  else
+			  {*/
+				    tbu.style['background-color'] = 'white';
+				   // tbu.removeClass('myhover');
+				   stop = false;
+			 // }
+		 }
+} 
+
+function myClick( )
+{ 
+	
+
+	if (stop == false) {
+			// var tTable = document.getElementById( 'mytable' );
+			// var tBody = tTable.firstElementChild;
+
+			// console.log( 'fff' );
+
+			var tString = new String(this.id);
+			tString = tString.split('id')[1];
+
+			var num = Number(tString);
+
+			//  console.log(tString  , ' ', num );
+
+			//var x = num % rowNum;
+			//var y = num / colNum;
+
+			if (board[num].val == 1) {
+				++JungdapNum;
+
+				var idName = 'Myid' + num;
+				var tbu = document.getElementById(idName);
+				tbu.style['background-image'] = 'url(Oo.png)';
+			    score = score + 10;
+				
+			} else {
+
+				++OdapNum;
+
+				var idName = 'Myid' + num;
+				var tbu = document.getElementById(idName);
+				tbu.style['background-image'] = 'url(Xx.png)';
+				//alert('틀렸어요 ');
+				//$('tr:gt(0)').remove();
+				//drawBoard( );
+				
+
+			}
+			if (JungdapNum > MunjeNum -1){
+				score = score + 100;
+
+				
+				alert('다 맞추셨습니다. 현재 점수는 '+ score);
+                $('tr:gt(0)').remove();
+
+                ++colNum;
+                ++rowNum;
+                MunjeNum++;
+                
+                if(colNum == 13){
+                	  alert('마지막 게임이 끝났습니다. 총 점수는 '+ score);
+                  }
+                drawBoard();
+                
+			}
+			else if (JungdapNum + OdapNum > MunjeNum - 1) {
+				alert('다음 문제 넘어갑니다. 현재 점수는 '+ score);
+				$('tr:gt(0)').remove();
+
+				++colNum;
+				++rowNum;
+				MunjeNum++;
+				
+				if(colNum == 13){
+                    alert('마지막 게임이 끝났습니다. 총 점수는 '+ score);
+                }
+				drawBoard();
+				
+			}
+			
+		}
+	
+	}
+
+	function hoverFunc() {
+		var tString = new String(this.id);
+		tString = tString.split('id')[1];
+		var num = Number(tString);
+		console.log(num);
+
+		var element = $(this);
+		if (element.hasClass('myhover')) {
+			element.removeClass('myhover');
+			console.log('aaa');
+		} else {
+			console.log('bbb');
+
+			//if(  board[ num ].val == 0 )
+			//  element.addClass('myhover');
+		}
+
+		// $(this).css( {'background-color' : 'red'} );
+	}
+
+	function drawBoard() {
+		stop = true;
+		setTimeout(showAnswer, 3000);
+		JungdapNum = 0;
+		OdapNum = 0;
+		var id = 0;
+
+		for (var b = 0; b < colNum; ++b) {
+			var trA = document.createElement('tr');
+			for (var a = 0; a < rowNum; ++a) {
+				board.push(new Make(id, 0));
+
+				var thA = document.createElement('th');
+				var thA = $('<th>');
+
+				var eleB = $('<button>').css({
+					'width' : 50,
+					'height' : 50
+				}).attr('id', 'Myid' + id).hover(hoverFunc).click(myClick);
+
+				thA.append(eleB).appendTo(trA);
+
+				++id;
+			}
+
+			var tTable = document.getElementById('mytable');
+			// var tBody = tTable.firstElementChild;
+			tTable.appendChild(trA);
+
+			// $( trA  ).appendTo(  $('#mytable') );
+		}
+	}
+
+	$(document).ready(function() {
+
+		$('#mytable').hover(function(event) {
+			console.log('aaa');
+
+		});
+
+		drawBoard();
+		var id = 0;
+
+		// $('#d1').hover(function(event){
+
+		// });
+		/*for( var b = 0; b < colNum; ++b )
+			{
+		    var  trA = document.createElement( 'tr');
+		    for( var a = 0; a < rowNum; ++a )
+		    	{ 
+		   	   board.push(  new  Make( id, 0) );
+		  
+		     	 var thA = document.createElement( 'th' );
+		     	var thA = $( '<th>');
+		
+		       var  eleB = $('<button>').css( {'width': 100, 'height' : 100    })
+		           .attr( 'id',  'Myid' + id ).click( myClick );
+		
+		      thA.append( eleB ).appendTo( trA );
+		          
+		       ++id;
+		    	}
+		    
+		    var tTable = document.getElementById( 'mytable' );
+		   // var tBody = tTable.firstElementChild;
+		    tTable.appendChild( trA );
+		    
+		   // $( trA  ).appendTo(  $('#mytable') );
+			}*/
+
+	});
+</script>
+
+
+
+
+</body>
+</html>

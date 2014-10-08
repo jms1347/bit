@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>on()/off()</title>
+<style>
+    .selected{
+        background-color : blue;
+        color : white;
+    }
+    
+    .head{
+        background-color : black;
+        color : white;
+    }
+    .no{
+        background-color : yellow;
+    }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+    on() -> 이벤트 리스너 등록. 
+    $().on(이벤트명, 셀럭터, 함수) //예전의 live()와 같다.
+        => 현재 존재하는 태그뿐만 아니라 앞으로생성될 태그에도 적용한다.
+     off() => 이벤트 리스너 해제.
+     $().off(이벤트명, [셀렉터], [함수]);
+        
+ */
+
+// ready 이벤트 리스너 등록의 단축 표기법.
+
+$(function(){
+	// DOM 트리에 있는 img 태그뿐만 아니라 앞으로 생성될 img 태그에서
+	// 대해서도 호출될 리스너를 등록하라!
+		$(document).on('click','img', function(event){
+			console.log($(this).attr('src'));
+		});
+	
+	// DOM 트리에서 btn1 아이디의 태그를 찾아 리스너를 추가하라.
+		$('#btn1').on('click', function(evnet){
+			$('<img>').attr('src','Nara3.jpg')
+			.css('width', '200px')
+			
+			.css('border', '5px solid green')
+			.appendTo('body');
+		});
+	
+	$('#btn2').on('click', function(event){
+		$(document).off('click','img'); // img 태그에 등록된 모든 리스너 제거.
+	});
+});
+
+</script>
+
+</head>
+<body>
+<button id ='btn1'>이미지추가</button>
+<button id ='btn2'>img태그 이벤트 해제</button><br>
+    <img id = 'hj' src = 'Hyojoo.jpg' width='200' height='200'>
+     <img id = 'nr' src = 'Nara3.jpg' width='200' height='200'>
+     <img id = 'bm' src = 'Bomi.jpg' width='200' height='200'>
+     
+   
+
+
+</body>
+</html>

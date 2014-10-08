@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>find()</title>
+<style>
+    .selected{
+        background-color : blue;
+        color : white;
+    }
+    
+    .head{
+        background-color : black;
+        color : white;
+    }
+    .no{
+        background-color : yellow;
+    }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+    find() : 엘리먼트 찾기
+ */
+
+
+$(function(){
+	$('tr:odd').find('a').css('background-color','lightgreen');
+});
+    
+
+</script>
+
+</head>
+<body>
+    <table border="1">
+		<tr class='head'>
+			<th>번호</th>
+			<th>이름</th>
+			<th>전화</th>
+		</tr>
+		<tr>
+			<td class='no'>1</td>
+			<td><a href='mailto:test1@test.com'>홍길동1</a></td>
+			<td>111-1111</td>
+		</tr>
+		
+		<tr>
+            <td class='no'>2</td>
+            <td><a href='mailto:test2@test.com'>홍길동2</a></td>
+            <td>222-2222</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>3</td>
+            <td><a href='mailto:test3@test.com'>홍길동3</a></td>
+            <td>333-3333</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>4</td>
+            <td><a href='mailto:test4@test.com'>홍길동4</a></td>
+            <td>444-4444</td>
+        </tr>
+        
+        
+        <tr>
+            <td class='no'>5</td>
+            <td><a href='mailto:test5@test.com'>홍길동5</a></td>
+            <td>555-5555</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>6</td>
+            <td><a href='mailto:test6@test.com'>홍길동6</a></td>
+            <td>666-6666</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>7</td>
+            <td><a href='mailto:test7@test.com'>홍길동7</a></td>
+            <td>777-7777</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>8</td>
+            <td><a href='mailto:test8@test.com'>홍길동8</a></td>
+            <td>888-8888</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>9</td>
+            <td><a href='mailto:test9@test.com'>홍길동9</a></td>
+            <td>999-9999</td>
+        </tr>
+        <tr>
+            <td class='no'>10</td>
+            <td><a href='mailto:test10@test.com'>홍길동10</a></td>
+            <td>101-1010</td>
+        </tr>
+
+	</table>
+
+
+
+</body>
+</html>

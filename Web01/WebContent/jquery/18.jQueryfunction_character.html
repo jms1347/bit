@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 함수들의 기본 특징</title>
+
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+    1. 값 설정
+       -> $()로 찾은 모든 객체에 대해 값을 적용한다.
+       -> $().함수(값);
+       -> $().함수(이름, 값);
+       -> $().함수({이름:값, 이름:값, 이름:값});
+       -> $().함수(이름, 함수);
+       
+    2. 값 조회
+       -> $()로 찾은 객체들 중에서 인덱스가 0인 객체의 값만 리턴한다.
+       -> $().함수();
+       -> $().함수(이름);
+       -> $().함수([이름,이름,...]);
+       
+ */
+
+
+
+	$(function() {
+		// 문제) a 태그의 콘텐츠를 출력하라!
+		// html() 함수는 인덱스 0인 객체의 콘텐츠만 출력한다.
+		// console.log( $('a').html() );
+		// text() 함수는 jQuery의 다른 함수와 다르게 모든 객체의 콘텐츠를
+		// 하나의 문자열로 합쳐서 출력한다.
+		// console.log( $('a').text() );
+
+		// 문제) a태그의 href 속성 값을 출력하라!
+		//console.log($('a').attr('href') );//인덱스가 0인 객체의 href 값 리턴
+
+		// 문제) a태그의 콘텐츠를 '오호라'로 변경하라!
+		// 값을 설정할 때는 모든 객체에 대해 적용한다.
+		// $('a').html('오호라');
+
+		// 문제) 짝수번재 모든 tr 태그의 배경색을 빨강으로 칠하라!
+		// $('tr:even').css('background-color','red');
+
+		// 문제) tr태그를 찾아서 배경색을 빨간새으로 칠한다!
+		//       단, 짝수 인덱스 객체만 칠한다.
+		/*$('tr').css('background-color',function(index, oldValue){
+			if((index % 2) == 0){
+				  return 'red';
+			}else{
+				  return oldValue;
+			}
+		});*/
+
+		// 문제) 인덱스가 홀수인 tr에 대해 배경은 노랑, 폰트는 파랑으로 칠하라!
+		/* $('tr:odd').css('background-color','yellow')
+		          .css('color','blue'); */
+
+		/* $('tr:odd').css({
+				'background-color' : 'orange',
+				'color' : 'blue'
+			});
+		
+		$('tr:even').attr({
+			'data-no':10,
+			'okok':20
+		}) */
+		
+		// 알고 싶은 값이 여러 개일 경우, 배열로 그 이름을 지정한다.
+		// => 리턴 값은 값들을 담은 객체이다.
+		var props = $('tr').css(['color','background-color', 'font-size']);
+		console.log(props);
+	});
+</script>
+
+</head>
+<body>
+
+    <table border="1">
+		<tr class='head'>
+			<th>번호</th>
+			<th>이름</th>
+			<th>전화</th>
+		</tr>
+		<tr>
+			<td class='no'>1</td>
+			<td><a href='mailto:test1@test.com'>홍길동1</a></td>
+			<td>111-1111</td>
+		</tr>
+		
+		<tr>
+            <td class='no'>2</td>
+            <td><a href='mailto:test2@test.com'>홍길동2</a></td>
+            <td>222-2222</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>3</td>
+            <td><a href='mailto:test3@test.com'>홍길동3</a></td>
+            <td>333-3333</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>4</td>
+            <td><a href='mailto:test4@test.com'>홍길동4</a></td>
+            <td>444-4444</td>
+        </tr>
+        
+        
+        <tr>
+            <td class='no'>5</td>
+            <td><a href='mailto:test5@test.com'>홍길동5</a></td>
+            <td>555-5555</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>6</td>
+            <td><a href='mailto:test6@test.com'>홍길동6</a></td>
+            <td>666-6666</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>7</td>
+            <td><a href='mailto:test7@test.com'>홍길동7</a></td>
+            <td>777-7777</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>8</td>
+            <td><a href='mailto:test8@test.com'>홍길동8</a></td>
+            <td>888-8888</td>
+        </tr>
+        
+        <tr>
+            <td class='no'>9</td>
+            <td><a href='mailto:test9@test.com'>홍길동9</a></td>
+            <td>999-9999</td>
+        </tr>
+        <tr>
+            <td class='no'>10</td>
+            <td><a href='mailto:test10@test.com'>홍길동10</a></td>
+            <td>101-1010</td>
+        </tr>
+
+	</table>
+
+
+
+</body>
+</html>

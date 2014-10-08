@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>토글x</title>
+<style>
+    .selected{
+        background-color : blue;
+        color : white;
+    }
+    
+    .head{
+        background-color : black;
+        color : white;
+    }
+    .no{
+        background-color : yellow;
+    }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+   click() => 클릭 이벤트 리스너 등록
+        
+ */
+
+
+$(function(){
+    
+	   // 버튼을 누를 때 마다 번갈아 가면서 이미지 태그를 생성하라!
+	   // Nara3.jpg 와 Hyojoo.jpg 를 생성.
+	   var state = false;
+		$('#btn1').click(function(evnet){
+			if(state){
+				$('<img>').attr('src','Nara3.jpg')
+				.css('width', '200px')
+				.css('height', '200px')
+				.css('border', '5px solid green')
+				.appendTo('body');
+				state = false;
+			}else{
+				$('<img>').attr('src','Hyojoo.jpg')
+	            .css('width', '200px')  
+	            .css('height', '200px')
+	            .css('border', '5px solid green')
+	            .appendTo('body');
+				state = true;
+			}
+		});
+
+});
+
+</script>
+
+</head>
+<body>
+<button id ='btn1'>이미지추가</button>
+
+    <img id = 'hj' src = 'Hyojoo.jpg' width='200' height='200'>
+     <img id = 'nr' src = 'Nara3.jpg' width='200' height='200'>
+
+</body>
+</html>

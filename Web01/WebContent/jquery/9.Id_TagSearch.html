@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector</title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/*  ID로 태그 찾기
+ *  CSS 셀렉터 문법: #아이디
+ */
+
+$(function(){
+	$('h1, p').each(function(index, element){
+		console.log(index, $(element).html());
+	});
+});
+
+$(function(){
+	 $('#header4').css('background-color','yellow');
+ });
+
+</script>
+
+</head>
+<body>
+	<h1 id='header1'>제목1111111111111111</h1>
+	<p>내용..............1</p>
+	<h1 id='header2'>제목2222</h1>
+	<p>내용..............2</p>
+	<h1 id='header3'>제목333</h1>
+	<p>내용..............3</p>
+	<h1 id='header4'>제목444</h1>
+	<p>내용..............4</p>
+	<h1 id='header5'>제목444</h1>
+    <p>내용..............5</p>
+
+
+
+</body>
+</html>

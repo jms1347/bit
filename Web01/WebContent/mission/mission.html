@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='jquery-1.11.1.js'></script>
+<style>
+
+tr,td{
+     border : 1px solid black;
+     background-color : lightgreen;   
+     width : 100px;
+     height : 100px;
+     
+    }
+#gamepan {
+    position: absolute;
+    top : 50px;
+    left : 350px;
+    height: 400px;
+    width: 400px;  
+    /* border : 5px solid blue; */
+   /*  background-color : skyblue; */
+    }
+
+.select{    
+
+    }
+ 
+ .room{
+    border : 5px solid yellow;
+ }
+
+</style>
+<script>
+
+
+	$(function() {
+
+		// 마우스 오버 시 색깔이 빨간색으로 바뀜.
+		$('td').hover(function(event) {
+			$(this).css('background-color', 'red');
+		}, function(event) {
+			if ($(this).hasClass('select')) {
+				$(this).css('background-color', 'blue');
+			} else {
+				$(this).css('background-color', 'lightgreen');
+			}
+		});
+	    
+		//클릭시 파란색으로
+		$('td').click(function(event) {
+			var element = $(this);
+			
+			$(this).css('background-color', 'blue');
+			element.addClass('select');
+			// 맞았거나 틀렸을 경우의 조건문을 추가하면됨.
+			
+
+		});
+		
+	
+		//타이머
+		$('#btn').click(function(event) {
+			$('#twoone').css('background-color', 'orange');
+			$('#twotwo').css('background-color', 'orange');
+			setTimeout(function() {
+				$('#twoone').css('background-color', 'lightgreen');
+				$('#twotwo').css('background-color', 'lightgreen');
+			}, 2000);
+		}); 
+
+/* 
+		var result = [];
+		for (var i = 0; i < $('td').length; i++) {
+			result[i] = Math.floor((Math.random() * 2) + 1);
+
+		}
+		for (var i = 0; i < result.length; i++) {
+
+			if (result[i] == 1) {
+				result[i] = true;
+			} else
+				result[i] = false;
+		} */
+		
+/* 		if(Math.floor((Math.random() * 2) + 1) ==1){
+			console.log('1');
+		}else{
+			console.log('0');
+		} */
+	
+</script>
+</head>
+<body>
+<button id = 'btn'>문제시작</button>
+	<table id = 'gamepan' class = 'select'>
+		<tr id='one'>
+			<td id=oneone>네모</td> 
+			<td id=onetwo>네모</td> 
+
+		</tr>
+		
+		<tr id='two'>
+			<td id=twoone>네모</td> 
+			<td id=twotwo>네모</td> 
+
+		</tr>
+		
+		
+
+		</table>
+
+</body>
+
+</html>

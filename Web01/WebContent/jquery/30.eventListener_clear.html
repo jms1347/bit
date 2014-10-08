@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 리스너 해제</title>
+<style>
+    .selected{
+        background-color : blue;
+        color : white;
+    }
+    
+    .head{
+        background-color : black;
+        color : white;
+    }
+    .no{
+        background-color : yellow;
+    }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+    unbind() -> 이벤트 리스너 해제
+        $().unblind(이벤트명); //모든 리스너 제거
+        $().unbind(이벤트명, 함수); //특정 리스너 제거
+ */
+
+// ready 이벤트 리스너 등록의 단축 표기법.
+
+var listener1;
+ var listener2;
+ var listener3;
+ 
+        
+$(function(){
+		$('#hj').bind('click',listener1 = function(event){
+			console.log('한효주');
+		});
+		
+		$('#hj').bind('click', listener2 = function(event){
+            console.log('짱');
+        });
+		
+		$('#hj').bind('click', listener3=function(event){
+            console.log('이쁨');
+        });
+		
+		// 버튼을 클릭하면 listener2를 이벤트 리스너 목록에서제거하라
+		$('#btn1').bind('click',function(event){
+			
+			//$('#hj').unbind('click',listener2);
+			
+			$('#hj').unbind('click');
+		});
+
+});
+
+</script>
+
+</head>
+<body>
+<button id ='btn1'>이벤트 처리 해제</button><br>
+    <img id = 'hj' src = 'Hyojoo.jpg' width='200' height='200'>
+     <img id = 'nr' src = 'Nara3.jpg' width='200' height='200'>
+     <img id = 'bm' src = 'Bomi.jpg' width='200' height='200'>
+     
+   
+
+
+</body>
+</html>

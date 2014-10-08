@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>clone</title>
+<style>
+    .selected{
+        background-color : blue;
+        color : white;
+    }
+    
+    .head{
+        background-color : black;
+        color : white;
+    }
+    .no{
+        background-color : yellow;
+    }
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+    clone() -> 선택된 객체를 복제한다.
+ */
+
+
+$(function(){
+
+	setInterval(function(){
+		$('img:first').clone().appendTo('body');
+	}, 1000);
+});
+
+</script>
+
+</head>
+<body>
+   <img src = 'Nara.jpg' width='200' height='250'>
+    <img src = 'Hyojoo.jpg' width='200' height='250'>
+     <img src = 'Sora.JPG' width='200' height='250'>
+     <img src = 'Nara3.jpg' width='200' height='250'>
+     <img src = 'Bomi.jpg' width='200' height='250'>
+     
+   
+
+
+</body>
+</html>

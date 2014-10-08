@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mouseenter/mouseleave vs mouseover/mouseout</title>
+<style>
+ #d1{
+    border : 1px solid red;
+
+ }
+/*  #btnClose{
+    border : 3px solid red;
+    position : absolute;
+    right : 0px;
+    top : 0px;
+ }
+ #img{
+    position : relative;
+ } */
+</style>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+   hober() => mouseenter, mouseleave 이벤트 리스너 등록 단축함수
+               mouseenter : 마우스 커서가 해당 엘리먼트에 들어갈 때.
+                                자식 엘리먼트에 가려졌다 다시 나타나더라도 이벤트가 발생하지 않는다.
+                                자식 윈도우가 있든 없든 해당 엘리먼트에 머무는 동안에는
+                                이벤트가 발생하지 않는다.
+               mouseleave : 마우스 커서가 해당 엘리먼트를 떠날 때.
+                                자식 엘리먼트에 가려져도 이벤트가 발생하지 않는다.
+                                자식 윈도우에 상관없이 해당 엘리먼트를 벗어날 때만 이벤트 발생.
+ */
+
+
+$(function(){
+    	$('#d1').mouseenter(function(event){
+    		console.log('mouseenter');
+    	}).mouseleave(function(event){
+    		console.log('mouseleave');
+    	});
+    	
+    	$('#d1').mouseover(function(event){
+            console.log('mouseover');
+        }).mouseout(function(event){
+            console.log('mouseout');
+        });
+    	
+    	$('#hj').mouseover(function(event){
+            console.log('한효주mouseover');
+        }).mouseout(function(event){
+            console.log('한효주mouseout');
+        });
+
+});
+
+</script>
+
+</head>
+<body>
+<button id ='btn1'>이미지추가</button>
+<div id='d1'>
+    <img id = 'hj' src = 'Hyojoo.jpg' width='200' height='200'>
+     <!-- <img id = 'nr' src = 'Nara3.jpg' width='200' height='200'> -->
+     <button id = 'btnClose'>X</button>
+</div>
+</body>
+</html>

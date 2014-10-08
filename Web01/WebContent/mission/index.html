@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+ <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+
+</head>
+
+<style>
+
+#d1 {
+  border: 1px solid green;
+  margin: 0px auto;
+  width: 800px;
+  height: 800px;
+  padding: 50px;
+}
+
+#d2 {
+  /*border: 10px solid red; 
+  margin: 100px auto;
+  padding: 2px;*/
+}
+
+.mybutton {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 2px; 
+}
+
+.myredhover
+{
+   background-color: red;
+}
+
+.mygreenhover
+{
+   background-color: green;
+}
+ 
+ .mygrayhover
+{
+   background-color: gray;
+}
+
+</style>
+
+<body>
+      
+	<div id = 'd1'>
+	     <div id = 'd2' >
+	     </div>
+	</div>
+
+<script> 
+
+var score = 0;
+var stop = true;
+var OdapNum = 0;
+
+var answerShowTime = false;
+var rowNum = 5;
+var colNum = 5;
+var JungdapNum = 0;
+var MunjeNum = 5;
+var board = [];
+
+function Make( za  , val   )
+{
+    this.za = za; 
+    this.val = val;
+}
+
+function showAnswer(  )
+{
+    answerShowTime = true;
+
+	var mySwitch = [ ];
+	for( var a = 0; a <  rowNum * colNum; ++a)
+		mySwitch[a] = false;
+		
+	//var ran = Math.ceil( Math.random( ) * rowNum * colNum ) - 1;
+	var mun = 0;
+	while(  true  )
+   {
+		 var ran = Math.ceil( Math.random( ) * rowNum * colNum ) - 1;
+	
+	 	if( mySwitch[ran] == true )
+			 continue; 
+        //console.log(  'showAnswer  ' , ran );
+       
+        mySwitch[ ran ] = true;
+        var idName = '#Myid' + ran;
+      
+        //var tbu = document.getElementById( idName );
+        $( idName ).css( {'background-color' : 'red'} );
+  
+        board[ran].val = 1;
+    
+        ++ mun;
+        if(  mun > MunjeNum - 1)
+    	    break;  
+	}
+	 
+	setTimeout( HideAnswer, 3000 ); 
+}
+
+
+function HideAnswer(  )
+{
+	  for( a = 0;  a < rowNum * colNum; ++a )
+	{ 
+		var idName = '#Myid' + a;
+		var tbu = $( idName );
+		  
+		tbu.css({ 'background-color': 'gray' });
+		
+	  }
+	  stop = false;
+	  answerShowTime = false;
+} 
+
+function myClick( )
+{ 
+	// var tTable = document.getElementById( 'mytable' );
+  // var tBody = tTable.firstElementChild;
+    if (stop == true)
+        return;
+ // console.log( 'fff' );
+  
+   var tString = new String(this.id);
+   tString = tString.split('id')[1];
+   var num = Number( tString );
+   
+ //  console.log(tString  , ' ', num );
+   
+   //var x = num % rowNum;
+   //var y = num / colNum;
+     
+    if( board[num].val == 1  )
+    {
+        ++JungdapNum;
+        
+        var idName = 'Myid' + num;
+        var tbu = document.getElementById( idName );
+        tbu.style['background-image'] = 'url(Oo.png)';
+        score = score + 10;
+    }
+    else
+    {
+        //alert('틀렸어요 ');
+        ++OdapNum;
+        var idName = 'Myid' + num;
+        var tbu = document.getElementById(idName);
+        tbu.style['background-image'] = 'url(Xx.png)';
+    }
+
+    if (  JungdapNum > MunjeNum - 1 )
+        score = score + 100;
+     
+    if ( (JungdapNum > MunjeNum - 1) ||   (JungdapNum + OdapNum > MunjeNum - 1)  )
+    {
+        ++colNum;
+        ++rowNum;
+
+        if (colNum == 10)
+        {
+            alert('마지막 게임이 끝났습니다. 총 점수는 ' + score);
+            $('#d2').empty();
+            $('#d1').append($('<div>').attr('id', 'd2'));
+        }
+        else
+        {
+            alert('다음 스테이지로 진행합니다. 현재 점수는 ' + score);
+            $('#d2').empty();
+            $('#d1').append($('<div>').attr('id', 'd2'));
+           
+            MunjeNum++;
+            drawBoard( );
+        }
+    } 
+}
+
+$('#d2').on('mouseenter', '.mybutton', function(event){
+	 console.log( '야호 ', $(this) );
+	 var tString = new String(this.id);
+     tString = tString.split('id')[1];
+     var num = Number( tString ); 
+      
+     if( board[num].val != 1 || answerShowTime == false )
+    	   $(this).css( {'background-color' : 'green'} );
+    
+}).on('mouseleave', '.mybutton', function(event){
+
+    console.log('야호2  ', $(this));
+	var tString = new String(this.id);
+	tString = tString.split('id')[1];
+	var num = Number( tString ); 
+	     
+	//$(this).removeClass('myredhover');
+	if (board[num].val == 1 && answerShowTime == true) {
+
+	}
+	else {
+	    $(this).css({ 'background-color': 'gray' });
+	}
+});
+	
+function hoverFunc( )
+{ 
+}
+
+function drawBoard( )
+{
+    stop = true;
+   
+    setTimeout(showAnswer, 3000);
+
+    JungdapNum = 0;
+    OdapNum = 0;
+	var id = 0;
+	  
+	  var boardW, boardH;
+	  boardW = 50;
+	  boardH = 50;
+	  
+	  $('#d2').css('width', boardW * (rowNum + 1) + 'px')
+	  .css('height', boardH * (colNum + 1) + 'px');
+	  
+	   for( var b = 0; b < colNum; ++b )
+     { 
+        for( var a = 0; a < rowNum; ++a )
+         { 
+            board.push(  new  Make( id, 0) );
+      
+           // var thA = document.createElement( 'th' );
+           
+             var style = {
+            		 'width': boardW,
+            		 'height' : boardH, 
+            		 'background-color' : 'gray'
+             };
+           var  divA = $('<div>')
+               .attr( 'id',  'Myid' + id )
+               .css( style )
+               .addClass(  'mybutton')
+               .hover( hoverFunc ).click( myClick );
+    
+         // thA.append( eleB ).appendTo( trA );
+              
+           ++id;
+          // var d2 = document.getElementById( 'd2' );
+           // var tBody = tTable.firstElementChild;
+            //d2.appendChild( divA );
+            $( '#d2' ).append( divA );
+         } 
+         
+     }
+}
+
+$(document).ready(function () {
+	drawBoard( );
+} );
+</script>
+
+
+
+
+</body>
+</html>

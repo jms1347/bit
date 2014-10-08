@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector</title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* CSS 함수 선택자 사용하기
+	 eq(n) => n번째 태그
+	 gt(n) => n번째 다음 태그들
+	 lt(n) => n번째 이전 태그들
+	 has(태그명) => 특정 태그를 가지고 있는 태그들
+	 not(셀렉터) => 셀렉터로 선택된 태그가 아닌 것들
+	 nth-child(3n + 1) => 3n + 1 번째 태그들
+	 contains(문자열) => 해당 문자열을 포함하고 있는 태그들
+ */
+
+
+$(function(){
+	//문제) 3번째 tr 태그를 찾아 폰트를 초록색으로 지정하라!
+	$('tr:eq(3)').css('color','green');
+	 
+	//문제) 인덱스가 3인 tr태그 이후의 태그들에 대해 배경색을 노란색으로 지정하라!
+	$('tr:gt(3)').css('background-color','orange');
+	
+	//문제) 인덱스가 3인 tr태그 이전의 태그들에 대해 배경색을 빨간색으로 지정하라!
+	$('tr:lt(3)').css('background-color','red');
+	
+	//문제) a태그를 갖는 td 태그를 찾아라!
+	/* $('td:has(a)').each(function(i,e){
+		console.log($(e).text());
+	}); */
+	
+	//문제) a태그를 갖지 않는 td 태그를 찾아라!
+	/* $('td:not(td:has(a))').each(function(i,e){
+		console.log(e);
+	}); */
+	
+	//문제) 세번째 칸마다 배경을 분홍색으로 칠하라!
+	// 위치는 인덱스가 아닌 서수로 계산한다. 첫번재, 두번재, ...
+	$('tr:nth-child(3n+1)').css('background-color','pink');
+	$('tr:nth-child(3n+2)').css('background-color','lightgreen');
+	$('tr:nth-child(3n+3)').css('background-color','gray');
+	
+	//문제) '홍길동3' 문자열을 가진 태그를 찾아라!
+	//활용 : 특정 사이트의 페이지를 뒤져서 키워드와 일치하는 값을 꺼낼 때 유용!
+	$('tr:contains(홍길동3)').each(function(i,e){
+		console.log(e);
+	});
+	
+	
+});
+    
+
+</script>
+
+</head>
+<body>
+    <table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>전화</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td><a href='mailto:test1@test.com'>홍길동1</a></td>
+			<td>111-1111</td>
+		</tr>
+		
+		<tr>
+            <td>2</td>
+            <td><a href='mailto:test2@test.com'>홍길동2</a></td>
+            <td>222-2222</td>
+        </tr>
+        
+        <tr>
+            <td>3</td>
+            <td><a href='mailto:test3@test.com'>홍길동3</a></td>
+            <td>333-3333</td>
+        </tr>
+        
+        <tr>
+            <td>4</td>
+            <td><a href='mailto:test4@test.com'>홍길동4</a></td>
+            <td>444-4444</td>
+        </tr>
+        
+        
+        <tr>
+            <td>5</td>
+            <td><a href='mailto:test5@test.com'>홍길동5</a></td>
+            <td>555-5555</td>
+        </tr>
+        
+        <tr>
+            <td>6</td>
+            <td><a href='mailto:test6@test.com'>홍길동6</a></td>
+            <td>666-6666</td>
+        </tr>
+        
+        <tr>
+            <td>7</td>
+            <td><a href='mailto:test7@test.com'>홍길동7</a></td>
+            <td>777-7777</td>
+        </tr>
+        
+        <tr>
+            <td>8</td>
+            <td><a href='mailto:test8@test.com'>홍길동8</a></td>
+            <td>888-8888</td>
+        </tr>
+        
+        <tr>
+            <td>9</td>
+            <td><a href='mailto:test9@test.com'>홍길동9</a></td>
+            <td>999-9999</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td><a href='mailto:test10@test.com'>홍길동10</a></td>
+            <td>101-1010</td>
+        </tr>
+
+	</table>
+
+
+
+</body>
+</html>
