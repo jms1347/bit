@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>입력폼 데이터 전송</h1>
+<!-- POST 요청으로 데이터를 전송하려면 method 속성을 post로 지정해야한다. -->
+<form action = 'http://localhost:1337/test/ok' method='post'>
+v1: <input type = 'text'  size = '2'name='v1'>
+op: <select name ='op' >
+	<option value ='plus'>+</option>
+	<option value ='minus'>-</option>
+	<option value ='multiple'>*</option>
+	<option value ='divide'>/</option> </select>
+	
+v2: <input type = 'text' size = '2' name ='v2'>
+<button>=</button>
+
+</form>
+</body>
+</html>
