@@ -1,0 +1,111 @@
+@CHARSET "UTF-8";
+
+.northline>img {
+	border: 1px solid black;
+	width: 80px;
+	height: 80px;
+}
+
+.eastline>img {
+	border: 1px solid black;
+	width: 80px;
+	height: 80px;
+}
+
+.southline>img {
+	border: 1px solid black;
+	width: 80px;
+	height: 80px;
+}
+
+.westline>img {
+	border: 1px solid black;
+	width: 80px;
+	height: 80px;
+}
+
+.northline {
+	width: 80px;
+	height: 80px;
+	float: left;
+}
+
+.eastline {
+	width: 80px;
+	height: 80px;
+	float: left;
+}
+
+.southline {
+	width: 80px;
+	height: 80px;
+	float: left;
+}
+
+.westline {
+	width: 80px;
+	height: 80px;
+	float: left;
+}
+.diceline {
+  margin: 20px 10px 0px 20px;
+}
+
+
+#north {
+	border: 1px solid black;
+	width: 1282px;
+	height: 80px;
+	position: absolute;
+}
+
+#east {
+	border: 1px solid black;
+	width: 80px;
+	height: 722px;
+	float: right;
+	margin: 81px 1201px;
+	position: absolute;
+}
+
+#south {
+	border: 1px solid black;
+	width: 1282px;
+	height: 80px;
+	margin-top: 802px;
+	position: absolute;
+}
+
+#west {
+	border: 1px solid black;
+	width: 80px;
+	height: 722px;
+	margin-top: 81px;
+	position: absolute;
+}
+
+#center {
+	border: 1px solid black;
+	float: left;
+	margin: 82px 82px;
+	width: 1119px;
+	height: 719px;
+	position: absolute;
+}
+
+#dicediv{
+	border : 1px solid blue;
+	position : relative;
+}
+
+#dicebtn {
+	margin-left: 44px;
+}
+
+
+#nara {
+	border: 1px solid blue;
+	width: 40px;
+	height: 40px;
+	
+}
