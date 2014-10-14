@@ -1,0 +1,82 @@
+1. 다음 중 에러가 나는 번호는?	답)3,5
+<Test01.java>
+	1. public class Test01{}
+	2. class Test01x{}
+	3. public class Test02{}
+	4. class Test02Y{}
+	5. public Test03{}
+
+2. 논리 값을 잘못 표현한 것은?	답)2,3,4,5
+	1. boolean a = true;
+	2. boolean b = False;
+	3. boolean c = 0;
+	4. boolean d = True;
+	5. boolean e = FALSE;
+
+3. 16진수 표기법 중 '13'으로 출력되는 것을 모두 고르시오.	답)1,2,3,4
+	보기 : 10=A, 11=B, 12=C, 13=D, 14=E, 15=F
+	1. int a = 0xd;
+	2. int b = 0xD;
+	3. int c = 0Xd;
+	4. int d = 0XD;
+	5. int e = 16D;
+
+4. 다음 중 배열을 생성하는 올바른 문장을 모두 고르시오.	답) 1,5
+	1. int[] scores = new int[5];
+	2. int[] scores = new Byte[5];
+	3. int[] scores = new char[5];
+	4. int[] scores = new float[5];
+	5. int scores[] = new int[5];
+
+5.'17.892' 를 넣을 수 있는 변수형은?	답) 3,5
+	1. char
+	2. short
+	3. float
+	4. long
+	5. double
+
+6. 4Byte를 갖는 변수형은?	답) 2,3
+	1. char
+	2. int
+	3. float
+	4. double
+	5. short
+
+7. 보기가 실행되었을 때 주소값이 100인 것을 모두 고르시오.   답) 1,2,3,5
+	보기 : int[] p = new int[5];-----p:주소값 100;
+		p[2] = 3;
+	 	int[] p2 = new int[3];---p2:주소값 200;
+		p2[2] = 300;
+	 	int[] p3 = p;
+		int[] p4 = p2;
+		int[] p5 = p;	
+	 	p3[2] = 100;
+		p2[2] = 200;
+	 	p2 = p; 
+		
+	1.p
+	2.p2
+	3.p3
+	4.p4
+	5.p5
+
+주관식1. 자바의 변수이름을 짓는 표기법은? 
+		-이것의 규칙은 1. 변수나 메서드는 소문자로
+			      2. 클래스 이름은 대문자로
+			      3. 메서드명은 동사이면서 일을 시키는 식으로 짓는다.
+
+	답: Camel 표기법
+
+주관식2. 클래스 파일을 좀 더 조직적으로 관리하기 위한 디렉토리는?
+	답: 패키지
+
+주관식3. [   ]안에 들어갈 이름은?
+
+<Test10.java>
+
+public class [      ]{
+
+}
+
+	답: Test10
+
