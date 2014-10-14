@@ -4,94 +4,121 @@
 <meta charset="UTF-8">
 <title>UI2</title>
 </head>
-<style>
-
-	#div1{
-		border : 3px solid green;
-		width : 720px;
-		height: 70px;
-		position : lelation;
-		
-	}
-	
-	#div2{
-		border : 3px solid red;
-		width : 70px;
-		height : 678px;
-		float : right;
-		margin-right : 472px;
-		position : lelation;
-	}
-	#divcenter{
-		border :2px solid black;
-		float : left;
-		margin-left : 75px;
-		width : 572px;
-		height : 603px;
-		position : absolute;
-	}
-	#div3{
-		border : 3px solid skyblue;
-		width :  70px;
-		height : 601px;
-		position : lelation;
-	}
-	#div4{
-		border : 3px solid orange;
-		width :648px;
-		height : 70px;
-		position : lelation;
-	}
-
-
-	img{
-		border : 1px solid blue;
-		width : 70px;
-		height : 70px;
-	}
-	
-
-</style>
+<link href='bluemarbleUI.css' rel="stylesheet" type="text/css">
 <script src='jquery-1.11.1.js'></script>
+<script src='dice.js'></script>
 <body>
 
-<div id = 'bigdiv'>
-	<div id = 'div1'></div>
-	<div id = 'div2'></div>
-	<div id = 'divcenter'>center</div>
-	<div id = 'div3'></div>
-	<div id = 'div4'></div>
-</div>
+	<div id='gamepan'>
+		<div id='north'></div>
+		<div id='east'></div>
+		<div id='center'>
+			
+			<div id='dicediv'>
+				<img src="../bluemarble/image/d1.gif" class='diceline' name="dice1">
+				<img src="../bluemarble/image/d1.gif" name="dice2"><br>
+				<input type="button" class='dice'id='dicebtn' value="주사위 던지기"
+					onClick="throwdice()">
+			
+			</div>
+			<div>
+			   <input type="button" class='sil' id='sil' value='실험버튼' onClick="init()"> 
+			</div>
+
+		</div>
+		<div id='south'></div>
+		<div id='west'></div>
+
+	</div>
+	<img src='../bluemarble/image/Nara.jpg' id='nara' name='nara'>
 
 
-<script>
+	<script>
+	  var posit =0;
+	//게임판 생성
+	$(function() {
+		var bg = [];
+		for (var i = 0; i < 16; i++) {
+			bg[i] = $('<div class="northline" id = "div'+i+'"></div>').appendTo('#north');
+			$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
+		}
 
-$(function(){
-	var bg = [];
-	for(var i=0; i< 10;i++){
-		bg[i]=$('<img src ="bg'+i+'.png">').appendTo('#div1');
-		console.log('bg['+i+']=',bg[i]);		
-	}
+		for (var i = 16; i < 25; i++) {
+			bg[i] = $('<div class="eastline" id = "div'+i+'"></div>').appendTo('#east');
+			$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
+		}
+		
+		for (var i = 41; i > 25; i--) {
+			bg[i] = $('<div class="southline" id = "div'+i+'"></div>').appendTo('#south');
+				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');		
+		}
+		for (var i = 50; i > 41; i--) {
+			bg[i] = $('<div class="westline" id = "div'+i+'"></div>').appendTo('#west');
+			  $('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
+		} 
+	});
 	
-	for(var i=10; i< 19;i++){
-		bg[i]=$('<img src ="bg'+i+'.png">').appendTo('#div2');
-		console.log('bg['+i+']=',bg[i]);		
-	}
-	for(var i=27; i> 18;i--){
-		bg[i]=$('<img src ="bg'+i+'.png">').appendTo('#div4');
-		console.log('bg['+i+']=',bg[i]);		
-	}
-	for(var i=35; i> 27;i--){
-		bg[i]=$('<img src ="bg'+i+'.png">').appendTo('#div3');
-		console.log('bg['+i+']=',bg[i]);		
-	}
+	//초기값 세팅
+	function init(){
+		$('#nara').prependTo('#div0')
+		  .css('position','absolute');
+		console.log('초기값 세팅');
+		posit = 0;
+	};
 	
 
+		//이동
+		function move() {
+			var dicesum = (randomdice1 + 1) + (randomdice2 + 1);
+			var i = posit + dicesum;
 
-	
-});
+			if (randomdice1 == randomdice2) {
+				
+				
+				
+				for (posit; posit < i;) {
 
-</script>
+					$('#nara').prependTo('#div' + (i) + '')
+					          .css('position','absolute')
+					          .css('margin','15px');
+					posit = i;
+
+					console.log('posit', posit);
+					console.log('i', i);
+
+					if ((posit) > 50) {
+						dicesum = -(51 - i);
+						posit = dicesum;
+						i = 0;
+
+						$('#nara').prependTo('#div' + (dicesum) + '')
+						          .css('position', 'absolute')
+						          .css('margin','15px');
+					}
+				}
+				console.log('한번더');
+
+			} else {
+				for (posit; posit < i;) {
+					$('#nara').prependTo('#div' + (i) + '')
+					          .css('position','absolute')
+					          .css('margin','15px');
+					posit = i;
+
+					if ((posit) > 50) {
+						dicesum = -(51 - i);
+						posit = dicesum;
+						i = 0;
+						console.log('-----------------------');
+						$('#nara').prependTo('#div' + (dicesum) + '')
+						          .css('position', 'absolute')
+						          .css('margin','15px');
+						
+					}
+				}
+			}
+		}
+	</script>
 
 </body>
 </html>
