@@ -54,7 +54,7 @@
 
 #north {
 	border: 1px solid black;
-	width: 1282px;
+	width: 882px;
 	height: 80px;
 	position: absolute;
 }
@@ -64,13 +64,13 @@
 	width: 80px;
 	height: 722px;
 	float: right;
-	margin: 81px 1201px;
+	margin: 81px 801px;
 	position: absolute;
 }
 
 #south {
 	border: 1px solid black;
-	width: 1282px;
+	width: 882px;
 	height: 80px;
 	margin-top: 802px;
 	position: absolute;
@@ -88,7 +88,7 @@
 	border: 1px solid black;
 	float: left;
 	margin: 82px 82px;
-	width: 1119px;
+	width: 719px;
 	height: 719px;
 	position: absolute;
 }

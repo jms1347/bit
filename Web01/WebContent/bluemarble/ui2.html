@@ -38,21 +38,21 @@
 	//게임판 생성
 	$(function() {
 		var bg = [];
-		for (var i = 0; i < 16; i++) {
+		for (var i = 0; i < 11; i++) {
 			bg[i] = $('<div class="northline" id = "div'+i+'"></div>').appendTo('#north');
 			$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
 		}
 
-		for (var i = 16; i < 25; i++) {
+		for (var i = 11; i < 20; i++) {
 			bg[i] = $('<div class="eastline" id = "div'+i+'"></div>').appendTo('#east');
 			$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
 		}
 		
-		for (var i = 41; i > 25; i--) {
+		for (var i = 31; i > 20; i--) {
 			bg[i] = $('<div class="southline" id = "div'+i+'"></div>').appendTo('#south');
 				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');		
 		}
-		for (var i = 50; i > 41; i--) {
+		for (var i = 40; i > 31; i--) {
 			bg[i] = $('<div class="westline" id = "div'+i+'"></div>').appendTo('#west');
 			  $('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
 		} 

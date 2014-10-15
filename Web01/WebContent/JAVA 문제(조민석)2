@@ -1,0 +1,122 @@
+주관식 1. 다른 클래스에서 구현되어 있는 것을 현재 클래스에서 사용하기 위해 그 클래스의 위치와 정보를 알려주는 것을 무엇이라할까요?
+
+답) import
+
+주관식 2. 여러 개의 작업을 하나로 묶어서 관리할 수 있는 작업 덩어리를 무엇이라고 할까요? 자바스크립트에서 'function(함수)'라고합니다.
+
+답) method
+
+주관식 3. 하나의 클래스로부터 생성된 객체들 사이의 통신이나 공통되는 속성을 표현하는데 사용하는 변수를 무엇이라 할까요? 이것은 '전역변수'의 개념을 가졌습니다.
+
+답) 클래스 변수
+
+객관식 1. 
+method를 사용하는 이유는?(메서드의장점)	답)1,2
+	1. 작업을 하나로 묶어서 관리하기 때문에 효율적이고 관리가 편하다
+	2. 언제든 필요하면 반복적으로 호출하여 사용할 수 있다.
+	3. 코드가 길어져서 불편하다.
+	4. 코드의 순서를 바꾸어 프로그램이 꼬일 수도 있다.
+	5. 여러곳에서 호출하면 에러가 난다. 
+
+객관식 2.
+다음중 sum의 출력결과 '45'가 아닌 것은?		답)1 2 3 4
+	1.
+	  int i = 1;
+	  int sum = 0;
+	  while(i<10){
+		sum += i;
+		i++;
+	  }
+	2.
+	  int sum = 0;
+	  for(int i=0;i<10;i++){
+		sum+=i;
+	  }	
+	3.
+	  int i = 1;
+	  int sum = 0;
+	  do{
+		sum+=i;
+		i++;
+	    }while(i<10);
+	4.
+	  int sum = 0;
+	  for(int i=9;i>0;){
+		sum+=i;
+		i--;
+	  }
+	5.
+	  for(int i=0;i<10;i++){
+		sum+=i;
+		i++;
+	  }
+
+객관식 3. 다음 중 반복문이 아닌 것을 모두 고르시오?	답) 3, 4
+	1. do-while문
+	2. while문
+	3. switch문
+	4. if문
+	5. for문
+
+객관식 4. 다음 중 조건문이 아닌 것을 모두 고르시오?	답) 3, 4, 5
+	1. if문
+	2. if-else문
+	3. for문
+	4. while문
+	5. do-while문
+
+객관식 5. 다음 보기 안 [   ] 에 한곳이라도 들어갈 수 있는 것을 모두고르시오?		답) 1 2 3
+	보기.	
+public class Test17 {
+  public static void main(String[] args) {
+    [   1   ]{
+      System.out.println("참은 123");
+    } [   2   ]{
+      System.out.println("거짓은 45");
+    } 
+}
+	1. if(조건)
+	2. else
+	3. else if(조건)
+	4. else(조건)
+	5. if else
+
+객관식 6. 다음 보기 안에 [   ] 에 들어갈 수 있는 것을 모두 고르시오.
+	보기.		답) 1 2
+switch(age/10){
+    case 1 : System.out.println("10대.");
+    		break;
+              
+    case 2 : System.out.println("20대.");
+    		break;
+    case 3 : System.out.println("30대.");
+             	break;
+     
+    case 4 :  System.out.println("40대.");
+              	break;
+    case 5 : System.out.println("50대.");
+               	break;
+    [	 ] : System.out.println("기타.");
+      		break;                
+    }
+	1. case 6
+	2. default
+	3. safe 6
+	4. break
+	5. return
+
+객관식 7. 다음 출력 되는 값을 모두 고르시오.	답) 1 2
+	보기.	
+java.util.ArrayList list2 = new java.util.ArrayList();
+     list2.add('ㅂ');
+     list2.add('2');
+     
+     for(Object value2 : list2){
+       System.out.println(value2);
+     }
+
+	1. ㅂ
+	2. 2
+	3. e
+	4. E
+	5. ㅇ
