@@ -1,48 +1,67 @@
 @CHARSET "UTF-8";
 
+#flag*{
+	
+	width : 80px;
+	height : 20px;
+  
+  position : absolute;
+}
+#infor*{
+	
+	width:80px;
+	height:40px;
+	
+  position : absolute;
+}
 .northline>img {
-	border: 1px solid black;
+	
 	width: 80px;
-	height: 80px;
+	height: 20px;
+	 
 }
 
 .eastline>img {
-	border: 1px solid black;
+	
 	width: 80px;
-	height: 80px;
+	height: 20px;
 }
 
 .southline>img {
-	border: 1px solid black;
+	
 	width: 80px;
-	height: 80px;
+	height: 20px;
 }
 
 .westline>img {
-	border: 1px solid black;
+	
 	width: 80px;
-	height: 80px;
+	height: 20px;
 }
 
 .northline {
+	border: 1px solid black;
 	width: 80px;
 	height: 80px;
 	float: left;
 }
 
 .eastline {
+	border: 1px solid black;
 	width: 80px;
 	height: 80px;
 	float: left;
 }
 
 .southline {
+	border: 1px solid black;
 	width: 80px;
 	height: 80px;
 	float: left;
 }
 
 .westline {
+	border: 1px solid black;
 	width: 80px;
 	height: 80px;
 	float: left;
@@ -52,32 +71,28 @@
 }
 
 
-#north {
-	border: 1px solid black;
-	width: 882px;
+#north {	
+	width: 910px;
 	height: 80px;
 	position: absolute;
 }
 
 #east {
-	border: 1px solid black;
 	width: 80px;
 	height: 722px;
 	float: right;
-	margin: 81px 801px;
+	margin: 81px 827px;
 	position: absolute;
 }
 
-#south {
-	border: 1px solid black;
-	width: 882px;
+#south {	
+	width: 910px;
 	height: 80px;
-	margin-top: 802px;
+	margin-top: 825px;
 	position: absolute;
 }
 
-#west {
-	border: 1px solid black;
+#west {	
 	width: 80px;
 	height: 722px;
 	margin-top: 81px;
@@ -85,17 +100,18 @@
 }
 
 #center {
-	border: 1px solid black;
 	float: left;
 	margin: 82px 82px;
-	width: 719px;
-	height: 719px;
+	width: 740px;
+	height: 740px;
 	position: absolute;
+	
 }
 
 #dicediv{
 	border : 1px solid blue;
 	position : relative;
+	margin-left : 5px;
 }
 
 #dicebtn {
@@ -107,5 +123,6 @@
 	border: 1px solid blue;
 	width: 40px;
 	height: 40px;
+	position : absolute;
 	
 }

@@ -24,6 +24,9 @@
 			<div>
 			   <input type="button" class='sil' id='sil' value='실험버튼' onClick="init()"> 
 			</div>
+			<div>
+			 <img src="../bluemarble/image/centerbg.gif">
+			</div>
 
 		</div>
 		<div id='south'></div>
@@ -41,20 +44,32 @@
 		for (var i = 0; i < 11; i++) {
 			bg[i] = $('<div class="northline" id = "div'+i+'"></div>').appendTo('#north');
 			$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
-		}
+			$('<div id = "flag'+i+'">깃발</div>').appendTo('#div'+i+'')
+			.css("background-color","blue");
+			$('<div id = "infor'+i+'">통행료\n3000</div>').appendTo('#div'+i+'');
+			}
 
 		for (var i = 11; i < 20; i++) {
 			bg[i] = $('<div class="eastline" id = "div'+i+'"></div>').appendTo('#east');
 			$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
+		     $('<div id = "flag'+i+'">깃발</div>').appendTo('#div'+i+'')
+		     .css("background-color","red");
+		      $('<div id = "infor'+i+'">통행료\n4000</div>').appendTo('#div'+i+'');
 		}
 		
 		for (var i = 31; i > 20; i--) {
 			bg[i] = $('<div class="southline" id = "div'+i+'"></div>').appendTo('#south');
-				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');		
+				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');	
+			      $('<div id = "flag'+i+'">깃발</div>').appendTo('#div'+i+'')
+			      .css("background-color","skyblue");
+			      $('<div id = "infor'+i+'">통행료\n5000</div>').appendTo('#div'+i+'');
 		}
 		for (var i = 40; i > 31; i--) {
 			bg[i] = $('<div class="westline" id = "div'+i+'"></div>').appendTo('#west');
 			  $('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
+			     $('<div id = "flag'+i+'">깃발</div>').appendTo('#div'+i+'')
+			     .css("background-color","lightgreen");
+			      $('<div id = "infor'+i+'">통행료\n6000</div>').appendTo('#div'+i+'');
 		} 
 	});
 	
@@ -65,7 +80,6 @@
 		console.log('초기값 세팅');
 		posit = 0;
 	};
-	
 
 		//이동
 		function move() {
@@ -73,26 +87,21 @@
 			var i = posit + dicesum;
 
 			if (randomdice1 == randomdice2) {
-				
-				
-				
 				for (posit; posit < i;) {
 
-					$('#nara').prependTo('#div' + (i) + '')
-					          .css('position','absolute')
+					$('#nara').prependTo('#div' + (i) + '')         
 					          .css('margin','15px');
 					posit = i;
 
 					console.log('posit', posit);
 					console.log('i', i);
 
-					if ((posit) > 50) {
-						dicesum = -(51 - i);
+					if ((posit) > 40) {
+						dicesum = -(41 - i);
 						posit = dicesum;
 						i = 0;
 
-						$('#nara').prependTo('#div' + (dicesum) + '')
-						          .css('position', 'absolute')
+						$('#nara').prependTo('#div' + (dicesum) + '')						          
 						          .css('margin','15px');
 					}
 				}
@@ -101,23 +110,23 @@
 			} else {
 				for (posit; posit < i;) {
 					$('#nara').prependTo('#div' + (i) + '')
-					          .css('position','absolute')
+					          
 					          .css('margin','15px');
 					posit = i;
 
-					if ((posit) > 50) {
-						dicesum = -(51 - i);
+					if ((posit) > 40) {
+						dicesum = -(41 - i);
 						posit = dicesum;
 						i = 0;
 						console.log('-----------------------');
-						$('#nara').prependTo('#div' + (dicesum) + '')
-						          .css('position', 'absolute')
-						          .css('margin','15px');
-						
+						$('#nara').prependTo('#div' + (dicesum) + '')						         
+						          .css('margin','15px');				
 					}
 				}
 			}
 		}
+		
+		
 	</script>
 
 </body>
