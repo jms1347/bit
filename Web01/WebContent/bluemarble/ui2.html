@@ -13,19 +13,20 @@
 		<div id='north'></div>
 		<div id='east'></div>
 		<div id='center'>
-			
+
 			<div id='dicediv'>
 				<img src="../bluemarble/image/d1.gif" class='diceline' name="dice1">
-				<img src="../bluemarble/image/d1.gif" name="dice2"><br>
-				<input type="button" class='dice'id='dicebtn' value="주사위 던지기"
+				<img src="../bluemarble/image/d1.gif" name="dice2"><br> <input
+					type="button" class='dice' id='dicebtn' value="주사위 던지기"
 					onClick="throwdice()">
-			
+
 			</div>
 			<div>
-			   <input type="button" class='sil' id='sil' value='실험버튼' onClick="init()"> 
+				<input type="button" class='sil' id='sil' value='실험버튼'
+					onClick="init()">
 			</div>
 			<div>
-			 <img src="../bluemarble/image/centerbg.gif">
+				<img src="../bluemarble/image/centerbg.gif">
 			</div>
 
 		</div>
@@ -37,96 +38,355 @@
 
 
 	<script>
-	  var posit =0;
-	//게임판 생성
-	$(function() {
-		var bg = [];
-		for (var i = 0; i < 11; i++) {
-			bg[i] = $('<div class="northline" id = "div'+i+'"></div>').appendTo('#north');
-			$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
-			$('<div id = "flag'+i+'">깃발</div>').appendTo('#div'+i+'')
-			.css("background-color","blue");
-			$('<div id = "infor'+i+'">통행료\n3000</div>').appendTo('#div'+i+'');
+		var posit = 0;
+		var cities = new Array();
+		//게임판 생성
+		$(function() {
+			var bg = [];
+			for (var i = 0; i < 11; i++) {
+				bg[i] = $('<div class="northline" id = "div'+i+'"></div>')
+						.appendTo('#north');
+				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo(
+						'#div' + i + '');
+				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
+						.css("background-color", "blue");
+				$('<div id = "infor'+i+'">통행료\n3000</div>').appendTo(
+						'#div' + i + '');
 			}
 
-		for (var i = 11; i < 20; i++) {
-			bg[i] = $('<div class="eastline" id = "div'+i+'"></div>').appendTo('#east');
-			$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
-		     $('<div id = "flag'+i+'">깃발</div>').appendTo('#div'+i+'')
-		     .css("background-color","red");
-		      $('<div id = "infor'+i+'">통행료\n4000</div>').appendTo('#div'+i+'');
-		}
-		
-		for (var i = 31; i > 20; i--) {
-			bg[i] = $('<div class="southline" id = "div'+i+'"></div>').appendTo('#south');
-				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');	
-			      $('<div id = "flag'+i+'">깃발</div>').appendTo('#div'+i+'')
-			      .css("background-color","skyblue");
-			      $('<div id = "infor'+i+'">통행료\n5000</div>').appendTo('#div'+i+'');
-		}
-		for (var i = 40; i > 31; i--) {
-			bg[i] = $('<div class="westline" id = "div'+i+'"></div>').appendTo('#west');
-			  $('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div'+i+'');
-			     $('<div id = "flag'+i+'">깃발</div>').appendTo('#div'+i+'')
-			     .css("background-color","lightgreen");
-			      $('<div id = "infor'+i+'">통행료\n6000</div>').appendTo('#div'+i+'');
-		} 
-	});
-	
-	//초기값 세팅
-	function init(){
-		$('#nara').prependTo('#div0')
-		  .css('position','absolute');
-		console.log('초기값 세팅');
-		posit = 0;
-	};
+			for (var i = 11; i < 21; i++) {
+				bg[i] = $('<div class="eastline" id = "div'+i+'"></div>')
+						.appendTo('#east');
+				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo(
+						'#div' + i + '');
+				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
+						.css("background-color", "red");
+				$('<div id = "infor'+i+'">통행료\n4000</div>').appendTo(
+						'#div' + i + '');
+			}
+
+			for (var i = 30; i > 20; i--) {
+				bg[i] = $('<div class="southline" id = "div'+i+'"></div>')
+						.appendTo('#south');
+				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo(
+						'#div' + i + '');
+				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
+						.css("background-color", "skyblue");
+				$('<div id = "infor'+i+'">통행료\n5000</div>').appendTo(
+						'#div' + i + '');
+			}
+			for (var i = 39; i > 30; i--) {
+				bg[i] = $('<div class="westline" id = "div'+i+'"></div>')
+						.appendTo('#west');
+				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo(
+						'#div' + i + '');
+				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
+						.css("background-color", "lightgreen");
+				$('<div id = "infor'+i+'">통행료\n6000</div>').appendTo(
+						'#div' + i + '');
+			}
+		});
+
+		//초기값 세팅
+		function init() {
+			$('#nara').prependTo('#div0').css('position', 'absolute');
+			console.log('초기값 세팅');
+			posit = 0;
+		};
 
 		//이동
+
 		function move() {
 			var dicesum = (randomdice1 + 1) + (randomdice2 + 1);
 			var i = posit + dicesum;
 
 			if (randomdice1 == randomdice2) {
-				for (posit; posit < i;) {
 
-					$('#nara').prependTo('#div' + (i) + '')         
-					          .css('margin','15px');
-					posit = i;
+				$('#nara').prependTo('#div' + (i) + '').css('margin', '15px');
+				posit = i; //현재위치 저장
 
-					console.log('posit', posit);
-					console.log('i', i);
+				if ((posit) > 40) {
+					dicesum = -(41 - i);
+					posit = dicesum;
+					i = 0;
 
-					if ((posit) > 40) {
-						dicesum = -(41 - i);
-						posit = dicesum;
-						i = 0;
+					$('#nara').prependTo('#div' + (dicesum) + '').css('margin',
+							'15px');
+					console.log("땅이름double1", cities[posit]['name']);
+				} else {
 
-						$('#nara').prependTo('#div' + (dicesum) + '')						          
-						          .css('margin','15px');
-					}
+					console.log('한번더');
+					console.log("땅이름double2", cities[i]['name']);
 				}
-				console.log('한번더');
-
 			} else {
-				for (posit; posit < i;) {
-					$('#nara').prependTo('#div' + (i) + '')
-					          
-					          .css('margin','15px');
-					posit = i;
+				console.log("i", i);
+				$('#nara').prependTo('#div' + (i) + '')
 
-					if ((posit) > 40) {
-						dicesum = -(41 - i);
-						posit = dicesum;
-						i = 0;
-						console.log('-----------------------');
-						$('#nara').prependTo('#div' + (dicesum) + '')						         
-						          .css('margin','15px');				
-					}
+				.css('margin', '15px');
+
+				posit = i; //현재위치 저장
+
+				if ((posit) > 40) {
+					dicesum = -(41 - i);
+					posit = dicesum;
+					i = 0;
+					$('#nara').prependTo('#div' + (dicesum) + '').css('margin',
+							'15px');
+
+					console.log("땅이름3", cities[posit]['name']);
+
+				} else {
+					console.log("땅이름4", cities[i]['name']);
 				}
 			}
 		}
-		
-		
+		$(function() {
+
+			cities[0] = {
+				"name" : "Start"
+			};
+			cities[1] = {
+				"name" : "천수",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[2] = {
+				"name" : "허창",
+				"price" : 600000,
+				"toll" : 150000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[3] = {
+				"name" : "열쇠"
+			};
+			cities[4] = {
+				"name" : "여남",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[5] = {
+				"name" : "평원",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[6] = {
+				"name" : "진류",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[7] = {
+				"name" : "동맹"
+			};
+			cities[8] = {
+				"name" : "업",
+				"price" : 600000,
+				"toll" : 150000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[9] = {
+				"name" : "북평",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[10] = {
+				"name" : "유배지"
+			};
+
+			cities[11] = {
+				"name" : "서주",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[12] = {
+				"name" : "하비",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[13] = {
+				"name" : "북해",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[14] = {
+				"name" : "수춘",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[15] = {
+				"name" : "열쇠"
+			};
+			cities[16] = {
+				"name" : "건업",
+				"price" : 600000,
+				"toll" : 150000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[17] = {
+				"name" : "오",
+				"price" : 400000,
+				"toll" : 100000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[18] = {
+				"name" : "회계",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[19] = {
+				"name" : "여강",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[20] = {
+				"name" : "이벤트2"
+			}
+
+			cities[21] = {
+				"name" : "시상",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[22] = {
+				"name" : "장사",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[23] = {
+				"name" : "열쇠"
+			};
+			cities[24] = {
+				"name" : "완",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[25] = {
+				"name" : "신야",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[26] = {
+				"name" : "양양",
+				"price" : 600000,
+				"toll" : 150000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[27] = {
+				"name" : "동맹"
+			};
+			cities[28] = {
+				"name" : "강릉",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[29] = {
+				"name" : "영안",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[30] = {
+				"name" : "이벤트3"
+			};
+
+			cities[31] = {
+				"name" : "운남",
+				"price" : 200000,
+				"toll" : 50000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[32] = {
+				"name" : "건녕",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[33] = {
+				"name" : "강주",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[34] = {
+				"name" : "성도",
+				"price" : 600000,
+				"toll" : 150000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[35] = {
+				"name" : "열쇠"
+			};
+			cities[36] = {
+				"name" : "자동",
+				"price" : 300000,
+				"toll" : 80000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[37] = {
+				"name" : "한중",
+				"price" : 400000,
+				"toll" : 100000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[38] = {
+				"name" : "낙양",
+				"price" : 1000000,
+				"toll" : 250000,
+				"level" : 1,
+				"awner" : ""
+			};
+			cities[39] = {
+				"name" : "장안",
+				"price" : 600000,
+				"toll" : 150000,
+				"level" : 1,
+				"awner" : ""
+			};
+
+		});
 	</script>
 
 </body>
