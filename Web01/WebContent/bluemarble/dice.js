@@ -13,13 +13,25 @@ face5.src = "../bluemarble/image/d6.gif"
 	
 var randomdice1;
 var randomdice2;
-function throwdice() {
-  randomdice1 = Math.round((Math.random() * 5));
-  randomdice2 = Math.round((Math.random() * 5));
-document.images["dice1"].src = eval("face" + randomdice1 + ".src");
-document.images["dice2"].src = eval("face" + randomdice2 + ".src");
 
-console.log(randomdice1+1);
-console.log(randomdice2+1);
-move();
-}/* 랜덤 주사위 */
+function narathrowdice() {
+	randomdice1 = Math.round((Math.random() * 5));
+	randomdice2 = Math.round((Math.random() * 5));
+	document.images["dice1"].src = eval("face" + randomdice1 + ".src");
+	document.images["dice2"].src = eval("face" + randomdice2 + ".src");
+	
+	console.log(randomdice1+1);
+	console.log(randomdice2+1);
+	naramove();
+}
+
+function hyojoothrowdice() {
+	randomdice1 = Math.round((Math.random() * 5));
+	randomdice2 = Math.round((Math.random() * 5));
+	document.images["dice1"].src = eval("face" + randomdice1 + ".src");
+	document.images["dice2"].src = eval("face" + randomdice2 + ".src");
+	
+	console.log(randomdice1+1);
+	console.log(randomdice2+1);
+	hyojoomove();
+}

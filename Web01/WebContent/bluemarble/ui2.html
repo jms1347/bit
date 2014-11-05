@@ -8,6 +8,7 @@
 <script src='jquery-1.11.1.js'></script>
 <script src='dice.js'></script>
 <script src='City.js'></script>
+<script src='Move.js'></script>
 <body>
 
 	<div id='gamepan'>
@@ -17,17 +18,24 @@
 
 			<div id='dicediv'>
 				<img src="../bluemarble/image/d1.gif" class='diceline' name="dice1">
-				<img src="../bluemarble/image/d1.gif" name="dice2"><br> <input
-					type="button" class='dice' id='dicebtn' value="주사위 던지기"
-					onClick="throwdice()">
+				<img src="../bluemarble/image/d1.gif" name="dice2"><br> 
+				<input type="button" class='dice' id='naradicebtn' value="나라 주사위 던지기"
+					onClick="narathrowdice()">
 
+				<input type="button" class='dice' id='hyojoodicebtn' value="효주 주사위 던지기"
+					onClick="hyojoothrowdice()">
 			</div>
+			
 			<div>
 				<input type="button" class='sil' id='sil' value='실험버튼'
 					onClick="init()">
 			</div>
 			<div>
 				<img src="../bluemarble/image/centerbg.gif">
+			</div>
+			<div id = landq>
+				<button id=landbuy>구입</button>
+				<button id=landcancel>취소</button>
 			</div>
 
 		</div>
@@ -36,10 +44,12 @@
 
 	</div>
 	<img src='../bluemarble/image/Nara.jpg' id='nara' name='nara'>
+	<img src='../bluemarble/image/Hyojoo.jpg' id='hyojoo' name='hyojoo'>
 
 
 	<script>
-		var posit = 0;
+		var naraposit = 0;
+		var hyojooposit = 0;
 		var cities = new Array();
 		//게임판 생성
 		$(function() {
@@ -79,72 +89,27 @@
 			for (var i = 39; i > 30; i--) {
 				bg[i] = $('<div class="westline" id = "div'+i+'"></div>')
 						.appendTo('#west');
-				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo(
-						'#div' + i + '');
+				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div' + i + '');
 				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
-						.css("background-color", "lightgreen");
-				$('<div id = "infor'+i+'">통행료\n6000</div>').appendTo(
-						'#div' + i + '');
+													.css("background-color", "lightgreen");
+				$('<div id = "infor'+i+'">통행료\n6000</div>').appendTo('#div' + i + '');
 			}
 		});
 
 		//초기값 세팅
 		function init() {
-			$('#nara').prependTo('#div0').css('position', 'absolute');
+			$('#nara').prependTo('#div0').css('position', 'absolute')
+										 .css('margin', '10px');
+			$('#hyojoo').prependTo("#div0").css('position','absolute')
+											.css('margin', '25px');
 			console.log('초기값 세팅');
-			posit = 0;
+			naraposit = 0;
+			hyojooposit = 0;
 		};
 
-		//이동
-
-		function move() {
-			var dicesum = (randomdice1 + 1) + (randomdice2 + 1);
-			var i = posit + dicesum;
-
-			if (randomdice1 == randomdice2) {
-
-				$('#nara').prependTo('#div' + (i) + '').css('margin', '15px');
-				posit = i; //현재위치 저장
-
-				if ((posit) > 40) {
-					dicesum = -(41 - i);
-					posit = dicesum;
-					i = 0;
-
-					$('#nara').prependTo('#div' + (dicesum) + '').css('margin',
-							'15px');
-					console.log("땅이름", cities[posit]);
-				} else {
-
-					console.log('한번더');
-					console.log("땅이름", cities[i]);
-				}
-			} else {
-				console.log("i", i);
-				$('#nara').prependTo('#div' + (i) + '')
-
-				.css('margin', '15px');
-
-				posit = i; //현재위치 저장
-
-				if ((posit) > 40) {
-					dicesum = -(41 - i);
-					posit = dicesum;
-					i = 0;
-					$('#nara').prependTo('#div' + (dicesum) + '').css('margin',
-							'15px');
-
-					console.log("땅이름", cities[posit]);
-
-				} else {
-					console.log("땅이름", cities[i]);
-				}
-			}
+		function castle(){
+			
 		}
-		
-	/* 	$(function(){
-			$('#nara').
-		}) */
 		
 	</script>
 
