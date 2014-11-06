@@ -1,4 +1,38 @@
-//�̵�
+		function move(player){
+			var dicesum = (randomdice1 + 1) + (randomdice2 + 1);
+			var i = player.attr('posit') + dicesum;
+			
+
+			player.prependTo('#div' + (i) + '')
+					  .css('margin', '10px');
+
+			palyer.attr('posit',i); //현재위치 저장
+
+			if ((player.attr('posit')) > 40) {
+				dicesum = -(40 - i);
+				
+				palyer.attr('posit',dicesum); 
+				
+				i = 0;
+				$('#nara').prependTo('#div' + (dicesum) + '')
+						  .css('margin','10px');
+				
+				console.log("나라 위치", cities[player.attr('posit')]);
+				console.log("나라 돈", player.attr('posit'));
+			
+				console.log("플레이어1", player.attr('owner'));
+				
+				
+
+			} else {
+				console.log("나라 위치", cities[player.attr('posit')]);
+				console.log("나라 돈", player.attr('money'));
+				
+				console.log("플레이어1", player.attr('owner'));
+			}
+
+		}
+		
 
 		function naramove() {
 			var dicesum = (randomdice1 + 1) + (randomdice2 + 1);
@@ -19,10 +53,16 @@
 				
 				console.log("나라 위치", cities[naraposit]);
 				console.log("나라 돈", naramoney);
+				console.log("나라의 돈1", $('#nara').attr('money'));
+				console.log("플레이어1", $('#nara').attr('owner'));
+				
+				
 
 			} else {
 				console.log("나라 위치", cities[naraposit]);
 				console.log("나라 돈", naramoney);
+				console.log("나라의 돈1", $('#nara').attr('money'));
+				console.log("플레이어1", $('#nara').attr('owner'));
 			}
 
 		}

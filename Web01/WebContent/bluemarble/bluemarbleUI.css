@@ -1,43 +1,31 @@
 @CHARSET "UTF-8";
-#landq{
-	background-color : yellow;
-}
-
-#flag*{
-	
+#flag*{	
 	width : 80px;
 	height : 20px;
+  position : absolute;
   
-  position : absolute;
 }
-#infor*{
-	
+#infor*{	
 	width:80px;
-	height:40px;
-	
+	height:40px;	
   position : absolute;
 }
-.northline>img {
-	
+.northline>img {	
 	width: 80px;
-	height: 20px;
-	 
+	height: 20px;	 
 }
 
-.eastline>img {
-	
+.eastline>img {	
 	width: 80px;
 	height: 20px;
 }
 
-.southline>img {
-	
+.southline>img {	
 	width: 80px;
 	height: 20px;
 }
 
-.westline>img {
-	
+.westline>img {	
 	width: 80px;
 	height: 20px;
 }
@@ -111,37 +99,75 @@
 #dicediv{
 	border : 1px solid green;
 }
-
-.dice{
-	border :1px solid skyblue;
+#dice{
+	width : 20%;
+	height : 20%;
+	margin-left : 140px;
+	margin-top : 10px;
+	
 }
 
-.diceline { 
-   margin: 20px 10px 0px 20px; 
- } 
-#dicediv{ 
-	border : 1px solid blue; 
-	position : relative; 
- 	margin-left : 5px; 
- } 
+#naradiv{
+	border : 1px solid blue;
+	position : relative;
+}
+#hyojoodiv{
+	border : 1px solid red;
+	position : relative;
+}
+#minjungdiv{
+	border : 1px solid green;
+	position : relative;
+}
+#bomidiv{
+	border : 1px solid orange;
+	position : relative;
+}
  
  
-#dicebtn { 
- 	margin-left: 44px; 
- } 
 
 
 #nara {
 	border: 1px solid blue;
 	width: 40px;
 	height: 40px;
-	position : absolute;
-	
+	position : absolute;	
 }
+.nara{
+	margin-left : 10px;
+	margin-bottom : 10px;
+}
+
 #hyojoo {
 	border: 1px solid red;
 	width: 40px;
 	height: 40px;
-	position : absolute;
-	
+	position : absolute;	
+}
+.hyojoo{
+	margin-right : 10px;
+	margin-bottom : 10px;
+}
+#minjung {
+	border: 1px solid green;
+	width: 40px;
+	height: 40px;
+	position : absolute;	
+}
+.minjung{
+	margin-right : 10px;
+	margin-bottom : 10px;
+}
+#bomi {
+	border: 1px solid orange;
+	width: 40px;
+	height: 40px;
+	position : absolute;	
+}
+.bomi{
+	margin-left : 10px;
+	margin-bottom : 10px;
+}
+#centerbg{
+	margin-bottom : -40px;
 }

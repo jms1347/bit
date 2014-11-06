@@ -6,6 +6,7 @@
 </head>
 <link href='bluemarbleUI.css' rel="stylesheet" type="text/css">
 <script src='jquery-1.11.1.js'></script>
+<script src='gamepan.js'></script>
 <script src='dice.js'></script>
 <script src='City.js'></script>
 <script src='Move.js'></script>
@@ -34,8 +35,11 @@
 				<img src="../bluemarble/image/centerbg.gif">
 			</div>
 			<div id = landq>
-				<button id=landbuy>구입</button>
+				<input type="button" class='sil' id='sil' value='yes' onClick="cityBuy()"> 
 				<button id=landcancel>취소</button>
+			</div>
+			<div>
+				
 			</div>
 
 		</div>
@@ -51,66 +55,55 @@
 		var naraposit = 0;
 		var hyojooposit = 0;
 		var cities = new Array();
-		//게임판 생성
-		$(function() {
-			var bg = [];
-			for (var i = 0; i < 11; i++) {
-				bg[i] = $('<div class="northline" id = "div'+i+'"></div>')
-						.appendTo('#north');
-				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo(
-						'#div' + i + '');
-				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
-						.css("background-color", "blue");
-				$('<div id = "infor'+i+'">통행료\n3000</div>').appendTo(
-						'#div' + i + '');
-			}
-
-			for (var i = 11; i < 21; i++) {
-				bg[i] = $('<div class="eastline" id = "div'+i+'"></div>')
-						.appendTo('#east');
-				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo(
-						'#div' + i + '');
-				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
-						.css("background-color", "red");
-				$('<div id = "infor'+i+'">통행료\n4000</div>').appendTo(
-						'#div' + i + '');
-			}
-
-			for (var i = 30; i > 20; i--) {
-				bg[i] = $('<div class="southline" id = "div'+i+'"></div>')
-						.appendTo('#south');
-				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo(
-						'#div' + i + '');
-				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
-						.css("background-color", "skyblue");
-				$('<div id = "infor'+i+'">통행료\n5000</div>').appendTo(
-						'#div' + i + '');
-			}
-			for (var i = 39; i > 30; i--) {
-				bg[i] = $('<div class="westline" id = "div'+i+'"></div>')
-						.appendTo('#west');
-				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div' + i + '');
-				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
-													.css("background-color", "lightgreen");
-				$('<div id = "infor'+i+'">통행료\n6000</div>').appendTo('#div' + i + '');
-			}
-		});
+		
+		var nara = 1;
+		var hyojoo = 2;
+		 console.log("nara", nara);
+			console.log("hyojoo", hyojoo);
+		
 
 		//초기값 세팅
 		function init() {
 			$('#nara').prependTo('#div0').css('position', 'absolute')
-										 .css('margin', '10px');
+										 .css('margin', '10px')
+										 .attr('money',5000000)
+										 .attr('owner','nara');
 			$('#hyojoo').prependTo("#div0").css('position','absolute')
-											.css('margin', '25px');
+											.css('margin', '25px')
+											.attr('money',5000000)
+											.attr('owner','hyojoo');
+
 			console.log('초기값 세팅');
+			
 			naraposit = 0;
 			hyojooposit = 0;
 		};
-
-		function castle(){
-			
-		}
 		
+		function cityBuy(){ //성을 산다고 했을경우
+			var money = $('#nara').attr('money');
+			var owner = $('#nara').attr('owner');
+			var price = cities[naraposit].price;
+			
+			console.log(money);
+			console.log(owner);
+			
+	          if(cities[naraposit].awner == ""){
+	        	  //money = (money - price);
+	        	  $('#nara').attr('money', (money-price));
+	        	  console.log("성 가격", price);
+	            cities[naraposit].awner = owner;
+	            
+	            console.log("money1",$('#nara').attr('money'));
+	            console.log("owner1",$('#nara').attr('owner'));
+	              
+	            
+	          }else if(cities[naraposit].awner == $('#nara').attr('owner')){
+	        	  cities[naraposit].level = (cities[naraposit].level + 1);
+	        	  
+	        	  console.log("money2" ,$('#nara').attr('money'));
+	              console.log("owner2",$('#nara').attr('owner'));
+	          } 
+		} 
 	</script>
 
 </body>
