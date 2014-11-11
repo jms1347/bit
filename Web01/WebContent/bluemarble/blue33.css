@@ -1,0 +1,11 @@
+@CHARSET "EUC-KR";
+a{
+	padding : 320px;
+}
+a#nara {
+	background : url('../bluemarble/image/nara.jpg') no-repeat;
+}
+
+a#nara.bomi {
+	background : url('../bluemarble/image/bomi.png') no-repeat;	
+}

@@ -16,7 +16,7 @@
 		<div id='east'></div>
 		<div id='center'>
 			<div id='naradiv' style="text-align:left" ><h2 class='nara'>플레이어1.<img src='../bluemarble/image/Nara.jpg' width=90 height=30></h2>
-				<input type="button" class='nara' id='narabtn' value="나라 주사위 던지기" onClick="start()">
+				<input type="button" class='nara' id='narabtn' value="나라 주사위 던지기" onClick="start()" name='nara'>
 				<input type="button" class='nara' id='naraYes' value="나라Yes">
 				<input type="button" class='nara' id='naraNo' value="나라No">
 				나라금<input type="text" size = '10' class='nara' id='naraMoney' value="나라Money">
@@ -83,12 +83,23 @@
 		var hyojooposit = 0;
 		var cities = new Array();
 		
-		var nara = $('#nara');
+		var nara = $('#nara');	
 		var hyojoo = $('#hyojoo');
+		var minjung = $('#minjung');
+		var bomi = $('#bomi');
+		
+	
+			
+		
 
 		function start() {
-			var player = 
-			console.log("name 값",$('#narabtn').attr('name'));
+	/* 		var player = $("#narabtn").attr('name');
+						
+			var player2 = $('#',player,'');
+			console.log("player2 = " , player2);
+			
+			console.log("돈", player.attr('money')); */
+			
 		}
 		//초기값 세팅
 		function init() {
