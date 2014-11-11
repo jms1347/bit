@@ -14,22 +14,24 @@ public class Hw {
 	static Connection con = null;
 	static ResultSet rs = null;
 
-	public static void main(String[] args) throws SQLException {
-
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("JDBC 드라이버 로딩됨");
-
-			con = DriverManager.getConnection(
-			"jdbc:mysql://localhost:3306/studydb" +
-			"?useUnicode=true&characterEncoding=utf8",
-			"study",
-			"study");
-			System.out.println("DBMS에 연결됨");
-
-			stmt = con.createStatement();
-			System.out.println("Statement 객체 준비 완료.");
-
+	public static void main(String[] args) throws SQLException {    
+	    try {
+	      //1. java.sql.Driver 구현체 로딩한다.
+	      Class.forName("com.mysql.jdbc.Driver");
+	      System.out.println("JDBC 드라이버 로딩됨");
+	      
+	      //2. DriverManager에게 Connection 객체를 부탁한다.
+	      con = DriverManager.getConnection(
+	          /* jdbc 접속을 위한 URL 정보. DBMS 마다 형식이 약간씩 다르다.*/
+	          "jdbc:mysql://localhost:1111/studydb", 
+	          "study", /* 사용자 아이디 */
+	          "study"); /* 사용자 암호 */
+	      System.out.println("DBMS에 연결됨");
+	      
+	      //3. Statement 객체 얻기
+	      stmt = con.createStatement();
+	      System.out.println("Statement 객체 준비 완료.");
+	      while(true){
 			System.out.print("명령> ");
 			String[] command = sc.nextLine().split(" ");
 
@@ -50,6 +52,7 @@ public class Hw {
 				delete(command[1]);
 				break;
 			}
+	      }
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -67,6 +70,7 @@ public class Hw {
 			}
 			System.out.println("DBMS와 연결 끊음");
 		}
+		
 	}
 
 	public static void delete(String command) throws SQLException {
@@ -111,6 +115,7 @@ public class Hw {
 				" PNAME='" + pname + "', QTY= " + qty + ", MKNO= " + mkno +
 				" WHERE PNO=" + index);
 				System.out.println("변경하였습니다.");
+				continue;
 
 			} else {
 				System.out.println("1번 - 애플");
