@@ -1,4 +1,4 @@
-package homework;
+package hw2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
