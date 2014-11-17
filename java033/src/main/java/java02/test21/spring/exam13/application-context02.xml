@@ -29,6 +29,8 @@
  	 			xmlns:schemaLocation 속성에 네임스페이스 파일 경로 추가한다.
  	 			네임스페이스명 (공백;white space, new line, tab) 네임스페이스URL 
  	 -->
+ 	 
+ 	 <!-- ↙애노테이션을 처리할 관련 BeanPostProcessor 자동으로 등록한다.  -->
  	<context:annotation-config></context:annotation-config>
  	
  	<bean id = "engine01" class="java02.test21.spring.exam13.Engine"
@@ -44,7 +46,15 @@
       <property name="cc" value="800"/>
     </bean>
     
+    <bean id="c02" class="java02.test21.spring.exam13.Car3">
+      <property name="model" value="소나타"/>
+      <property name="cc" value="1998"/>
+    </bean>
 
+ 	<bean id="c03" class="java02.test21.spring.exam13.Car4">
+      <property name="model" value="그랜져"/>
+      <property name="cc" value="3000"/>
+    </bean>
 </beans>
 
 
