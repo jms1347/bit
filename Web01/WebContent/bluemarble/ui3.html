@@ -9,62 +9,82 @@
 <script src='gamepan.js'></script>
 <script src='dice.js'></script>
 <script src='City.js'></script>
-<script src='Move.js'></script>
+<!-- <script src='Move.js'></script> -->
+<script src='hyojooplayer.js'></script>
+<script src='minjungplayer.js'></script>
+<script src='bomiplayer.js'></script>
+<script src='naraplayer.js'></script>
 <body>
 	<div id='gamepan'>
 		<div id='north'></div>
 		<div id='east'></div>
 		<div id='center'>
-			<div id='naradiv' style="text-align:left" ><h2 class='nara'>플레이어1.<img src='../bluemarble/image/Nara.jpg' width=90 height=30></h2>
-				<input type="button" class='nara' id='narabtn' value="나라 주사위 던지기" onClick="start()" name='nara'>
-				<input type="button" class='nara' id='naraYes' value="나라Yes">
+			<div id='naradiv' style="text-align: left">
+				<h2 class='nara'>
+					플레이어1.<img src='../bluemarble/image/Nara.jpg' width=90 height=30>
+				</h2>
+				<input type="button" class='nara' id='narabtn' value="나라 주사위 던지기"
+					onclick="narathrowdice()"> <input type="button"
+					class='nara' id='naraYes' value="나라Yes" onclick="NaraCityBuy()">
 				<input type="button" class='nara' id='naraNo' value="나라No">
-				나라금<input type="text" size = '10' class='nara' id='naraMoney' value="나라Money">
-				나라위치<input type="text" size='8' class='nara' id='naraPosit' value="나라posit">
+				나라금<input type="text" size='10' class='nara' id='naraMoney'
+					value="나라Money"> 나라위치<input type="text" size='8'
+					class='nara' id='naraPosit' value="나라posit">
 			</div>
-			<div id='hyojoodiv' style="text-align:right">
-				<h2 class='hyojoo' ><img src='../bluemarble/image/Hyojoo.jpg' width=90 height=30>.플레이어2</h2>
-				
-				효주위치<input type="text" size = '8' class='hyojoo' id='hyojooPosit' value="효주posit">
-				효주금<input type="text" size = '10' class='hyojoo' id='hyojooMoney' value="효주Money">
-				
-				<input type="button" class='hyojoo' id='hyojooYes' value="효주Yes">
+			<div id='hyojoodiv' style="text-align: right">
+				<h2 class='hyojoo'>
+					<img src='../bluemarble/image/Hyojoo.jpg' width=90 height=30>.플레이어2
+				</h2>
+
+				효주위치<input type="text" size='8' class='hyojoo' id='hyojooPosit'
+					value="효주posit"> 효주금<input type="text" size='10'
+					class='hyojoo' id='hyojooMoney' value="효주Money"> <input
+					type="button" class='hyojoo' id='hyojooYes' value="효주Yes" onclick="HyojooCityBuy()">
 				<input type="button" class='hyojoo' id='hyojooNo' value="효주No">
-				<input type="button" class='hyojoo' id='hyojoobtn' value="효주 주사위 던지기" onClick="hyojoothrowdice()">
+				<input type="button" class='hyojoo' id='hyojoobtn'
+					value="효주 주사위 던지기" onClick="hyojoothrowdice()">
 			</div>
 
 			<div id='dicediv'>
-				<img id= dice src="../bluemarble/image/d1.gif" name="dice1">
-				<img id= dice src="../bluemarble/image/d1.gif" name="dice2"><br> 
+				<img id=dice src="../bluemarble/image/d1.gif" name="dice1"> <img
+					id=dice src="../bluemarble/image/d1.gif" name="dice2"><br>
 			</div>
-			
+
 			<div>
 				<input type="button" class='sil' id='sil' value='게임시작(초기화)'
 					onClick="init()">
 			</div>
 			<div>
-				<img id=centerbg src="../bluemarble/image/centerbg.gif" >
+				<img id=centerbg src="../bluemarble/image/centerbg.gif">
 			</div>
-			
-			<div id='minjungdiv' style="text-align:right">
-				<h2 class = 'minjung' ><img src='../bluemarble/image/Minjung.jpg' width=90 height=30>.플레이어3</h2>
-				
-				민정위치<input type="text" size='8' class = 'minjung' id='minjungPosit' value="민정posit">
-				민정금<input type="text" size='10' class = 'minjung' id='minjungMoney' value="민정Money">
-				
-				<input type="button" class = 'minjung' id='minjungYes' value="민정Yes">
-				<input type="button" class = 'minjung' id='minjungNo' value="민정No">
-				<input type="button" class = 'minjung' id='minjungbtn' value="민정 주사위 던지기" onClick="start()">
-				
+
+			<div id='minjungdiv' style="text-align: right">
+				<h2 class='minjung'>
+					<img src='../bluemarble/image/Minjung.jpg' width=90 height=30>.플레이어3
+				</h2>
+
+				민정위치<input type="text" size='8' class='minjung' id='minjungPosit'
+					value="민정posit"> 민정금<input type="text" size='10'
+					class='minjung' id='minjungMoney' value="민정Money"> <input
+					type="button" class='minjung' id='minjungYes' value="민정Yes" onclick="MinjungCityBuy()">
+				<input type="button" class='minjung' id='minjungNo' value="민정No">
+				<input type="button" class='minjung' id='minjungbtn'
+					value="민정 주사위 던지기" onClick="minjungthrowdice()">
+
 			</div>
-			<div id='bomidiv' style="text-align:left" ><h2 class='bomi'>플레이어4.<img src='../bluemarble/image/Bomi.png' width=90 height=30></h2>
-				<input type="button" class='bomi' id='bomibtn' value="보미 주사위 던지기" onClick="start()">
-				<input type="button" class='bomi' id='bomiYes' value="보미Yes">
-				<input type="button" class='bomi' id='bomiNo' value="보미No">
-				보미금<input type="text" size='10' class='bomi' id='bomiMoney' value="보미Money">
-				보미위치<input type="text" size='8' class='bomi' id='bomiPosit' value="보미posit">
+			<div id='bomidiv' style="text-align: left">
+				<h2 class='bomi'>
+					플레이어4.<img src='../bluemarble/image/Bomi.png' width=90 height=30>
+				</h2>
+				<input type="button" class='bomi' id='bomibtn' value="보미 주사위 던지기"
+					onClick="bomithrowdice()"> <input type="button" class='bomi'
+					id='bomiYes' value="보미Yes" onclick="BomiCityBuy()"> <input type="button"
+					class='bomi' id='bomiNo' value="보미No"> 보미금<input
+					type="text" size='10' class='bomi' id='bomiMoney' value="보미Money">
+				보미위치<input type="text" size='8' class='bomi' id='bomiPosit'
+					value="보미posit">
 			</div>
-			
+
 
 
 		</div>
@@ -81,80 +101,45 @@
 	<script>
 		var naraposit = 0;
 		var hyojooposit = 0;
+		var minjungposit = 0;
+		var bomiposit =0;
 		var cities = new Array();
-		
-		var nara = $('#nara');	
-		var hyojoo = $('#hyojoo');
-		var minjung = $('#minjung');
-		var bomi = $('#bomi');
-		
-	
-			
-		
 
-		function start() {
-	/* 		var player = $("#narabtn").attr('name');
-						
-			var player2 = $('#',player,'');
-			console.log("player2 = " , player2);
-			
-			console.log("돈", player.attr('money')); */
-			
-		}
+		var nara = $('#nara');
+		var hyojoo = $('#hyojoo');
+
+/* 		function start() {
+			for (var i = 0; i < player.length; i++) {
+				console.log("player", [ i ], '=', player[i]);
+			}
+			console.log('nare', nara);
+		} */
 		//초기값 세팅
 		function init() {
-			
-			$('#nara').prependTo('#div0').css('position', 'absolute')
-										 .css('margin', '10px')
-										 .attr('money',5000000)
-										 .attr('owner','nara')
-										 .attr('posit',0);
-			$('#hyojoo').prependTo("#div0").css('position','absolute')
-											.css('margin', '25px')
-											.attr('money',5000000)
-											.attr('owner','hyojoo')
-											.attr('posit',0);
-			$('#minjung').prependTo("#div0").css('position','absolute')
-											.css('margin', '0px')
-											.attr('money',5000000)
-											.attr('owner','minjung')
-											.attr('posit',0);
-			$('#bomi').prependTo("#div0").css('position','absolute')
-										.css('margin', '35px')
-										.attr('money',5000000)
-										.attr('owner','bomi')
-										.attr('posit',0);
 
-			 console.log('초기값 세팅');
+			$('#nara').prependTo('#div0').css('position', 'absolute').css(
+					'margin', '10px').attr('money', 5000000).attr('owner',
+					'nara').attr('posit', 0);
+			$('#hyojoo').prependTo("#div0").css('position', 'absolute').css(
+					'margin', '25px').attr('money', 5000000).attr('owner',
+					'hyojoo').attr('posit', 0);
+			$('#minjung').prependTo("#div0").css('position', 'absolute').css(
+					'margin', '0px').attr('money', 5000000).attr('owner',
+					'minjung').attr('posit', 0);
+			$('#bomi').prependTo("#div0").css('position', 'absolute').css(
+					'margin', '35px').attr('money', 5000000).attr('owner',
+					'bomi').attr('posit', 0);
+
+			console.log('초기값 세팅');
 			naraposit = 0;
 			hyojooposit = 0;
-		};
+			minjungposit = 0;
+			bomiposit =0;
+
 		
-		function cityBuy(){ //성을 산다고 했을경우
-			var money = $('#nara').attr('money');
-			var owner = $('#nara').attr('owner');
-			var price = cities[naraposit].price;
-			
-			console.log(money);
-			console.log(owner);
-			
-	          if(cities[naraposit].awner == ""){
-	        	  //money = (money - price);
-	        	  $('#nara').attr('money', (money-price));
-	        	  console.log("성 가격", price);
-	            cities[naraposit].awner = owner;
-	            
-	            console.log("money1",nara.attr('money'));
-	            console.log("owner1",nara.attr('owner'));
-	              
-	            
-	          }else if(cities[naraposit].awner == $('#nara').attr('owner')){
-	        	  cities[naraposit].level = (cities[naraposit].level + 1);
-	        	  
-	        	  console.log("money2" ,nara.attr('money'));
-	              console.log("owner2",nara.attr('owner'));
-	          } 
-		} 
+		};
+
+		
 	</script>
 
 </body>

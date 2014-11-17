@@ -14,17 +14,6 @@ face5.src = "../bluemarble/image/d6.gif"
 var randomdice1;
 var randomdice2;
 
-function throwdice(player) {
-	randomdice1 = Math.round((Math.random() * 5));
-	randomdice2 = Math.round((Math.random() * 5));
-	document.images["dice1"].src = eval("face" + randomdice1 + ".src");
-	document.images["dice2"].src = eval("face" + randomdice2 + ".src");
-	
-	console.log(randomdice1+1);
-	console.log(randomdice2+1);
-	move(player);
-}
-
 function narathrowdice() {
 	randomdice1 = Math.round((Math.random() * 5));
 	randomdice2 = Math.round((Math.random() * 5));

@@ -8,7 +8,7 @@
 						'#div' + i + '');
 				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
 						.css("background-color", "lightgray");
-				$('<div id = "infor'+i+'">통행료\n3000</div>').appendTo(
+				$('<div id = "infor'+i+'"> </div>').appendTo(
 						'#div' + i + '');
 			}
 
@@ -19,7 +19,7 @@
 						'#div' + i + '');
 				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
 						.css("background-color", "lightgray");
-				$('<div id = "infor'+i+'">통행료\n4000</div>').appendTo(
+				$('<div id = "infor'+i+'"> </div>').appendTo(
 						'#div' + i + '');
 			}
 
@@ -30,7 +30,7 @@
 						'#div' + i + '');
 				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
 						.css("background-color", "lightgray");
-				$('<div id = "infor'+i+'">통행료\n5000</div>').appendTo(
+				$('<div id = "infor'+i+'"> </div>').appendTo(
 						'#div' + i + '');
 			}
 			for (var i = 39; i > 30; i--) {
@@ -39,6 +39,7 @@
 				$('<img src ="../bluemarble/image/bg'+i+'.png">').appendTo('#div' + i + '');
 				$('<div id = "flag'+i+'">깃발</div>').appendTo('#div' + i + '')
 													.css("background-color", "lightgray");
-				$('<div id = "infor'+i+'">통행료\n6000</div>').appendTo('#div' + i + '');
+				$('<div id = "infor'+i+'"> </div>').appendTo('#div' + i + '');
 			}
+
 		});

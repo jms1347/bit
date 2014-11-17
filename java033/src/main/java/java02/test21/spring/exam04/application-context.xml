@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <!-- 프로퍼티 설정하기 => setter 메서드 호출 -->
+	<bean id = "b01" class="java02.test21.spring.exam04.Car">
+		<property name="model"><value>티코</value></property>
+		<property name="cc"><value>800</value></property>		
+	</bean>
+	<bean id = "b02" class="java02.test21.spring.exam04.Car">
+		<property name="model" value="소나타"></property>
+		<property name="cc" value="1998"></property>		
+	</bean>
+	
+	
+</beans>
+
+
+
+
+
+
+
