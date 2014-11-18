@@ -38,6 +38,10 @@ public class Test01 {
     Car c6 = (Car)ctx.getBean("b06");
     System.out.println(c6.getModel());
     System.out.println(c6.getCc());
+    System.out.println("-------------------------------");
+    Car c7 = (Car)ctx.getBean("b07");
+    System.out.println(c7.getModel());
+    System.out.println(c7.getCc());
   }
 }
 

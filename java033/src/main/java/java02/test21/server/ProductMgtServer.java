@@ -13,22 +13,23 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 public class ProductMgtServer {
-   
+  
   Scanner scanner; 
   ApplicationContext appCtx;
   CommandMapping commandMapping;
   
-  public void init() throws Exception { 
+  public void init() throws Exception {
     scanner = new Scanner(System.in);
     
     appCtx = new ClassPathXmlApplicationContext(
-             new String[]{"java02/test21/server/application-context.xml"});
+            new String[]{
+                "java02/test21/server/application-context.xml"});
     
     // objPool에서 @Command 애노테이션이 붙은 메서드를 찾는다.
     // 명령어와 메서드 연결 정보를 구축한다.
     commandMapping = new CommandMapping();
     commandMapping.prepare(
-    		appCtx.getBeansWithAnnotation(Component.class).values());
+        appCtx.getBeansWithAnnotation(Component.class).values()); //맵객체의 밸류값만 뽑아라
   }
   
   class ServiceThread extends Thread {

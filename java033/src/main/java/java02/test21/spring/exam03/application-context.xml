@@ -38,6 +38,12 @@
 		<constructor-arg value="봉고" type="String"></constructor-arg>
 	</bean>
 	
+		<bean id = "b07" class="java02.test21.spring.exam03.Car">
+		<constructor-arg value="봉고" ></constructor-arg>
+		<constructor-arg value="1500" ></constructor-arg>
+		
+	</bean>
+	
 </beans>
 
 

@@ -1,4 +1,4 @@
-package java02.test21.server.Dao;
+package java02.test21.server.dao;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductDao {
-	@Autowired
+  @Autowired
   SqlSessionFactory sqlSessionFactory;
 
   public ProductDao() {}

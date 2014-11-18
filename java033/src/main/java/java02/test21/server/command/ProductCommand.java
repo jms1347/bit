@@ -2,8 +2,9 @@ package java02.test21.server.command;
 
 import java.io.PrintStream;
 import java.util.Map;
-import java02.test21.server.Dao.ProductDao;
+
 import java02.test21.server.annotation.Command;
+import java02.test21.server.dao.ProductDao;
 import java02.test21.server.domain.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductCommand {
-	@Autowired
+  @Autowired
   ProductDao productDao;
-  
-  
+
   @Command("product/add")
   public void add(Map<String, Object> params) {
     PrintStream out = (PrintStream)params.get("out");
