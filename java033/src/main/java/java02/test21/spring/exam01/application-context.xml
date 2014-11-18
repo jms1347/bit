@@ -11,5 +11,4 @@
     <bean id="b01" class="java02.test21.spring.exam01.Car"/>
     <bean id="b02" class="java02.test21.spring.exam01.Car"/>
     <bean id="b03" class="java02.test21.spring.exam01.Car"/>
-
 </beans>

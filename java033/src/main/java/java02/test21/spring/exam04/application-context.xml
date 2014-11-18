@@ -13,8 +13,6 @@
 		<property name="model" value="소나타"></property>
 		<property name="cc" value="1998"></property>		
 	</bean>
-	
-	
 </beans>
 
 

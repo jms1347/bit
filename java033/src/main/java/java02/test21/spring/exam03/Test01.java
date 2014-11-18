@@ -33,6 +33,11 @@ public class Test01 {
     Car c5 = (Car)ctx.getBean("b05");
     System.out.println(c5.getModel());
     System.out.println(c5.getCc());
+    
+    System.out.println("-------------------------------");
+    Car c6 = (Car)ctx.getBean("b06");
+    System.out.println(c6.getModel());
+    System.out.println(c6.getCc());
   }
 }
 

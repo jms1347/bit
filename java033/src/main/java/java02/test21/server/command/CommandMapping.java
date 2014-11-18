@@ -1,4 +1,4 @@
-package java02.test21.server;
+package java02.test21.server.command;
 
 import java.lang.reflect.Method;
 import java.util.Collection;

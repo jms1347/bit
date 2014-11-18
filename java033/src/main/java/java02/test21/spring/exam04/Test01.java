@@ -22,8 +22,6 @@ public class Test01 {
     
     Car c2 = (Car)ctx.getBean("b02");
     System.out.println(c2);
-    
-
   }
 }
 

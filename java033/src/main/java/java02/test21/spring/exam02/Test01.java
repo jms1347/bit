@@ -43,6 +43,15 @@ public class Test01 {
     
     Car c32 = (Car)ctx.getBean("java02.test21.spring.exam02.Car#1");
     Car c33 = (Car)ctx.getBean("java02.test21.spring.exam02.Car#2");
+    
+    Car c100 = (Car)ctx.getBean("b100");
+    Car c101 = (Car)ctx.getBean("b101");
+    Car c102 = (Car)ctx.getBean("b102");
+    Car c103 = (Car)ctx.getBean("b103");
+    System.out.println(c100);
+    System.out.println(c101);
+    System.out.println(c102);
+    System.out.println(c103);
   }
 }
 

@@ -33,6 +33,11 @@
 		<constructor-arg value="123" index="0"></constructor-arg>
 	</bean>
 	
+	<bean id = "b06" class="java02.test21.spring.exam03.Car">
+		<constructor-arg value="1500" type="int"></constructor-arg>
+		<constructor-arg value="봉고" type="String"></constructor-arg>
+	</bean>
+	
 </beans>
 
 

@@ -29,8 +29,7 @@
 	<bean class = "java02.test21.spring.exam02.Car"></bean>
 	<bean class = "java02.test21.spring.exam02.Car"></bean>
 	<bean class = "java02.test21.spring.exam02.Car"></bean>
-	
-	
+
 </beans>
 
 
