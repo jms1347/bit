@@ -19,10 +19,7 @@ public class Test01 {
     
     Car c1 = (Car)ctx.getBean("b01");
     System.out.println(c1);
-    
-
   }
-
 }
 
 

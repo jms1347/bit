@@ -10,11 +10,21 @@
 	<bean id = "b01" class="java02.test21.spring.exam05.Car" p:model="그랜저" p:cc="3000">
 	</bean>
 	
+	
 	<!-- p 네임스페이스를 사용하여 생성자 파라미터 지정하기 -->
 	<bean id = "b02" class="java02.test21.spring.exam05.Car" c:model="에쿠스" c:cc="3800">
 	</bean>
 	
+	<bean id = "b03" class="java02.test21.spring.exam05.Car" >
+		<property name="model" value="봉고"></property>
+		<property name="cc"><value>2500</value></property>
+	</bean>
 	
+	<bean id = "b04" class="java02.test21.spring.exam05.Car" p:model="BMW" p:cc="3300">
+	</bean>
+	
+	<bean id = "b05" class="java02.test21.spring.exam05.Car" p:model="BMW" p:cc="3300">
+	</bean>
 </beans>
 
 

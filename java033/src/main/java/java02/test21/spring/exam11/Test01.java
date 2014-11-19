@@ -22,9 +22,15 @@ public class Test01 {
    
    Engine e02 = (Engine)ctx.getBean("engine");
    System.out.println(e02);
-   
    if(e01 != e02) System.out.println("e01!=e02");
    
+   Engine e04 = (Engine)ctx.getBean("engine2");
+   System.out.println(e04);
+   
+   Engine e05 = (Engine)ctx.getBean("engine2");
+   System.out.println(e05);
+   
+   if(e04 == e05) System.out.println("e04==e05");
   }
 }
 

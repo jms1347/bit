@@ -28,12 +28,16 @@ public class Test01 {
     
     if(c1.getEngine() == c2.getEngine()) System.out.println("c1의 엔진과 c2의 엔진이 같다.");
     if(c1.getEngine() == c3.getEngine()) System.out.println("c1의 엔진과 c3의 엔진이 같다.");
+
     
     Car c4 = (Car)ctx.getBean("b04");
     System.out.println(c4);
     
     Car c5 = (Car)ctx.getBean("b05");
     System.out.println(c5);
+    
+    if(c1.getEngine() == c4.getEngine()) System.out.println("c1의 엔진과 c4의 엔진이 같다.");
+    if(c5.getEngine() == c4.getEngine()) System.out.println("c5의 엔진과 c4의 엔진이 같다.");
   }
 }
 
