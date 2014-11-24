@@ -25,42 +25,42 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 @WebServlet("/test02/product/add")
 public class ProductAddServlet extends GenericServlet {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	SqlSessionFactory sqlSessionFactory;
-	ProductDao productDao;
-
-	public ProductAddServlet() {
-		try {
-			String resource = "java63/servlets/test02/dao/mybatis-config.xml";
-			InputStream inputStream = Resources.getResourceAsStream(resource);
-			sqlSessionFactory = 
-					new SqlSessionFactoryBuilder().build(inputStream);
-
-			productDao = new ProductDao();
-			productDao.setSqlSessionFactory(sqlSessionFactory);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void service(ServletRequest request, ServletResponse response)
-			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-
-		Product product = new Product();
-		product.setName(request.getParameter("name"));
-		product.setQuantity(Integer.parseInt(request.getParameter("qty")));
-		product.setMakerNo(Integer.parseInt(request.getParameter("mkno")));
-
-		productDao.insert(product);
-
-		HttpServletResponse orginResponse = (HttpServletResponse)response;
-		orginResponse.sendRedirect("list");
-	}
-
+  SqlSessionFactory sqlSessionFactory;
+  ProductDao productDao;
+  
+  public ProductAddServlet() {
+    try {
+      String resource = "java63/servlets/test02/dao/mybatis-config.xml";
+      InputStream inputStream = Resources.getResourceAsStream(resource);
+      sqlSessionFactory = 
+          new SqlSessionFactoryBuilder().build(inputStream);
+      
+      productDao = new ProductDao();
+      productDao.setSqlSessionFactory(sqlSessionFactory);
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+  
+  @Override
+  public void service(ServletRequest request, ServletResponse response)
+      throws ServletException, IOException {
+    request.setCharacterEncoding("UTF-8");
+    
+    Product product = new Product();
+    product.setName(request.getParameter("name"));
+    product.setQuantity(Integer.parseInt(request.getParameter("qty")));
+    product.setMakerNo(Integer.parseInt(request.getParameter("mkno")));
+    
+    productDao.insert(product);
+    
+    HttpServletResponse orginResponse = (HttpServletResponse)response;
+    orginResponse.sendRedirect("list");
+  }
+  
 }
 
 

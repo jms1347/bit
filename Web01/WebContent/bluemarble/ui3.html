@@ -9,11 +9,8 @@
 <script src='gamepan.js'></script>
 <script src='dice.js'></script>
 <script src='City.js'></script>
-<!-- <script src='Move.js'></script> -->
-<script src='hyojooplayer.js'></script>
-<script src='minjungplayer.js'></script>
-<script src='bomiplayer.js'></script>
-<script src='naraplayer.js'></script>
+<script src='Move.js'></script>
+<script src='CityBuy.js'></script>
 <body>
 	<div id='gamepan'>
 		<div id='north'></div>
@@ -97,23 +94,22 @@
 	<img src='../bluemarble/image/Minjung.jpg' id='minjung' name='minjung'>
 	<img src='../bluemarble/image/Bomi.png' id='bomi' name='bomi'>
 
-
 	<script>
 		var naraposit = 0;
 		var hyojooposit = 0;
 		var minjungposit = 0;
-		var bomiposit =0;
+		var bomiposit = 0;
 		var cities = new Array();
 
 		var nara = $('#nara');
 		var hyojoo = $('#hyojoo');
 
-/* 		function start() {
+		function start() {
 			for (var i = 0; i < player.length; i++) {
 				console.log("player", [ i ], '=', player[i]);
 			}
 			console.log('nare', nara);
-		} */
+		}
 		//초기값 세팅
 		function init() {
 
@@ -134,12 +130,9 @@
 			naraposit = 0;
 			hyojooposit = 0;
 			minjungposit = 0;
-			bomiposit =0;
+			bomiposit = 0;
 
-		
 		};
-
-		
 	</script>
 
 </body>

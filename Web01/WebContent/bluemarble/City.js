@@ -8,14 +8,16 @@ $(function() {
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[2] = {
 				"name" : "허창",
 				"price" : 600000,
 				"toll" : 150000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[3] = {
 				"name" : "열쇠"
@@ -25,21 +27,24 @@ $(function() {
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[5] = {
 				"name" : "평원",
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[6] = {
 				"name" : "진류",
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[7] = {
 				"name" : "동맹"
@@ -49,14 +54,16 @@ $(function() {
 				"price" : 600000,
 				"toll" : 150000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[9] = {
 				"name" : "북평",
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[10] = {
 				"name" : "유배지"
@@ -67,28 +74,32 @@ $(function() {
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[12] = {
 				"name" : "하비",
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[13] = {
 				"name" : "북해",
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[14] = {
 				"name" : "수춘",
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[15] = {
 				"name" : "열쇠"
@@ -98,28 +109,32 @@ $(function() {
 				"price" : 600000,
 				"toll" : 150000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[17] = {
 				"name" : "오",
 				"price" : 400000,
 				"toll" : 100000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[18] = {
 				"name" : "회계",
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[19] = {
 				"name" : "여강",
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[20] = {
 				"name" : "이벤트2"
@@ -130,14 +145,16 @@ $(function() {
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[22] = {
 				"name" : "장사",
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[23] = {
 				"name" : "열쇠"
@@ -147,21 +164,24 @@ $(function() {
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[25] = {
 				"name" : "신야",
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[26] = {
 				"name" : "양양",
 				"price" : 600000,
 				"toll" : 150000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[27] = {
 				"name" : "동맹"
@@ -171,14 +191,16 @@ $(function() {
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[29] = {
 				"name" : "영안",
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[30] = {
 				"name" : "이벤트3"
@@ -189,28 +211,32 @@ $(function() {
 				"price" : 200000,
 				"toll" : 50000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[32] = {
 				"name" : "건녕",
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[33] = {
 				"name" : "강주",
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[34] = {
 				"name" : "성도",
 				"price" : 600000,
 				"toll" : 150000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[35] = {
 				"name" : "열쇠"
@@ -220,28 +246,32 @@ $(function() {
 				"price" : 300000,
 				"toll" : 80000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[37] = {
 				"name" : "한중",
 				"price" : 400000,
 				"toll" : 100000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[38] = {
 				"name" : "낙양",
 				"price" : 1000000,
 				"toll" : 250000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 			cities[39] = {
 				"name" : "장안",
 				"price" : 600000,
 				"toll" : 150000,
 				"level" : 1,
-				"awner" : ""
+				"awner" : "",
+				"duty": 0
 			};
 
 		});

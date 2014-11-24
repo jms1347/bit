@@ -3,8 +3,48 @@
 	width : 80px;
 	height : 20px;
   position : absolute;
-  
 }
+#bg3{
+	widht:80px;
+	height :80px;
+}
+#bg15{
+	widht:80px;
+	height :80px;
+}
+#bg23{
+	widht:80px;
+	height :80px;
+}
+#bg35{
+	widht:80px;
+	height :80px;
+}
+#bg7{
+	widht:80px;
+	height :80px;
+}
+#bg27{
+	widht:80px;
+	height :80px;
+}
+#bg10{
+	widht:80px;
+	height :80px;
+}
+#bg0{
+	widht:80px;
+	height :80px;
+}
+#bg20{
+	widht:80px;
+	height :80px;
+}
+#bg30{
+	widht:80px;
+	height :80px;
+}
+
 #infor*{	
 	width:80px;
 	height:40px;	
@@ -170,5 +210,5 @@
 }
 #centerbg{
 	margin-bottom : -40px;
+	
 }
-
