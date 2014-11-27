@@ -35,6 +35,12 @@
     <result column="MKNAME" property="maker"/>
   </resultMap>
   
+  <resultMap type="ProductPhoto" id="productPhotoMap">
+    <id column="PPNO" property="no"/>
+    <result column="PNO" property="productNo"/>
+    <result column="URL" property="url"/>
+  </resultMap>
+  
   <sql id="productSelect">
     SELECT PNO, PNAME, QTY, MKNO 
     FROM PRODUCTS
@@ -83,6 +89,15 @@
     INSERT INTO PROD_PHOTS(PNO,URL) 
     VALUES (#{no}, #{photo})
   </insert>
+  
+  <select id="selectPhoto" parameterType="int" 
+      resultMap="productPhotoMap">
+    SELECT PPNO, PNO, URL
+    FROM PROD_PHOTS
+    <if test="value > 0">
+    WHERE PNO = #{value}
+    </if>
+  </select>
 </mapper>
 
 

@@ -20,56 +20,56 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 @WebServlet("/product/add.do")
 public class ProductAddServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	@Override
-	protected void doGet(
-			HttpServletRequest request, 
-			HttpServletResponse response)
-					throws ServletException, IOException {
+  @Override
+  protected void doGet(
+      HttpServletRequest request, 
+      HttpServletResponse response)
+          throws ServletException, IOException {
 
-		ApplicationContext appCtx =
-				WebApplicationContextUtils.getWebApplicationContext(
-						this.getServletContext());
+    ApplicationContext appCtx =
+        WebApplicationContextUtils.getWebApplicationContext(
+            this.getServletContext());
 
-		MakerDao makerDao = (MakerDao)appCtx.getBean("makerDao");
-		request.setAttribute("makers", makerDao.selectNameList());
+    MakerDao makerDao = (MakerDao)appCtx.getBean("makerDao");
+    request.setAttribute("makers", makerDao.selectNameList());
 
-		RequestDispatcher rd = 
-				request.getRequestDispatcher("/product/ProductForm.jsp");
-		rd.forward(request, response);
-	}
+    RequestDispatcher rd = 
+        request.getRequestDispatcher("/product/ProductForm.jsp");
+    rd.forward(request, response);
+  }
 
-	@Override
-	public void doPost(
-			HttpServletRequest request, 
-			HttpServletResponse response)
-					throws ServletException, IOException {
-		try {
-			Map<String,String> paramMap = FileUploadHelper.parse(request);
+  @Override
+  public void doPost(
+      HttpServletRequest request, 
+      HttpServletResponse response)
+          throws ServletException, IOException {
+    try {
+      Map<String,String> paramMap = FileUploadHelper.parse(request);
 
-			Product product = new Product();
-			product.setName(paramMap.get("name"));
-			product.setQuantity(Integer.parseInt(paramMap.get("qty")));
-			product.setMakerNo(Integer.parseInt(paramMap.get("mkno")));
-			product.setPhoto(paramMap.get("photo"));
+      Product product = new Product();
+      product.setName(paramMap.get("name"));
+      product.setQuantity(Integer.parseInt(paramMap.get("qty")));
+      product.setMakerNo(Integer.parseInt(paramMap.get("mkno")));
+      product.setPhoto(paramMap.get("photo"));
 
-			ApplicationContext appCtx =
-					WebApplicationContextUtils.getWebApplicationContext(
-							this.getServletContext());
+      ApplicationContext appCtx =
+          WebApplicationContextUtils.getWebApplicationContext(
+              this.getServletContext());
 
-			ProductDao productDao = (ProductDao)appCtx.getBean("productDao");
-			productDao.insert(product);
-			productDao.insertPhoto(product);
-			response.sendRedirect("list.do");
+      ProductDao productDao = (ProductDao)appCtx.getBean("productDao");
+      productDao.insert(product);
+      productDao.insertPhoto(product);
+      response.sendRedirect("list.do");
 
-		} catch (Exception e) {
-			RequestDispatcher rd = 
-					request.getRequestDispatcher("/common/Error.jsp");
-			request.setAttribute("error", e);
-			rd.forward(request, response);
-		}
-	}
+    } catch (Exception e) {
+      RequestDispatcher rd = 
+          request.getRequestDispatcher("/common/Error.jsp");
+      request.setAttribute("error", e);
+      rd.forward(request, response);
+    }
+  }
 
 }
 
