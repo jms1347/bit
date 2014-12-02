@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>JSON 사용</h1>
+	<table id='boardTable' border='1'>
+	<tr>
+	  <th>번호</th><th>제목</th><th>작성자</th>
+	</tr>
+	</table>
+	
+	<script type="text/javascript">
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4) {
+			if (xhr.status == 200) {
+				//var list = eval('(' + xhr.responseText + ')');
+				var list = JSON.parse(xhr.responseText);
+				
+				var table = document.getElementById('boardTable');
+				
+				for (var i = 0; i < list.length; i++) {
+					var tr = document.createElement('tr');
+					
+					// innerHTML => 해당 콘텐츠를 해석해서 처리함.
+					// textContent => 해석하지 않음. 그냥 문자열로 취급함.
+					tr.innerHTML = '<td>' + list[i].no + '</td>'
+					  + '<td>' + list[i].subject + '</td>'
+					  + '<td>' + list[i].writer + '</td>';
+					  
+			    table.appendChild(tr);
+				}
+			}
+		}
+	};
+	
+	xhr.open("GET", "board_list.jsp", true);
+	xhr.send();
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

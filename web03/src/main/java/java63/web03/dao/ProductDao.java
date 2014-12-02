@@ -21,6 +21,8 @@ public interface ProductDao {
   void insert(Product product);
   void insertPhoto(Product product);
   List<?> selectPhoto(int productNo);
+  void deletePhoto(int productNo);
+  int totalSize();
 }
 
 

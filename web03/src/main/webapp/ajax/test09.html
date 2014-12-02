@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>jQuery 사용하여 AJAX 처리</h1>
+	<table id='boardTable' border='1'>
+	<tr>
+	  <th>번호</th><th>제목</th><th>작성자</th>
+	</tr>
+	</table>
+	
+	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+	//$.getJSON( URL, 함수 );
+	$.getJSON('board_list.jsp', function(data){
+       for (var i = 0; i < data.length; i++) {
+         $('<tr>')
+           .append($('<td>').html(data[i].no))
+           .append($('<td>').html(data[i].subject))
+           .append($('<td>').html(data[i].writer))
+           .appendTo('#boardTable');
+       }
+     });
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>AJAX 01</h1>
+<p>서버에 동기로 요청하고 응답 결과를 출력하기</p>
+
+<script type="text/javascript">
+//1. 서버 요청을 수행할 객체 준비
+var xhr = new XMLHttpRequest();
+
+//2. 요청 URL 설정:
+//첫번째 파라미터: GET 또는 POST
+//두번째 파라미터: URL
+//세번째 파라미터: 비동기 여부(기본 true)
+xhr.open("GET", "ajax01.jsp", false);
+
+/* 동기와 비동기
+ * 동기 => 서버에서 응답을 완료할 때까지 리턴하지 않는 것.
+ *         일반적인 메서드 호출은 모두 동기방식이다.
+ * 비동기 => 서버에 요청을 한 후 응답에 상관없이 다음 라인을 실행하는 것.
+ *         예) 스레드 실행
+ */
+//3. 서버에 요청하기
+xhr.send();
+
+/* responseText => 서버에서 보낸 응답 결과를 담고 있는 변수 */
+//4. 서버가 보낸 값 출력하기
+console.log(xhr.responseText);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
