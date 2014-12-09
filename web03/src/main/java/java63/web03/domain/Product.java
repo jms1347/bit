@@ -18,6 +18,7 @@ package java63.web03.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,12 +32,19 @@ public class Product implements Serializable {
   protected String          photo;
   protected MultipartFile   photofile;
   protected Date            madeDate;
+  protected List<?>         photoList;
   
   @Override
   public String toString() {
     return "Product [no=" + no + ", name=" + name + ", quantity=" + quantity
         + ", makerNo=" + makerNo + ", photo=" + photo + ", madeDate="
         + madeDate + "]";
+  }
+  public List<?> getPhotoList() {
+    return photoList;
+  }
+  public void setPhotoList(List<?> photoList) {
+    this.photoList = photoList;
   }
   public Date getMadeDate() {
     return madeDate;

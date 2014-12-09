@@ -16,6 +16,7 @@
     <result column="PNAME" property="name"/>
     <result column="QTY" property="quantity"/>
     <result column="MKNO" property="makerNo"/>
+    <result column="MADE_DATE" property="madeDate"/>
   </resultMap>
   
   <resultMap type="ProductListItem" id="productListItemMap">
@@ -42,7 +43,7 @@
   </resultMap>
   
   <sql id="productSelect">
-    SELECT PNO, PNAME, QTY, MKNO 
+    SELECT PNO, PNAME, QTY, MKNO, MADE_DATE 
     FROM PRODUCTS
   </sql>
   
@@ -67,17 +68,22 @@
     WHERE PNO=#{value}
   </select>
   
+  <select id="totalSize" resultType="int">
+    SELECT count(PNO) FROM PRODUCTS
+  </select>
+  
   <insert id="insert" parameterType="Product"
     useGeneratedKeys="true" keyColumn="PNO" keyProperty="no">
-    INSERT INTO PRODUCTS(PNAME,QTY,MKNO) 
-    VALUES (#{name}, #{quantity}, #{makerNo})
+    INSERT INTO PRODUCTS(PNAME,QTY,MKNO,MADE_DATE) 
+    VALUES (#{name},#{quantity},#{makerNo},#{madeDate})
   </insert>
   
   <update id="update" parameterType="Product">
     UPDATE PRODUCTS SET 
       PNAME=#{name},
       QTY=#{quantity},
-      MKNO=#{makerNo} 
+      MKNO=#{makerNo},
+      MADE_DATE=#{madeDate} 
     WHERE PNO=#{no}
   </update>
   
