@@ -1,0 +1,23 @@
+<table id='supplierTable' class="table table-striped table-hover">
+	<thead>
+		<tr class="table_head">
+			<th>CODE</th>
+			<th>ID</th>
+			<th>전화번호</th>
+			<th>상호명</th>
+			<th>대표명</th>
+			<th>&nbsp;</th>
+		</tr>
+
+		{{#each suppliers}}
+		<tr class="data-row">
+			<td>{{no}}</td>
+			<td><a href="#" data-no="{{no}}">{{corpId}}</a></td>
+			<td>{{tel}}</td>
+			<td>{{corpName}}</td>
+			<td>{{headName}}</td>
+			<td><button data-no='{{no}}'
+					class='my-delete-btn btn btn-danger'>삭제</button></td>
+		</tr>
+		{{/each}}
+</table> 

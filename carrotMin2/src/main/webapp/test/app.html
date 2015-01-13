@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../css/datepicker.css">
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap-select.css">
+<link rel='stylesheet' href='../css/IconHoverEffects/css/component.css'>
+<link rel='stylesheet' href='../css/IconHoverEffects/css/default.css'>
+<link rel='stylesheet' href='../css/common.css'>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="main_menu">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="main.html">Swan</a>
+		</div>
+		<div class="navbar-collapse collapse navbar-responsive-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="../supplier/app.html">당일배송확인</a></li>
+				<li><a href="delivery-list.html">배송관리</a></li>
+				<li><a href="order-list.html">주문관리</a></li>
+				<li><a href="../client/app.html">거래처관리</a></li>
+				<li><a href="../goods/app.html">상품관리</a></li>
+			</ul>
+			<form class="navbar-form navbar-right">
+				<div class="hi-icon-wrap hi-icon-effect-2 hi-icon-effect-2a">
+					<a href="#" class="hi-icon hi-icon-cog">설정</a> <a href="#"
+						class="hi-icon hi-icon-list">찾기</a>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+	<div class="bs-component">
+		<div class="sub_bar">
+			<div class="navbar-collapse collapse navbar-responsive-collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown"><a href="#" class="dropdown-toggle1"
+						data-toggle="dropdown">분류<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">채소</a></li>
+							<li><a href="#">과일</a></li>
+							<li><a href="#">육류</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle1"
+						data-toggle="dropdown">정렬<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">코드</a></li>
+							<li><a href="#">분류</a></li>
+							<li><a href="#">상품명</a></li>
+						</ul></li>
+					<div class="subbar_calendar">
+						<input id="datepicker" /> ~ <input id="datepicker2" />
+					</div>
+				</ul>
+
+				<div class="subbar-btn">
+					<button class="btn btn-default" data-toggle="modal" data-target="#myModal" id="add-goods">추가</button>
+					<a href="#" class="btn btn-default">삭제</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="tableform">
+
+		<div id='listDiv'></div>
+
+		
+	<div id='pagingBar'>
+		<button id='prevBtn' type='button' class='btn btn-default'>이전</button>
+		<span id='pageNo'></span>
+		<button id='nextBtn' type='button' class='btn btn-default'>다음</button>
+		
+		
+	</div>
+	
+	<div class='form'></div>
+
+	</div>
+
+
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+	<script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>
+	<script type="text/javascript" src='../js/require.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-select.js"></script>
+	<script type="text/javascript" src="../js/bootswatch.js"></script>
+	<script src='app.js'></script>
+	
+	
+</body>
+</html>

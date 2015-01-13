@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="http://resources/demos/style.css">
+<link rel="stylesheet" href="css/bootstrap.css" media="screen">
+<link rel="stylesheet" href="css/bootswatch.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/datepicker.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+<link rel='stylesheet' href='css/IconHoverEffects/css/component.css'>
+<link rel='stylesheet' href='css/IconHoverEffects/css/default.css'>
+<link rel='stylesheet' href='css/common.css'>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="main_menu">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="main.html">Swan</a>
+		</div>
+		<div class="navbar-collapse collapse navbar-responsive-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="today-list.html">당일배송확인</a></li>
+				<li><a href="delivery-list.html">배송관리</a></li>
+				<li><a href="order-list.html">주문관리</a></li>
+				<li><a href="customer-list.html">거래처관리</a></li>
+				<li><a href="product-list.html">상품관리</a></li>
+			</ul>
+			<form class="navbar-form navbar-right">
+				<div class="hi-icon-wrap hi-icon-effect-2 hi-icon-effect-2a">
+					<a href="#" class="hi-icon hi-icon-cog">설정</a> <a href="#"
+						data-toggle="modal" data-target="#myModal"
+						class="hi-icon hi-icon-list">찾기</a>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class='subject'>
+		<h3>상품정보</h3>
+	</div>
+
+
+	<div class="bs-component">
+		<div class="sub_bar">
+			<div class="navbar-collapse collapse navbar-responsive-collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown"><a href="#" class="dropdown-toggle1"
+						data-toggle="dropdown">분류<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">채소</a></li>
+							<li><a href="#">과일</a></li>
+							<li><a href="#">육류</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle1"
+						data-toggle="dropdown">정렬<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">코드</a></li>
+							<li><a href="#">분류</a></li>
+							<li><a href="#">상품명</a></li>
+						</ul></li>
+					<div class="subbar_calendar">
+						<input id="datepicker" /> ~ <input id="datepicker2" />
+					</div>
+				</ul>
+
+				<div class="subbar-btn">
+					<button class="btn btn-default" id="create-user">추가</button>
+					<a href="#" class="btn btn-default">삭제</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="order-table">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr class="table_head">
+
+					<th>코드</th>
+                  <th>사진</th>
+					<th>분류</th>
+					<th>상품명</th>
+
+					<th>단위</th>
+					<th>가격1</th>
+					<th>가격2</th>
+					<th>가격3</th>
+					<th>메모</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>#10001</td>
+                 <td><img id='imgsize' src='img/a.jpg'></td>
+					<td>채소</td>
+					<td>양파</td>
+
+					<td>EA</td>
+					<td>1000</td>
+					<td>1100</td>
+					<td>1200</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>#10002</td>
+                 <td><img id='imgsize' src='img/1.jpg'></td>
+					<td>채소</td>
+					<td>당근</td>
+
+					<td>EA</td>
+					<td>1900</td>
+					<td>2000</td>
+					<td>2100</td>
+					<td>인상예정</td>
+				</tr>
+				<tr>
+					<td>#10003</td>
+                 <td><img id='imgsize' src='img/b.jpg'></td>
+					<td>채소</td>
+					<td>파</td>
+
+					<td>EA</td>
+					<td>500</td>
+					<td>1100</td>
+					<td>1200</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>#20001</td>
+                 <td><img id='imgsize' src='img/c.jpg'></td>
+					<td>과일</td>
+					<td>멜론</td>
+
+					<td>EA</td>
+					<td>10000</td>
+					<td>11000</td>
+					<td>12000</td>
+					<td>인상예정</td>
+				</tr>
+				<tr>
+					<td>#20002</td>
+                 <td><img id='imgsize' src='img/8.jpg'></td>
+					<td>과일</td>
+					<td>사과</td>
+
+					<td>EA</td>
+					<td>2000</td>
+					<td>2500</td>
+					<td>3000</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>#20003</td>
+                  <td><img id='imgsize' src='img/d.jpg'></td> 
+					<td>과일</td>
+					<td>포도</td>
+
+					<td>EA</td>
+					<td>3000</td>
+					<td>400</td>
+					<td>5000</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>#30001</td>
+                 <td><img id='imgsize' src='img/e.jpg'></td>
+					<td>고기</td>
+					<td>소고기</td>
+
+					<td>Kg</td>
+					<td>7000</td>
+					<td>7500</td>
+					<td>8000</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class="bottom-bar">
+		<div class="btn-group">
+			<ul class="pager">
+				<li class="previous disabled"><a href="#">이전</a></li>
+				<li><a href="#" style="margin: 3%, font-size: 20px">1</a></li>
+				<li><a href="#" style="margin: 3%, font-size: 20px">2</a></li>
+				<li><a href="#" style="margin: 3%, font-size: 20px">3</a></li>
+				<li><a href="#" style="margin: 3%, font-size: 20px">4</a></li>
+				<li><a href="#" style="margin: 3%, font-size: 20px">5</a></li>
+				<li class="next"><a href="#">다음</a></li>
+			</ul>
+
+			<div class="bottom-search">
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control col-lg-8"
+						placeholder="Search">
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">새 주문</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="form-group">
+
+							<label for="select" class="col-lg-2 control-label">상호</label>
+							<div class="col-lg-10">
+								<select id="customer-list" class="selectpicker"
+									data-live-search="true" title="선택해주세요">
+									<option></option>
+									<option>함박식당</option>
+									<option>잡스분식</option>
+									<option>비트분식</option>
+									<option>윤씨식당</option>
+									<option>KFC</option>
+									<option>놀란치킨</option>
+									<option>비트식당</option>
+									<option>돈크레이지</option>
+									<option>강남포차</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="orderdate" class="col-lg-2 control-label">주문일</label>
+							<div id="order-date" class="col-lg-10 input-group date">
+								<input type="text" class="form-control" placeholder="2014/12/23"><span
+									class="input-group-addon"><i
+									class="glyphicon glyphicon-th"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="deliverydate" class="col-lg-2 control-label">배송일</label>
+							<div id="delivery-date" class="col-lg-10 input-group date">
+								<input type="text" class="form-control"><span
+									class="input-group-addon"><i
+									class="glyphicon glyphicon-th"></i></span>
+							</div>
+						</div>
+						<hr>
+
+						<div class="form-group">
+							<table style='margin: 5px' class='new-orderlist table col-lg-10'>
+								<tr class="table_head">
+									<th>No</th>
+									<th>분류</th>
+									<th>상품명</th>
+									<th>수량</th>
+									<th>단위</th>
+									<th>#</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>함박식당</td>
+									<td>2014.12.21</td>
+									<td>2014.12.20</td>
+									<td>3,120,000원</td>
+									<td><button type="button" class="btn btn-danger btn-xs">x</button></td>
+								</tr>
+
+							</table>
+						</div>
+
+						<div class="form-group">
+							<label for="select" class="col-lg-2 control-label">분류</label>
+							<div class="col-lg-3">
+								<select class="form-control" id="select">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<label for="select" class="col-lg-2 control-label">상품명</label>
+							<div class="col-lg-3">
+								<select id="customer-list" class="selectpicker"
+									data-live-search="true" title="선택해주세요">
+									<option></option>
+									<option>함박식당</option>
+									<option>잡스분식</option>
+									<option>비트분식</option>
+									<option>윤씨식당</option>
+									<option>KFC</option>
+									<option>놀란치킨</option>
+									<option>비트식당</option>
+									<option>돈크레이지</option>
+									<option>강남포차</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="select" class="col-lg-2 control-label">수량</label>
+							<div class="col-lg-3">
+								<select class="form-control" id="select">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<label for="select" class="col-lg-2 control-label">단위</label>
+							<div class="col-lg-2">
+
+								<select class="form-control" id="select">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="col-lg-10 col-lg-offset-2">
+								<button type="reset" style="text-align: right"
+									class="btn pull-right btn btn-primary">추가</button>
+							</div>
+
+						</div>
+
+						<hr>
+
+						<div class="form-group">
+							<label for="textArea" class="col-lg-2 control-label">메모</label>
+							<div class="col-lg-10">
+								<textarea class="form-control" rows="3" id="textArea"></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					<button type="button" class="btn btn-primary">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="order-view" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">함박식당 주문내역</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+
+						<div class="form-group">
+
+							<div style="width: 850px; margin-left:3%">
+								<table class="table table-striped table-hover">
+									<thead>
+										<tr class="table_head">
+											<th>No</th>
+											<th>분류</th>
+											<th>상품명</th>
+											<th>수량</th>
+											<th>단위</th>
+											<th>가격</th>
+											<th>주문일</th>
+											<th>배송일</th>
+											<th>메모</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>육류</td>
+											<td>닭고기</td>
+											<td>20</td>
+											<td>kg</td>
+											<td>20,000원</td>
+											<td>14.12.20</td>
+											<td>14.12.21</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>채소</td>
+											<td>파</td>
+											<td>10</td>
+											<td>단</td>
+											<td>20,000원</td>
+											<td>14.12.20</td>
+											<td>14.12.21</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>육류</td>
+											<td>닭고기</td>
+											<td>80</td>
+											<td>kg</td>
+											<td>80,000원</td>
+											<td>14.12.20</td>
+											<td>14.12.21</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>채소</td>
+											<td>옥수수</td>
+											<td>10</td>
+											<td>kg</td>
+											<td>15,000원</td>
+											<td>14.12.20</td>
+											<td>14.12.21</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>과일</td>
+											<td>파인애플</td>
+											<td>5</td>
+											<td>kg</td>
+											<td>60,000원</td>
+											<td>14.12.20</td>
+											<td>14.12.22</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>6</td>
+											<td>기타</td>
+											<td>떡볶이떡</td>
+											<td>5</td>
+											<td>kg</td>
+											<td>20,000원</td>
+											<td>14.12.20</td>
+											<td>14.12.22</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>7</td>
+											<td>면류</td>
+											<td>스파게티</td>
+											<td>5</td>
+											<td>kg</td>
+											<td>10,000원</td>
+											<td>14.12.20</td>
+											<td>14.12.22</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary"
+								data-dismiss="modal">확인</button>
+						</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootswatch.js"></script>
+
+	<script type="text/javascript" src="js/bootstrap-select.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+
+	<script type="text/javascript">
+		$('#order-date').datepicker({
+			format : "yyyy/mm/dd",
+			autoclose : true,
+			todayHighlight : true
+		});
+		$('#delivery-date').datepicker({
+			format : "yyyy/mm/dd",
+			autoclose : true,
+			todayHighlight : true
+		});
+	</script>
+</body>
+</html>

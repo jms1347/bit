@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <sql> 태그 사용하기
+=> 자주 사용되는 SQL문은 별도로 정의해두고 포함한다.
+-->
+
+<mapper namespace="carrot.dao.GoodsDao">
+
+  <!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
+
+  <!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
+  <resultMap type="Goods" id="goodsMap">
+    <!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
+    <id column="GNO" property="no"/>
+    <result column="SNO" property="supplierNo"/>
+    <result column="GCODE" property="code"/>
+    <result column="GNAME" property="name"/>
+    <result column="GIMG" property="url"/>
+    <result column="GUNIT" property="unit"/>
+    <result column="GCAT" property="category"/>
+    <result column="GMEMO" property="note"/>
+    <result column="GPRICE_A" property="priceA"/>
+    <result column="GPRICE_B" property="priceB"/>
+    <result column="GPRICE_C" property="priceC"/>
+  </resultMap>
+  
+  <resultMap type="Goods" id="goodsListItemMap">
+    <id column="GNO" property="no"/>
+    <result column="SNO" property="supplierNo"/>
+    <result column="GCODE" property="code"/>
+    <result column="GNAME" property="name"/>
+    <result column="GIMG" property="url"/>
+    <result column="GUNIT" property="unit"/>
+    <result column="GCAT" property="category"/>
+    <result column="GMEMO" property="note"/>
+    <result column="GPRICE_A" property="priceA"/>
+    <result column="GPRICE_B" property="priceB"/>
+    <result column="GPRICE_C" property="priceC"/>
+	</resultMap>
+  
+
+ <!-- 
+  <resultMap type="GoodsListItem" id="goodsListItemMap">
+    PK 컬럼은 id 태그를 사용하여 지정한다.
+    <id column="PNO" property="no"/>
+    <result column="PNAME" property="name"/>
+    <result column="QTY" property="quantity"/>
+    <result column="MKNO" property="makerNo"/>
+    <result column="MKNAME" property="maker"/>
+  </resultMap>
+-->  
+
+  <sql id="goodsSelect">
+    SELECT GNO, SNO, GCODE, GNAME, GIMG, GUNIT, GCAT, GMEMO, GPRICE_A, GPRICE_B, GPRICE_C
+    FROM GOODS
+  </sql>
+  
+  
+	<select id="selectList" parameterType="map" resultMap="goodsListItemMap">
+		<include refid="goodsSelect" />
+		ORDER BY
+		<choose>
+			<when test="orderBy == 'category'">
+				GCAT
+			</when>
+			<when test="orderBy == 'code'">
+				GCODE
+			</when>
+			<when test="orderBy == 'name'">
+				GNAME
+			</when>
+			<otherwise>
+				GCAT
+			</otherwise>
+		</choose>
+			<if test="pageSize > 0">
+				limit #{startIndex}, #{pageSize}
+			</if>
+	</select>
+  
+<!--   
+  <select id="selectList" parameterType="map" 
+        resultMap="goodsMap">
+    <include refid="goodsSelect"/> 
+    <if test="pageSize > 0">
+      limit #{startIndex}, #{pageSize}
+    </if>
+  </select>
+   -->
+  <select id="selectOne" parameterType="int" resultMap="goodsMap">
+    <include refid="goodsSelect"/> 
+    WHERE GNO=#{value}
+  </select>
+  
+  
+  <select id="totalSize" resultType="int">
+    SELECT count(GNO) FROM GOODS
+  </select>
+ 
+  <insert id="insert" parameterType="Goods"
+    useGeneratedKeys="true" keyColumn="GNO" keyProperty="no">
+    INSERT INTO GOODS(SNO, GCODE, GNAME, GIMG, GUNIT, GCAT, GMEMO, GPRICE_A, GPRICE_B, GPRICE_C) 
+    VALUES (#{supplierNo},#{code},#{name},#{url},#{unit},#{category},#{note},#{priceA},#{priceB},#{priceC})
+  </insert>
+  
+  <update id="update" parameterType="Goods">
+    UPDATE GOODS SET 
+	    SNO=#{supplierNo},
+      GCODE=#{code},
+      GNAME=#{name},
+      GUNIT=#{unit},
+      GCAT=#{category},
+      GMEMO=#{note},
+      GPRICE_A=#{priceA},
+      GPRICE_B=#{priceB},
+      GPRICE_C=#{priceC},
+      GIMG=#{url}
+    WHERE GNO=#{no}
+  </update>
+  
+
+  
+  <delete id="delete" parameterType="int">
+    DELETE FROM GOODS WHERE GNO=#{value}
+  </delete> 
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

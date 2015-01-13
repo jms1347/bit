@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+ 
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"	href="../css/bootstrap-theme.min.css">
+
+<!-- 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+ -->
+<link rel="stylesheet" type="text/css"	href="../css/fileinput.min.css">
+
+<link rel="stylesheet" type="text/css" href="../css/datepicker.css">
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap-select.css">
+<link rel='stylesheet' href='../css/IconHoverEffects/css/component.css'>
+<link rel='stylesheet' href='../css/IconHoverEffects/css/default.css'>
+<link rel='stylesheet' href='../css/common.css'>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<div class='header'></div>
+
+
+	<div class="bs-component">
+		<div class="sub_bar">
+			<div class="navbar-collapse collapse navbar-responsive-collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown"><a href="#" class="dropdown-toggle1"
+						data-toggle="dropdown">분류<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">채소</a></li>
+							<li><a href="#">과일</a></li>
+							<li><a href="#">육류</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle1"
+						data-toggle="dropdown">정렬<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#" id="order-code">코드</a></li>
+							<li><a href="#" id="order-category">분류</a></li>
+							<li><a href="#" id="order-name">상품명</a></li>
+						</ul></li>
+
+				</ul>
+
+				<div class="subbar-btn">
+					<button class="btn btn-default" data-toggle="modal"
+						data-target="#myModal" id="add-goods">추가</button>
+					<a href="#" class="btn btn-default">삭제</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	
+
+	<div class="tableform">
+
+	<div id='listDiv'></div>
+
+<!-- 		
+	<div id='pagingBar'>
+		<button id='prevBtn' type='button' class='btn btn-default'>이전</button>
+		<span id='pageNo'></span>
+		<span id='maxPageNo'></span>
+		<button id='nextBtn' type='button' class='btn btn-default'>다음</button>
+		
+	</div>
+ -->	
+  <div id="page-selection"></div>
+<!-- 	
+	<div class='form'></div>
+ -->
+ 
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button id="closeModal" type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title" class="my-new-form">상품 등록</h4>
+				<h4 class="modal-title" class="my-update-form" style="display:none">상품 변경</h4>
+			</div>
+			<div class="modal-body">
+
+				<form class='form-horizontal' role='form'>
+<!-- 					<div class='form-group'>
+						<label for='no' class='col-sm-2 control-label'>상품번호</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='no'
+								placeholder='제품명 예) 1'>
+						</div>
+					</div> -->
+					<div class='form-group'>
+						<label for='supplierNo' class='col-sm-2 control-label'>업체번호</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='supplierNo'
+								placeholder='업체번호 예) 0'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='code' class='col-sm-2 control-label'>상품코드</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='code'
+								placeholder='상품코드 예) 123456'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='name' class='col-sm-2 control-label'>상품명</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='name'
+								placeholder='상품명 예) 당근'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='category' class='col-sm-2 control-label'>분류</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='category'
+								placeholder='분류 예) 야채'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='unit' class='col-sm-2 control-label'>단위</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='unit'
+								placeholder='단위 예) EA'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='url' class='col-sm-2 control-label'>이미지</label>
+						<div class='col-sm-10'>
+							<input id="url" type="file" class="form-control file" multiple="true" data-show-upload="false" data-show-caption="true">
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='priceA' class='col-sm-2 control-label'>가격1</label>
+						<div class='col-sm-10'>
+							<input type="text" class='form-control' id='priceA'
+								placeholder='가격1 예) 300'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='priceB' class='col-sm-2 control-label'>가격2</label>
+						<div class='col-sm-10'>
+							<input type="text" class='form-control' id='priceB'
+								placeholder='가격2 예) 200'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='priceC' class='col-sm-2 control-label'>가격3</label>
+						<div class='col-sm-10'>
+							<input type="text" class='form-control' id='priceC'
+								placeholder='가격3 예) 100'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='note' class='col-sm-2 control-label'>메모</label>
+						<div class='col-sm-10'>
+							<input type="text" class='form-control' id='note'
+								placeholder='메모 ex) 인상예정'>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+
+				<button id='btnAdd' type='button'
+					class='my-new-form btn btn-primary'>등록</button>
+   			<button id='btnUpdate' type='button' 
+    			class='my-update-form btn btn-primary' style='display:none'>변경</button>
+				<button id='btnCancel' type='reset' class='btn btn-default'>취소</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+ 
+	</div>
+
+
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+	<script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>
+	<script type="text/javascript" src='../js/require.js'></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<!-- 
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	 -->
+	<script type="text/javascript" src="http://rawgit.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
+	<script type="text/javascript" src='../js/fileinput.min.js'></script>
+	<script type="text/javascript" src="../js/jquery.bootpag.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-select.js"></script>
+	<script src='app.js'></script>
+
+	
+</body>
+</html>
