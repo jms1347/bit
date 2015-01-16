@@ -14,10 +14,7 @@ $(function() {
 	
 	$('#mjoin').click(function() {
 		if ($('#mph').val().length == 0) {
-			alert('핸드폰번호는 필수 입력 항목입니다.');
-			return false;
-		} else if ($('#mid').val().length == 0) {
-			alert('아이디는 필수 입력 항목입니다.');
+			alert('핸드폰 번호는 필수 입력 항목입니다.');
 			return false;
 		} else if ($('#mpwd').val().length == 0) {
 			alert('비밀번호는 필수 입력 항목입니다.');
@@ -28,7 +25,14 @@ $(function() {
 		} else if ($('#mname').val().length == 0) {
 			alert('상호명은 필수 입력 항목입니다.');
 			return false;
-		} 
+		} else if (checkph()==false){
+			
+			alert('핸드폰 번호를 다시 입력해주세요');
+			return false;
+		} else if(checkPwd()==false){
+			alert('비밀번호를 다시 확인해주세요');
+			return false;
+		}
 		
 
 
@@ -62,7 +66,7 @@ $(function() {
  $(function() {
 	$("#mph").keyup(function() { //아이디 유효성검사
 		if(checkph()){
-			$.get("http://192.168.0.109:3000/phcheck", {
+			$.get("http://192.168.0.155:3000/phcheck", {
 				ph : $('#mph').val()
 			}, function(data) {
 				$('#checkMsg').html(data.result);

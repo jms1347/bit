@@ -29,6 +29,10 @@ $(function() {
 		} else if ($('#inputRepresentative').val().length == 0) {
 			alert('대표자는 필수 입력 항목입니다.');
 			return false;
+		} else if (checkId()==false){
+			alert('아이디를 다시 확인해주세요.');
+		} else if (checkPwd()==false){
+			alert('비밀번호를 다시 확인해주세요.');
 		}
 		
 
@@ -68,7 +72,7 @@ $(function() {
  $(function() {
 	$("#inputId").keyup(function() { //아이디 유효성검사
 		if(checkId()){
-			$.get("http://192.168.0.109:3000/idcheck", {
+			$.get("http://192.168.0.155:3000/idcheck", {
 				id : $('#inputId').val()
 			}, function(data) {
 				$('#checkMsg').html(data.result);
