@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="../js/jquery-1.11.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="Mobile_login.js"></script> 
+
+<link href='Mobile_join.css' rel="stylesheet" type="text/css">
+<!-- <link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-theme.min.css"> -->
+<link rel="stylesheet"
+	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<!-- jquery mobile 사용법 -->
+<script
+	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+<body>
+
+	<div id="wrap">
+		<div>
+			<h1>
+				<strong>모바일 회원가입</strong>
+			</h1>
+		</div>
+		<fieldset>
+
+			<form class="form-horizontal" role="form">
+
+
+				<div data-role="fieldcontain">
+					<label for="ph">휴대폰 번호</label> <input type="text" name="mph"
+						id="mph" placeholder="아이디" />
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="pwd">비밀번호</label> <input type="password" name="mpwd"
+						id="mpwd"  />
+				</div>
+				<div class="remember_me">
+					<label> <input type="checkbox" name="remember_me"
+						id="login-save"> 아이디 저장
+					</label>
+				</div>
+
+
+				<fieldset class="ui-grid-a">
+					<div class="ui-block-b">
+						<button type="button" id="mlogin" data-theme="b">로그인</button>
+					</div>
+					<div class="ui-block-a">
+						<button type="button" id="mjoin" data-theme="a">회원가입</button>
+					</div>
+
+				</fieldset>
+
+			</form>
+		</fieldset>
+
+	</div>
+</body>
+</html>
+

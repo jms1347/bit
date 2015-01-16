@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+#wrap{
+    margin: 0 auto;
+    width: 60%;
+    font-family:sans-serif;
+}
+
+#CodeAdd{
+	width : 10%;
+	float : right;	
+} 
+
+#checkPwd{
+	margin-left : 23%;
+}
+
+#checkMsg{
+	margin-left : 23%;
+}

@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+#post1 {
+	width: 22%;
+	float: left;
+}
+
+#minus {
+	width: 8%;
+	float: left;
+	margin-left: -2%;
+}
+
+#post2 {
+	width: 22%;
+	float: left;
+	margin-right: 2%;
+}
+
+#postBtn {
+	float: left;
+	width: 25%;
+	margin-bottom: 1%;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="../js/jquery-1.11.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="Mobile_join.js"></script>
+<!--   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+   -->
+<link rel="stylesheet" href="jquery.autocomplete.css" />
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script type="text/javascript" src="jquery.autocomplete.js"></script>
+
+
+<!-- <script src="http://code.jquery.com/jquery-1.7.js"   type="text/javascript"></script> -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+	type="text/javascript"></script>
+<link
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
+
+
+
+<link href='Mobile_join.css' rel="stylesheet" type="text/css">
+<!-- <link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-theme.min.css"> -->
+<link rel="stylesheet"
+	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<!-- jquery mobile 사용법 -->
+<script
+	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+<body>
+
+	<div id="wrap">
+		<div>
+			<h1>
+				<strong>모바일 회원가입</strong>
+			</h1>
+		</div>
+		<fieldset>
+
+			<form class="form-horizontal" role="form">
+				<div id="checkMsg">&nbsp</div>
+
+				<div data-role="fieldcontain">
+					<label for="ph">휴대폰 번호(ID)</label> <input type="text" name="mph"
+						id="mph" placeholder="아이디" />
+				</div>
+
+
+				<!-- 			<div data-role="fieldcontain">
+					<label for="id">ID</label> <input type="text" name="mid" id="mid"
+						placeholder="자동입력" />
+				</div> -->
+
+
+				<div data-role="fieldcontain">
+					<label for="pwd">비밀번호</label> <input type="password" name="mpwd"
+						id="mpwd" onkeyup="checkPwd()" />
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="pwd_check">비밀번호 확인</label> <input type="password"
+						name="mpwd_check" id="mpwd_check" onkeyup="checkPwd()" />
+				</div>
+				<div id="checkPwd">&nbsp</div>
+
+				<div data-role="fieldcontain">
+					<label for="name">상호명</label> <input type="text" name="mname"
+						id="mname" placeholder="상호명" />
+				</div>
+
+				<!-- 				<div data-role="fieldcontain">
+					<label for="code" id="code_label">납품업체 코드</label> <input type="text"
+						name="mcode" id="mcode" value="납품업체의 코드를 입력해주세요." />
+				</div> -->
+
+				<div data-role="fieldcontain" id="code_div">
+					<label for="code" id="code_label">납품업체 코드</label> <input
+						type="search" name="mcode" id="mcode"
+						placeholder="납품업체의 코드를 입력해주세요." />
+
+				</div>
+
+				<div id="mcodeadd">
+					<button type="button" class="btn btn-default" id="CodeAdd">+</button>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="list">테스트</label>
+					<textarea name="mlist" id="mlist"></textarea>
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="memo">남기실 말</label>
+					<textarea name="mmemo" id="mmemo" placeholder=""></textarea>
+				</div>
+
+				<fieldset class="ui-grid-a">
+					<div class="ui-block-b">
+						<button type="button" id="mjoin" data-theme="b">회원가입</button>
+					</div>
+					<div class="ui-block-a">
+						<button type="button" id="mcancel" data-theme="a">취소</button>
+					</div>
+
+				</fieldset>
+
+			</form>
+		</fieldset>
+
+	</div>
+	<script>
+
+  $(function() {
+
+    var availableTags = [
+
+    ];
+
+    $( "#tags" ).autocomplete({
+
+      source: availableTags
+
+    });
+
+  });
+
+  </script>
+
+
+
+	<!-- <script>
+$(function(){
+	//자동완성 기능 처리
+	//키보드를 누를때마다 ajax로 AutoCompleteProductServlet.java 부분을 실행합니다.
+	$("#mcode").bind('keyup',function(){
+		$.ajax({
+			url:'/AutoCompleteProductSevelt',
+			// 데이터 부분에는 검색어를 넣어서 보냅니다.
+			data : {'scname' : $('#mcode').val()},
+			dataType:'html',
+			type:'post',
+			// 검색어로 검색을 성공하였을때 실행하는 부분
+			success: function(data){
+				// 여러개의 결과를 배열로 받을 때 구분값을 ',' 로 해줍니다.
+				var code = data.split(',');
+				// 자동완성 되어져서 보여지는 부분입니다.
+				$('#mlist').autocomplete({
+					source:scname,
+				// 자동완성된 결과를 클릭하였을 때 처리하는 부분입니다.
+				select : function(event, ui){
+					//returnValues(클릭되어진 값이 ? 있으면 클릭되어진 값을: 
+					//없으면 검색어를 가져갑니다.)
+					returnValues(ui.item?ui.item.label:this.value);
+				}
+				});
+			}
+		});
+	});
+	//클릭 되어진 값을 가져와서 처리하는 부분입니다.
+	function returnValues(datas){
+		//검색되어진 값을 가져와서 '/' 으로 나눕니다.
+		var scname = datas.split('/');
+		// 나눈 부분 중에 끝에서 두번째 결과를 가져와서 저장합니다.
+		alert(scname);
+	}
+	})
+</script> -->
+
+</body>
+</html>
+
