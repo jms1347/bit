@@ -95,25 +95,14 @@ VALUES ('01','111-1111','1111','cor01','c01@c01','c01','111-111','서울','강�
   
   <delete id="delete" parameterType="int">
     DELETE FROM CLIENT WHERE CNO=#{value}
-  </delete><!-- 
+  </delete>
+
+  	<select id="existUser" parameterType="map" resultMap="clientMap">
+		SELECT *
+		FROM CLIENT
+		WHERE CTEL=#{clientTel} AND CPWD=#{clientPassword}
+	</select>
     
-  <insert id="insertPhoto" parameterType="Goods">
-    INSERT INTO PROD_PHOTS(PNO,URL) 
-    VALUES (#{no}, #{photo})
-  </insert>
-  
-  <select id="selectPhoto" parameterType="int" 
-      resultMap="goodsPhotoMap">
-    SELECT PPNO, PNO, URL
-    FROM PROD_PHOTS
-    <if test="value > 0">
-    WHERE PNO = #{value}
-    </if>
-  </select>
-  
-  <delete id="deletePhoto" parameterType="int">
-    DELETE FROM PROD_PHOTS
-    WHERE PNO=#{value}
-  </delete> -->
+
 </mapper>
 

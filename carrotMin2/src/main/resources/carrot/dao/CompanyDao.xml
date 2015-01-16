@@ -22,10 +22,10 @@
 		<result column="SADDR_DET" property="saddr_det" />
 		<result column="SMEMO" property="smemo" />
 	</resultMap>
-	
-	  <resultMap type="map" id="companyListItem2Map">
-    <id column="CNO" property="no"/>
-    <result column="SID" property="sid" />
+
+<!-- 	<resultMap type="Company" id="companyListItem2Map">
+		<id column="SNO" property="sno" />
+		<result column="SID" property="sid" />
 		<result column="SPWD" property="spwd" />
 		<result column="STEL" property="stel" />
 		<result column="SCNAME" property="scname" />
@@ -35,23 +35,26 @@
 		<result column="SADDR" property="saddr" />
 		<result column="SADDR_DET" property="saddr_det" />
 		<result column="SMEMO" property="smemo" />
-  </resultMap>
+	</resultMap> -->
+
+	<sql id="companySelect">
+		SELECT SNO, SID, SPWD, STEL, SCNAME, SBNO, SPOSTNO, SADDR,
+		SADDR_DET, SMEMO FROM SUPPLIER
+	</sql>
+
+	<select id="selectList" parameterType="map" resultMap="companyMap">
+		<include refid="companySelect" />
+		<if test="pageSize > 0">
+			limit #{startIndex}, #{pageSize}
+		</if>
+	</select>
+
+	<select id="totalSize" resultType="int">
+		SELECT count(SNO) FROM SUPPLIER
+	</select>
+
+
 	
-	  <sql id="companySelect">
-    SELECT *
-    FROM supplier;
-  </sql>
-  
-  
-  <select id="companyList" parameterType="map" 
-        resultMap="companyMap">
-    <include refid="companySelect"/> 
-    <if test="pageSize > 0">
-      limit #{startIndex}, #{pageSize}
-    </if>
-  </select>
-  
-  
 	<insert id="insert" parameterType="Company" useGeneratedKeys="true"
 		keyColumn="SNO" keyProperty="no">
 		INSERT INTO SUPPLIER(SID, SPWD, STEL,
@@ -70,4 +73,6 @@
 		FROM SUPPLIER
 		WHERE SID=#{sid}
 	</select>
+	
+
 </mapper>

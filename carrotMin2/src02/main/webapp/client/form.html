@@ -1,0 +1,259 @@
+<h1>제품 등록</h1>
+<form class='form-horizontal' role='form'>
+	<div class='my-update-form form-group' style='display: none'>
+		<label for='no' class='col-sm-2 control-label'>번호</label>
+		<div class='col-sm-10'>
+			<input readonly type='text' class='form-control' id='no'>
+		</div>
+	</div>
+	<div class='form-group'>
+		<label for='clientCorName' class='col-sm-2 control-label'>상호</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='clientCorName'
+				placeholder='상호명'>
+		</div>
+	</div>
+	<div class='form-group'>
+		<label for='clientName' class='col-sm-2 control-label'>업주명</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='clientName'
+				placeholder='업주명'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='clientPassword' class='col-sm-2 control-label'>비밀번호</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='clientPassword'
+				placeholder='비밀번호'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='clientTel' class='col-sm-2 control-label'>전화번호</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='clientTel'
+				placeholder='전화번호 예) 000-0000-0000'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='clientMail' class='col-sm-2 control-label'>E-Mail</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='clientMail'
+				placeholder='E-Mail 예) example@example.com'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='clientPostNo' class='col-sm-2 control-label'>우편번호</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='clientPostNo'
+				placeholder='우편번호 예) 000-000'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='clientAddress' class='col-sm-2 control-label'>주소</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='clientAddress'
+				placeholder='주소 (동,면,읍 까지만 기입)'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='clientAddressDet' class='col-sm-2 control-label'>상세주소</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='clientAddressDet'
+				placeholder='상세주소 (그밖에 상세주소)'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='clientMemo' class='col-sm-2 control-label'>메모</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='clientMemo'
+				placeholder='메모'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<div class='col-sm-offset-2 col-sm-10'>
+			<button id='btnAdd' type='button' class='my-new-form btn btn-primary'>등록</button>
+			<button id='btnUpdate' type='button'
+				class='my-update-form btn btn-primary' style='display: none'>변경</button>
+			<button id='btnDelete' type='button'
+				class='my-update-form btn btn-primary' style='display: none'>삭제</button>
+			<button id='btnCancel' type='reset' class='btn btn-primary'>취소</button>
+		</div>
+	</div>
+</form>
+
+<!-- <script type="text/javascript" src="form.js"></script> -->
+
+<script type="text/javascript">
+
+$(document).on('click', '#btnCancel', function() {
+		$('.my-update-form').css('display', 'none');
+		$('.my-new-form').css('display', '');
+	});
+
+	$(document).on('click', '#btnDelete', function() {
+		deleteClient($('#no').val());
+	});
+
+	$(document).on('click','#btnUpdate', function() {
+		if (client.clientNo == $('#no').val() &&
+				client.clientCorName == $('#clientCorName').val() &&
+				client.clientName == $('#clientName').val() &&
+				client.clientPassword == $('#clientPassword').val() &&
+				client.clientTel == $('#clientTel').val() &&
+				client.clientMail == $('#clientMail').val() &&
+				client.clientPostNo == $('#clientPostNo').val() &&
+				client.clientAddress == $('#clientAddress').val() &&
+				client.clientAddressDet == $('#clientAddressDet').val() &&
+				client.clientMemo == $('#clientMemo').val()) {
+			alert('변경한 것이 없습니다!');
+			return;
+		}
+		if (!validateForm()) return;
+		updateClient($('#no').val());
+		});
+
+	$(document).on('click', '#btnAdd', function(){
+		/* if (!validateForm()) return; */
+		$.post('../json/client/add.do' /* URL */ , 
+					{ 																		/* 서버에 보낼 데이터를 객체에 담아 넘긴다 */
+					/* no : $('#no').val(), */
+					clientCorName : $('#clientCorName').val(),
+					clientName : $('#clientName').val(),
+					clientPassword : $('#clientPassword').val(),
+					clientTel : $('#clientTel').val(),
+					clientMail : $('#clientMail').val(),
+					clientPostNo : $('#clientPostNo').val(),
+					clientAddress : $('#clientAddress').val(),
+					clientAddressDet : $('#clientAddressDet').val(),
+					clientMemo : $('#clientMemo').val()
+					}, function(result){ /* 서버로부터 응답을 받았을 때 호출될 메서드*/
+					if (result.status == "success") {
+							loadClientList(-1);
+							$('#btnCancel').click(); // click 이벤트 발생시킴.
+					} else {
+						alert("등록 실패!");
+					}
+				} 
+				, 'json' /* 서버가 보낸 데이터를 JSON 형식으로 처리*/)
+				/* 서버 요청이 실패했을 때 호출될 함수 등록*/   
+				.fail(function(jqXHR, textStatus, errorThrown){ 
+					alert(textStatus + ":" + errorThrown);
+				});
+	});
+
+
+	function loadClient(clientNo) {
+		$.getJSON('../json/client/view.do?no=' + clientNo, 
+				function(data){
+			$('#btnCancel').click();
+			$('#no').val(data.client.no);
+			$('#clientCorName').val(data.client.clientCorName);
+			$('#clientName').val(data.client.clientName);
+			$('#clientPassword').val(data.client.clientPassword);
+			$('#clientTel').val(data.client.clientTel);
+			$('#clientMail').val(data.client.clientMail);
+			$('#clientPostNo').val(data.client.clientPostNo);
+			$('#clientAddress').val(data.client.clientAddress);
+			$('#clientAddressDet').val(data.client.clientAddressDet);
+			$('#clientMemo').val(data.client.clientMemo);
+
+			client = data.client;
+
+			$('.my-update-form').css('display', '');
+			$('.my-new-form').css('display', 'none');
+		});
+	}
+
+	function deleteClient(clientNo) {
+		$.getJSON('../json/client/delete.do?no=' + clientNo, 
+				function(data){
+				if (data.status == 'success') {
+				alert('삭제되었습니다.');
+				loadClientList(0);
+
+				$('#btnCancel').click();
+			}
+		});
+	}
+
+	function updateClient(clientNo) {
+		$.post('../json/client/update.do'
+				, {
+					no : $('#no').val(),
+					clientCorName : $('#clientCorName').val(),
+					clientName : $('#clientName').val(),
+					clientPassword : $('#clientPassword').val(),
+					clientTel : $('#clientTel').val(),
+					clientMail : $('#clientMail').val(),
+					clientPostNo : $('#clientPostNo').val(),
+					clientAddress : $('#clientAddress').val(),
+					clientAddressDet : $('#clientAddressDet').val(),
+					clientMemo : $('#clientMemo').val()
+				} 
+				, function(result){
+					if (result.status == "success") {
+						loadClientList(0);
+						/* $('#btnCancel').click(); */ 
+					} else {
+						alert("변경 실패!");
+					}
+				} 
+				, 'json')
+				.fail(function(jqXHR, textStatus, errorThrown){ 
+					alert(textStatus + ":" + errorThrown);
+				});
+	}
+
+	
+	function validateForm() {
+		if ( $('#clientCorName').val().length == 0) {
+			alert('상호는 필수 입력 항목입니다.');
+			return false;
+		}
+
+		if ( $('#clientName').val().length == 0) {
+			alert('대표자명은 필수 입력 항목입니다.');
+			return false;
+		}
+
+		if ( $('#clientPassword').val() == '0') {
+			alert('비밀번호를 입력하세요');
+			return false;
+		}
+
+		if ( $('#clientTel').val() == '0') {
+			alert('전화번호를 입력하세요');
+			return false;
+		}
+
+		/* if ( $('#clientMail').val() == '0') {
+			alert('메일을 입력하세요');
+			return false;
+		}
+
+		if ( $('#clientPostNo').val() == '0') {
+			alert('우편번호를 입력하세요');
+			return false;
+		}
+
+		if ( $('#clientAddress').val() == '0') {
+			alert('주소를 입력하세요');
+			return false;
+		}
+
+		if ( $('#clientAddressDet').val() == '0') {
+			alert('상세주소를 입력하세요');
+			return false;
+		} */
+
+	}
+
+</script>

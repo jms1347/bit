@@ -7,7 +7,7 @@ var regExp6 = /^[0-9a-zA-Z가-힣]([-_\.]?[0-9a-zA-Z가-힣])*$/i; //닉네임
 
 $(function() {
 	$('#btnCancel').click(function(){
-		alert("취소 아직안함");
+		history.back(); 
 	});
 	
 	$('#btnSelect').click(function() {
@@ -68,7 +68,7 @@ $(function() {
  $(function() {
 	$("#inputId").keyup(function() { //아이디 유효성검사
 		if(checkId()){
-			$.get("http://192.168.0.155:3000/idcheck", {
+			$.get("http://192.168.0.109:3000/idcheck", {
 				id : $('#inputId').val()
 			}, function(data) {
 				$('#checkMsg').html(data.result);
@@ -149,4 +149,36 @@ function checkPwd() { //비밀번호 유효성검사
 
 }
 
+/*function checkCompanyName() { //상호명 유효성검사
+	 var swanname = document.getElementById("inputCompanyName").value;
+	 if(swanname==null||swanname.length==0){
+	  document.getElementById('checkCompanyName').style.color = "red";
+	  document.getElementById('checkCompanyName').innerHTML = "상호명을 입력해주세요.";
+	 }else{
+	  document.getElementById('checkCompanyName').innerHTML = "&nbsp";
+	 }
+	}
+	function checkCompanyNum(){ //사업자번호 유효성검사
 
+	 var companyNum = document.getElementById('inputCompanyNum');
+	 
+	 var re = /^[0-9]+$/;
+	    if(!re.test(companyNum.value)) {
+	     document.getElementById('checkCompanyNum').style.color = "red";
+	  document.getElementById('checkCompanyNum').innerHTML = "숫자만 입력해주세요.";
+	           companyNum.value="";
+	           return;
+	    }
+	}
+	function checkPhoneNum(){ //전화번호 유효성검사
+	  var phoneNum = document.getElementById('inputPhoneNum');
+	  
+	  var re = /^[0-9]+$/;
+	  if(!re.test(phoneNum.value)) {
+	      document.getElementById('checkPhoneNum').style.color = "red";
+	   document.getElementById('checkPhoneNum').innerHTML = "숫자만 입력해주세요.";
+	   phoneNum.value="";
+	            return;
+	     }
+	 }
+*/

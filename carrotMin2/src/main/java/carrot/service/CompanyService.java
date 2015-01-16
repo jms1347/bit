@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import carrot.dao.ClientDao;
 import carrot.dao.CompanyDao;
+import carrot.domain.Client;
 import carrot.domain.Company;
 
 /* Service 컴포넌트의 역할
@@ -20,13 +22,17 @@ import carrot.domain.Company;
 public class CompanyService {
 	@Autowired
 	CompanyDao companyDao;
+	
+	@Autowired
+	ClientDao clientDao;
 
 	public List<?> getList(int pageNo, int pageSize) {
 
 		HashMap<String, Object> paramMap = new HashMap<>();
 		paramMap.put("startIndex", ((pageNo - 1) * pageSize));
 		paramMap.put("pageSize", pageSize);
-
+		System.out.println("startIndex : " +((pageNo - 1) * pageSize));
+		System.out.println("pageSize : " + pageSize);
 		return companyDao.selectList(paramMap);
 	}
 
@@ -60,4 +66,12 @@ public class CompanyService {
 		System.out.println(sid);
 		return companyDao.selectOne(sid);
 	}
+
+	public void add(Client client) {
+		clientDao.insert(client);
+		
+	}
+
+
+
 }

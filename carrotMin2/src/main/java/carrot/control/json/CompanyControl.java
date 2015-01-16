@@ -54,7 +54,7 @@ public class CompanyControl {
 		resultMap.put("status", "success");
 		resultMap.put("currPageNo", pageNo);
 		resultMap.put("maxPageNo", maxPageNo);
-		resultMap.put("clients", companyService.getList(pageNo, pageSize));
+		resultMap.put("companys", companyService.getList(pageNo, pageSize));
 
 		return resultMap;
 	}

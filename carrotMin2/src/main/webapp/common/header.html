@@ -46,25 +46,32 @@
 		location.href = '/carrot/auth/Web_login.html';
 	});
 
-	$.getJSON('/carrot/json/auth/loginUser.do', function(data) {
-		if (data.status == 'fail') {
-			$('#loginBtn').css('display', '');
+	$(function(){
+		$.getJSON('/carrot/json/auth/loginUser.do', function(data) {
+			if (data.status == 'fail') {
+				$('#loginBtn').css('display', '');
 
-		} else {
-			$('#logoutBtn').css('display', '');
+			} else {
+				$('#logoutBtn').css('display', '');
 
-			$('#sid').html(data.loginUser.sid);
-			$('#sno').html(data.loginUser.sno);
+				$('#sid').html(data.loginUser.sid);
+				$('#sno').html(data.loginUser.sno);
 
-			$('#sid').click(function() {
-				alert('사용자 정보 조회 창으로 보낼 예정');
-				location.href = '/carrot/mypages/mypage.html';
-				
+				$('#sid').click(function() {
+					alert('사용자 정보 조회 창으로 보낼 예정');
+					location.href = '/carrot/mypage/mypage.html';
 
 				});
-			});
-		}
-	});
+				$('add-goods').click(function(){
+					alert("되나");
+					$('#sid').html(data.loginUser.sid);
+					$('#sphonenum').html(data.loginUser.stel);
+					
+				})
+			}
+		});
+	})
+	
 </script>
 
 

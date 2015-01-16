@@ -39,22 +39,6 @@ $(function() {
 
 
 
-
-
-/*
-$('#prevBtn').click(function(event) {
-	if (currPageNo > 1) {
-		loadGoodsList(currPageNo - 1);
-	}
-});
-
-$('#nextBtn').click(function(event) {
-	if (currPageNo < maxPageNo) {
-		loadGoodsList(currPageNo + 1);
-	}
-});
-*/
-
 //paging
 function setPageNo(currPageNo, maxPageNo) {
 	window.currPageNo = currPageNo;

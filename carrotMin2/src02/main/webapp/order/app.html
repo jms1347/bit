@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="http://resources/demos/style.css">
+<link rel="stylesheet" href="../css/bootstrap.css" media="screen">
+<link rel="stylesheet" href="../css/bootswatch.min.css">
+<link rel="stylesheet" type="text/css" href="../css/datepicker.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-select.css">
+<link rel='stylesheet' href='../css/IconHoverEffects/css/component.css'>
+<link rel='stylesheet' href='../css/IconHoverEffects/css/default.css'>
+<link rel='stylesheet' href='../css/common.css'>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="main_menu">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="main.html">Swan</a>
+		</div>
+		<div class="navbar-collapse collapse navbar-responsive-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="today-list.html">당일배송확인</a></li>
+				<li><a href="delivery-list.html">배송관리</a></li>
+				<li><a href="order-list.html">주문관리</a></li>
+				<li><a href="customer-list.html">거래처관리</a></li>
+				<li><a href="product-list.html">상품관리</a></li>
+			</ul>
+			<form class="navbar-form navbar-right">
+				<div class="hi-icon-wrap hi-icon-effect-2 hi-icon-effect-2a">
+					<a href="#" class="hi-icon hi-icon-cog">설정</a> <a href="#"
+						data-toggle="modal" data-target="#myModal"
+						class="hi-icon hi-icon-list">찾기</a>
+
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="orderform"></div>
+	<div class="addorder"></div>
+	
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootswatch.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-select.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+
+	<script type="text/javascript">
+	$(function(){
+		$('.orderform').load('order-list.html');
+		$('.addorder').load('new-order.html');
+	});
+
+	</script>
+</body>
+</html>

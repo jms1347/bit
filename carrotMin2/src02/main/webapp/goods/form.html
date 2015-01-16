@@ -1,0 +1,108 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">상품 등록</h4>
+				<h4 class="modal-title" id="myModalLabel2" style="display:none">상품 등록</h4>
+			</div>
+			<div class="modal-body">
+
+				<form class='form-horizontal' role='form'>
+<!-- 					<div class='form-group'>
+						<label for='no' class='col-sm-2 control-label'>상품번호</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='no'
+								placeholder='제품명 예) 1'>
+						</div>
+					</div> -->
+					<div class='form-group'>
+						<label for='supplierNo' class='col-sm-2 control-label'>업체번호</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='supplierNo'
+								placeholder='제품명 예) 0'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='code' class='col-sm-2 control-label'>상품코드</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='code'
+								placeholder='제품명 예) 123456'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='name' class='col-sm-2 control-label'>상품명</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='name'
+								placeholder='수량 예) 당근'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='category' class='col-sm-2 control-label'>분류</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='category'
+								placeholder='제품명 예) 야채'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='unit' class='col-sm-2 control-label'>단위</label>
+						<div class='col-sm-10'>
+							<input type='text' class='form-control' id='unit'
+								placeholder='제품명 예) EA'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='url' class='col-sm-2 control-label'>이미지</label>
+						<div class='col-sm-10'>
+							<input id="url" type="file" class="form-control file" multiple="true" data-show-upload="false" data-show-caption="true">
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='priceA' class='col-sm-2 control-label'>가격1</label>
+						<div class='col-sm-10'>
+							<input type="text" class='form-control' id='priceA'
+								placeholder='제조일 예) 300'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='priceB' class='col-sm-2 control-label'>가격2</label>
+						<div class='col-sm-10'>
+							<input type="text" class='form-control' id='priceB'
+								placeholder='제조일 예) 200'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='priceC' class='col-sm-2 control-label'>가격3</label>
+						<div class='col-sm-10'>
+							<input type="text" class='form-control' id='priceC'
+								placeholder='제조일 예) 100'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='note' class='col-sm-2 control-label'>메모</label>
+						<div class='col-sm-10'>
+							<input type="text" class='form-control' id='note'
+								placeholder='ex) 인상예정'>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+
+				<button id='btnAdd' type='button'
+					class='my-new-form btn btn-primary'>등록</button>
+				<button id='btnCancel' type='reset' data-dismiss="modal" class='btn btn-default'>취소</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<script type="text/javascript" src="form.js"></script>

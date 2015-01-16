@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- dataDB 입력
+INSERT INTO CLIENT(CNO, CTEL, CPWD, CCNAME, CMAIL, CNAME, CPOSTNO, CADDR, CADDR_DET, CMEMO) 
+VALUES ('01','111-1111','1111','cor01','c01@c01','c01','111-111','서울','강남구','-');
+ -->
+
+<mapper namespace="carrot.dao.ClientDao">
+
+  <!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
+  <resultMap type="Client" id="clientMap">
+    <!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
+    <id column="CNO" property="no"/>
+    <result column="CCNAME" property="clientCorName"/>
+    <result column="CNAME" property="clientName"/>
+    <result column="CPWD" property="clientPassword"/>
+    <result column="CTEL" property="clientTel"/>
+    <result column="CMAIL" property="clientMail"/>
+    <result column="CPOSTNO" property="clientPostNo"/>
+    <result column="CADDR" property="clientAddress"/>
+    <result column="CADDR_DET" property="clientAddressDet"/>
+    <result column="CMEMO" property="clientMemo"/>
+  </resultMap>
+
+ <!-- 
+  <resultMap type="GoodsListItem" id="goodsListItemMap">
+    PK 컬럼은 id 태그를 사용하여 지정한다.
+    <id column="PNO" property="no"/>
+    <result column="PNAME" property="name"/>
+    <result column="QTY" property="quantity"/>
+    <result column="MKNO" property="makerNo"/>
+    <result column="MKNAME" property="maker"/>
+  </resultMap>
+-->  
+
+  <resultMap type="map" id="clientListItem2Map">
+    <id column="CNO" property="no"/>
+    <result column="CCNAME" property="clientCorName"/>
+    <result column="CNAME" property="clientName"/>
+    <result column="CPWD" property="clientPassword"/>
+    <result column="CTEL" property="clientTel"/>
+    <result column="CMAIL" property="clientMail"/>
+    <result column="CPOSTNO" property="clientPostNo"/>
+    <result column="CADDR" property="clientAddress"/>
+    <result column="CADDR_DET" property="clientAddressDet"/>
+    <result column="CMEMO" property="clientMemo"/>
+  </resultMap>
+
+  <sql id="clientSelect">
+    SELECT CNO, CCNAME, CNAME, CPWD, CTEL, CMAIL, CPOSTNO, CADDR, CADDR_DET, CMEMO
+    FROM CLIENT
+  </sql>
+  
+  
+  <select id="selectList" parameterType="map" 
+        resultMap="clientMap">
+    <include refid="clientSelect"/> 
+    <if test="pageSize > 0">
+      limit #{startIndex}, #{pageSize}
+    </if>
+  </select>
+  
+  <select id="selectOne" parameterType="int" resultMap="clientMap">
+    <include refid="clientSelect"/> 
+    WHERE CNO=#{value}
+  </select>
+  
+  
+  <select id="totalSize" resultType="int">
+    SELECT count(CNO) FROM CLIENT
+  </select>
+ 
+  <insert id="insert" parameterType="Client"
+    useGeneratedKeys="true" keyColumn="CNO" keyProperty="no">
+    INSERT INTO CLIENT(CCNAME, CNAME, CPWD, CTEL, CMAIL, CPOSTNO, CADDR, CADDR_DET, CMEMO) 
+    VALUES (#{clientCorName},#{clientName},#{clientPassword},#{clientTel},#{clientMail},#{clientPostNo},#{clientAddress},#{clientAddressDet},#{clientMemo});
+  </insert>
+  
+  <update id="update" parameterType="Client">
+    UPDATE CLIENT SET 
+      CCNAME=#{clientCorName},
+      CNAME=#{clientName},
+      CPWD=#{clientPassword},
+      CTEL=#{clientTel},
+      CMAIL=#{clientMail},
+      CPOSTNO=#{clientPostNo},
+      CADDR=#{clientAddress},
+      CADDR_DET=#{clientAddressDet},
+      CMEMO=#{clientMemo}
+    WHERE CNO=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    DELETE FROM CLIENT WHERE CNO=#{value}
+  </delete><!-- 
+    
+  <insert id="insertPhoto" parameterType="Goods">
+    INSERT INTO PROD_PHOTS(PNO,URL) 
+    VALUES (#{no}, #{photo})
+  </insert>
+  
+  <select id="selectPhoto" parameterType="int" 
+      resultMap="goodsPhotoMap">
+    SELECT PPNO, PNO, URL
+    FROM PROD_PHOTS
+    <if test="value > 0">
+    WHERE PNO = #{value}
+    </if>
+  </select>
+  
+  <delete id="deletePhoto" parameterType="int">
+    DELETE FROM PROD_PHOTS
+    WHERE PNO=#{value}
+  </delete> -->
+</mapper>
+

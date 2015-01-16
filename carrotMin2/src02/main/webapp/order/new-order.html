@@ -1,0 +1,136 @@
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">새 주문</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div class="form-group">
+
+						<label for="select" class="col-lg-2 control-label">상호</label>
+						<div class="col-lg-10">
+							<select id="customer-list" class="selectpicker"
+								data-live-search="true" title="선택해주세요">
+								<option></option>
+								<option>함박식당</option>
+								<option>잡스분식</option>
+								<option>비트분식</option>
+								<option>윤씨식당</option>
+								<option>KFC</option>
+								<option>놀란치킨</option>
+								<option>비트식당</option>
+								<option>돈크레이지</option>
+								<option>강남포차</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="orderdate" class="col-lg-2 control-label">주문일</label>
+						<div id="order-date" class="col-lg-10 input-group date">
+							<input type="text" class="form-control" placeholder="2014/12/23"><span
+								class="input-group-addon"><i
+								class="glyphicon glyphicon-th"></i></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="deliverydate" class="col-lg-2 control-label">배송일</label>
+						<div id="delivery-date" class="col-lg-10 input-group date">
+							<input type="text" class="form-control"><span
+								class="input-group-addon"><i
+								class="glyphicon glyphicon-th"></i></span>
+						</div>
+					</div>
+					<hr>
+
+					<div class="form-group">
+						<table style='margin: 5px' class='new-orderlist table col-lg-10'>
+							<tr class="table_head">
+								<th>No</th>
+								<th>분류</th>
+								<th>상품명</th>
+								<th>수량</th>
+								<th>단위</th>
+								<th>#</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>함박식당</td>
+								<td>2014.12.21</td>
+								<td>2014.12.20</td>
+								<td>3,120,000원</td>
+								<td><button type="button" class="btn btn-danger btn-xs">x</button></td>
+							</tr>
+
+						</table>
+					</div>
+
+					<div class="form-group">
+						<label for="select" class="col-lg-2 control-label">분류</label>
+						<div class="col-lg-3">
+							<select class="form-control" id="select">
+								<option>채소</option>
+								<option>과일</option>
+								<option>육류</option>
+							</select>
+						</div>
+						<label for="select" class="col-lg-2 control-label">상품명</label>
+						<div class="col-lg-3">
+							<select id="customer-list" class="selectpicker"
+								data-live-search="true" title="선택해주세요">
+								<option></option>
+								<option>양파</option>
+								<option>당근</option>
+								<option>감자</option>
+								<option>파</option>
+								<option>부추</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="select" class="col-lg-2 control-label">수량</label>
+						<div class="col-lg-3">
+							<select class="form-control" id="select">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</div>
+						<label for="select" class="col-lg-2 control-label">단위</label>
+						<div class="col-lg-2">
+
+							<select class="form-control" id="select">
+								<option>EA</option>
+							</select>
+						</div>
+						<div class="col-lg-10 col-lg-offset-2">
+							<button type="reset" style="text-align: right"
+								class="btn pull-right btn btn-primary">추가</button>
+						</div>
+					</div>
+					<hr>
+
+					<div class="form-group">
+						<label for="textArea" class="col-lg-2 control-label">메모</label>
+						<div class="col-lg-10">
+							<textarea class="form-control" rows="3" id="textArea"></textarea>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+			</div>
+		</div>
+	</div>
+</div>

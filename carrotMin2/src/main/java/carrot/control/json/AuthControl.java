@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import carrot.domain.Company;
+import carrot.service.ClientService;
 import carrot.service.CompanyService;
 
 
@@ -20,6 +21,7 @@ import carrot.service.CompanyService;
 @RequestMapping("/json/auth") 
 public class AuthControl {
   @Autowired CompanyService companyService;
+  @Autowired ClientService clientService;
   
   @RequestMapping(value="/signup", method=RequestMethod.POST)
   public Object add(Company company) throws Exception {  
@@ -31,9 +33,7 @@ public class AuthControl {
     System.out.println(resultMap);
     return resultMap;
   }
-  
-  
-
+ 
   @RequestMapping(value="/loginUser", method=RequestMethod.GET)
   public Object loginUser(HttpSession session) throws Exception {
     HashMap<String,Object> resultMap = new HashMap<>();

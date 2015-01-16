@@ -150,42 +150,14 @@
 
 	</div>
 	<script>
-	function updateGoods(goodsNo) {
-		$.post('../json/goods/update.do'
-				, {
-					no : aaa,
-					supplierNo : $('#supplierNo').val(),
-					code : $('#code').val(),
-					name : $('#name').val(),
-					unit : $('#unit').val(),
-					category : $('#category').val(),
-					note : $('#note').val(),
-					priceA : $('#priceA').val(),
-					priceB : $('#priceB').val(),
-					priceC : $('#priceC').val(),
-					url : $('#url').val()
-				}, function(result) {
-					console.log(result);
-					if (result.status == "success") {
-						loadGoodsList(0);
-						$('#btnCancel').click();
-						$('#closeModal').click();
-					} else {
-						alert("변경 실패!");
-					}
-				}
-				, 'json')
-				.fail(function(jqXHR, textStatus, errorThrown){
-					alert(textStatus + ":" + errorThrown);
-				});
-	}
-
-
 	$.getJSON('/carrot/json/auth/loginUser.do', function(data) {
-
 		$('#inputId').html(data.loginUser.sid);
 		$('#inputPhoneNum').html(data.loginUser.stel);
 		$('#inputRepresentative').html(data.loginUser.sname);
+	});
+
+
+	
 </script>
 </body>
 </html>

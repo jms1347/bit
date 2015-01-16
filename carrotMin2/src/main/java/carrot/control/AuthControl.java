@@ -30,8 +30,11 @@ import carrot.service.CompanyService;
 // 그 값은 세션에 있는 값이다.
 @SessionAttributes({ "loginUser", "requestUrl" })
 public class AuthControl {
+
 	@Autowired
 	CompanyService companyService;
+	
+	
 	
 	@Autowired
 	ServletContext servletContext;
@@ -50,6 +53,8 @@ public class AuthControl {
 
 		return "redirect:add.do";
 	}
+	
+
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String form(

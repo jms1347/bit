@@ -12,7 +12,6 @@ public interface CompanyDao {
 	void insert(Company company);
 	Company existUser(Map<String,String> params);
 	Company selectOne(int sid);
-	
 	List<?> selectList(HashMap<String, Object> paramMap);
 	int totalSize();
 }
