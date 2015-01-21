@@ -9,6 +9,7 @@
 			<th>사업자등록번호</th>
 			<th>우편번호</th>
 			<th>주소</th>
+			<th>상세주소</th>
 			<th>비고</th>
 			<th>&nbsp;</th>
 		</tr>
@@ -16,15 +17,16 @@
 		{{#each companys}}
 		<tr class="data-row">
 			<td>{{sno}}</td>
-			<td><a href="#" data-no="{{no}}">{{sid}}</a></td>
+			<td><a href="#" data-no="{{sno}}">{{sid}}</a></td>
 			<td>{{stel}}</td>
 			<td>{{scname}}</td>
 			<td>{{sname}}</td>
 			<td>{{sbno}}</td>
 			<td>{{spostno}}</td>
-			<td>{{saddr}} {{saddr_det}}</td>
+			<td>{{saddr}} </td>
+			<td>{{saddr_det}}</td>
 			<td>{{smemo}}</td>
-			<td><button data-no='{{no}}'
+			<td><button data-no='{{sno}}'
 					class='my-delete-btn btn btn-danger'>삭제</button></td>
 		</tr>
 		{{/each}}

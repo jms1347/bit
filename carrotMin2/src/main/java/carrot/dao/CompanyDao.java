@@ -9,9 +9,11 @@ import carrot.domain.Company;
 
 public interface CompanyDao {
 	
-	void insert(Company company);
-	Company existUser(Map<String,String> params);
-	Company selectOne(int sid);
-	List<?> selectList(HashMap<String, Object> paramMap);
-	int totalSize();
+	  Company selectOne(int no);
+	  void delete(int no);
+	  List<?> selectList(Map<String,Object> params);
+	  void insert(Company company);
+	  int totalSize();
+	Company existUser(HashMap<String, String> params);
+
 }

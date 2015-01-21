@@ -69,10 +69,13 @@
 		WHERE SID=#{sid} AND SPWD=#{spwd}
 	</select>
 	<select id="selectOne" parameterType="int" resultMap="companyMap">
-		SELECT *
+		SELECT SNO, SID, SPWD, STEL, SCNAME, SBNO, SPOSTNO, SADDR,
+		SADDR_DET, SMEMO
 		FROM SUPPLIER
-		WHERE SID=#{sid}
+		WHERE SNO=#{sno}
 	</select>
-	
+	  <delete id="delete" parameterType="int">
+    DELETE FROM SUPPLIER WHERE SNO=#{sno}
+  </delete> 
 
 </mapper>

@@ -7,22 +7,18 @@
 <script src="../js/jquery-1.11.1.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="Mobile_join.js"></script>
-<!--   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-   -->
-<link rel="stylesheet" href="jquery.autocomplete.css" />
-<script type="text/javascript" src="jquery-1.8.3.js"></script>
-<script type="text/javascript" src="jquery.autocomplete.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
 
 
 <!-- <script src="http://code.jquery.com/jquery-1.7.js"   type="text/javascript"></script> -->
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
-	type="text/javascript"></script>
-<link
-	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
-	rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script type="text/javascript" src="jquery.autocomplete.js"></script>
+
 
 
 
@@ -83,19 +79,19 @@
 				</div> -->
 
 				<div data-role="fieldcontain" id="code_div">
-					<label for="code" id="code_label">납품업체 코드</label> <input
+					<label for=text id="code_label">납품업체 코드</label> <input
 						type="search" name="mcode" id="mcode"
 						placeholder="납품업체의 코드를 입력해주세요." />
-
 				</div>
+				<div id="suggest" style="display:; position:absolute;">&nbsp</div>
 
 				<div id="mcodeadd">
 					<button type="button" class="btn btn-default" id="CodeAdd">+</button>
 				</div>
-				<div data-role="fieldcontain">
-					<label for="list">테스트</label>
-					<textarea name="mlist" id="mlist"></textarea>
+				<div id="text_div">
+					<div id="search_text"></div>
 				</div>
+
 
 				<div data-role="fieldcontain">
 					<label for="memo">남기실 말</label>
@@ -116,23 +112,7 @@
 		</fieldset>
 
 	</div>
-	<script>
 
-  $(function() {
-
-    var availableTags = [
-
-    ];
-
-    $( "#tags" ).autocomplete({
-
-      source: availableTags
-
-    });
-
-  });
-
-  </script>
 
 
 

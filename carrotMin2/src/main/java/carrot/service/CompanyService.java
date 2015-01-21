@@ -22,17 +22,21 @@ import carrot.domain.Company;
 public class CompanyService {
 	@Autowired
 	CompanyDao companyDao;
-	
+
 	@Autowired
 	ClientDao clientDao;
 
-	public List<?> getList(int pageNo, int pageSize) {
+	public List<?> getList(int pageNo, int pageSize, Boolean stel,
+			Boolean sname, Boolean scname, String orderBy) {
 
 		HashMap<String, Object> paramMap = new HashMap<>();
 		paramMap.put("startIndex", ((pageNo - 1) * pageSize));
 		paramMap.put("pageSize", pageSize);
-		System.out.println("startIndex : " +((pageNo - 1) * pageSize));
-		System.out.println("pageSize : " + pageSize);
+		paramMap.put("stel", stel);
+		paramMap.put("sname", sname);
+		paramMap.put("scname", scname);
+		paramMap.put("orderBy", orderBy);
+
 		return companyDao.selectList(paramMap);
 	}
 
@@ -62,16 +66,26 @@ public class CompanyService {
 
 	}
 
+	@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
 	public Company selectOne(int sid) {
 		System.out.println(sid);
 		return companyDao.selectOne(sid);
 	}
 
+	@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
 	public void add(Client client) {
 		clientDao.insert(client);
-		
+
 	}
 
+	@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+	public void delete(int companyNo) {
+		companyDao.delete(companyNo);
+	}
 
+	public Company get(int companyNo) {
+		Company company = companyDao.selectOne(companyNo);
+		return company;
+	}
 
 }

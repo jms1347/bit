@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-
+ 
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="../css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"	href="../css/bootstrap-theme.min.css">
 
-<!-- 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
- -->
-<link rel="stylesheet" type="text/css" href="../css/fileinput.min.css">
+<link rel="stylesheet" type="text/css"	href="../css/fileinput.min.css">
 
 <link rel="stylesheet" type="text/css" href="../css/datepicker.css">
 <link rel="stylesheet" type="text/css"
@@ -20,34 +15,17 @@
 <link rel='stylesheet' href='../css/IconHoverEffects/css/component.css'>
 <link rel='stylesheet' href='../css/IconHoverEffects/css/default.css'>
 <link rel='stylesheet' href='../css/common.css'>
-<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
-<link href='app.css' rel="stylesheet" type="text/css">
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<script>
-		function openDaumPostcode() {
-			new daum.Postcode({
-				oncomplete : function(data) {
-					// 팝업에서 검98i88색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-					// 우편번호와 주소 정보를 해당 필드에 넣고, 커서를 상세주소 필드로 이동한다.
-					document.getElementById('post1').value = data.postcode1;
-					document.getElementById('post2').value = data.postcode2;
-					document.getElementById('addr').value = data.address;
 
-					//전체 주소에서 연결 번지 및 ()로 묶여 있는 부가정보를 제거하고자 할 경우,
-					//아래와 같은 정규식을 사용해도 된다. 정규식은 개발자의 목적에 맞게 수정해서 사용 가능하다.
-					//var addr = data.address.replace(/(\s|^)\(.+\)$|\S+~\S+/g, '');
-					//document.getElementById('addr').value = addr;
-					document.getElementById('addr2').focus();
-				}
-			}).open();
-		}
-	</script>
-	<div class='header'></div>
+	<div class='container'>
 
+	<div class='header2'></div>
+
+	<div class='content'>
 	<div class="bs-component">
 		<div class="sub_bar">
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
@@ -63,151 +41,47 @@
 						data-toggle="dropdown">정렬<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="#" id="order-code">코드</a></li>
-							<li><a href="#" id="order-category">기업명</a></li>
-							<li><a href="#" id="order-name">대표자명</a></li>
+							<li><a href="#" id="order-category">분류</a></li>
+							<li><a href="#" id="order-name">상품명</a></li>
 						</ul></li>
 
 				</ul>
 
-				<div class="subbar-btn">
-					<button class="btn btn-default" data-toggle="modal"
-						data-target="#myModal" id="add-goods">추가</button>
-					<a href="#" class="btn btn-default">삭제</a>
-				</div>
+
 
 			</div>
 		</div>
+
+
 	</div>
-
-
+	
+	
 
 	<div class="tableform">
 
-		<div id='listDiv'></div>
-
-		<div id="page-selection"></div>
-
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-
-				<div class="modal-content">
-					<div class="modal-header">
-						<button id="closeModal" type="button" class="close"
-							data-dismiss="modal">
-							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" class="my-new-form">업체 등록</h4>
-						<h4 class="modal-title" class="my-update-form"
-							style="display: none">업체 변경</h4>
-					</div>
-					<div class="modal-body">
-
-						<form class='form-horizontal' role='form'>
-							<div class='form-group'>
-								<label for='sid' class='col-sm-2 control-label'>ID</label>
-								<div class='col-sm-10'>
-									<input type='text' class='form-control' id='sid'
-										placeholder='아이디 예) rroye'>
-								</div>
-							</div>
-							<div class='form-group'>
-								<label for='sphonenum' class='col-sm-2 control-label'>전화번호</label>
-								<div class='col-sm-10'>
-									<input type='text' class='form-control' id='sphonenum'
-										placeholder='전화번호 예) 0423335555'>
-								</div>
-							</div>
-							<div class='form-group'>
-								<label for='scname' class='col-sm-2 control-label'>업체명</label>
-								<div class='col-sm-10'>
-									<input type='text' class='form-control' id='scname'
-										placeholder='업체명 예) 알로에공장'>
-								</div>
-							</div>
-							<div class='form-group'>
-								<label for='sname' class='col-sm-2 control-label'>대표자명</label>
-								<div class='col-sm-10'>
-									<input type='text' class='form-control' id='sname'
-										placeholder='대표자명 예) 김알리'>
-								</div>
-							</div>
-							<div class='form-group'>
-								<label for='snum' class='col-sm-2 control-label'>사업자
-									등록번호</label>
-								<div class='col-sm-10'>
-									<input type='text' class='form-control' id='snum'
-										placeholder='사업자등록번호 예) 0232228777'>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputAddress" class="col-sm-2 control-label">주소</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="post1"> <label
-										for="inputAddressNumMinus" class="col-sm-2 control-label"
-										id="minus">-</label> <input type="text" class="form-control"
-										id="post2"> <input type="button" class="form-control"
-										id="postBtn" onclick="openDaumPostcode()" value="우편번호 찾기"><br>
-									<input type="text" class="form-control" id="addr"> <input
-										type="text" class="form-control" id="addr2">
-								</div>
-							</div>
-							<div class='form-group'>
-								<label for='saddr' class='col-sm-2 control-label'>주소</label>
-								<div class='col-sm-10'>
-									<input type="text" class='form-control' id='priceA'
-										placeholder='주소 ex) 대전 서구'>
-								</div>
-							</div>
-							<div class='form-group'>
-								<label for='saddr_dep' class='col-sm-2 control-label'>상세주소</label>
-								<div class='col-sm-10'>
-									<input type="text" class='form-control' id='priceA'
-										placeholder='상세주소 ex) 1동'>
-								</div>
-							</div>
-							<div class='form-group'>
-								<label for='snote' class='col-sm-2 control-label'>비고</label>
-								<div class='col-sm-10'>
-									<input type="text" class='form-control' id='snote'
-										placeholder='비고 ex) 알로에 식자재 납품업체'>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-
-						<button id='btnAdd' type='button'
-							class='my-new-form btn btn-primary'>등록</button>
-						<button id='btnUpdate' type='button'
-							class='my-update-form btn btn-primary' style='display: none'>변경</button>
-						<button id='btnCancel' type='reset' class='btn btn-default'>취소</button>
-
-					</div>
-				</div>
-			</div>
-		</div>
+	<div id='listDiv'></div>
 
 
+  <div id="page-selection"></div>
+ 	
+	<div id='form'></div>
 	</div>
+	</div>
+	<div class='footer'></div>
+ </div>
 
 
-	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
 	<script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>
 	<script type="text/javascript" src='../js/require.js'></script>
-	<script type="text/javascript"
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	<!-- 
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	 -->
-	<script type="text/javascript"
-		src="http://rawgit.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://rawgit.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
 	<script type="text/javascript" src='../js/fileinput.min.js'></script>
 	<script type="text/javascript" src="../js/jquery.bootpag.js"></script>
 	<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
 	<script type="text/javascript" src="../js/bootstrap-select.js"></script>
 	<script src='app.js'></script>
 
-
+	
 </body>
 </html>
