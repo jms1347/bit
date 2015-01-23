@@ -68,6 +68,11 @@
 		FROM SUPPLIER
 		WHERE SID=#{sid} AND SPWD=#{spwd}
 	</select>
+	<select id="auto" parameterType="map" resultMap="companyMap">
+		SELECT *
+		FROM SUPPLIER
+		WHERE scname like #{scname} ||'%'
+	</select>
 	<select id="selectOne" parameterType="int" resultMap="companyMap">
 		SELECT SNO, SID, SPWD, STEL, SCNAME, SBNO, SPOSTNO, SADDR,
 		SADDR_DET, SMEMO

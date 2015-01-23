@@ -57,56 +57,30 @@ $(function() {
 	});
 })
 
-
-/*$(function(){
-        $("#mcode").autocomplete("jdbcTest.jsp"); //플러그인을 사용하면 코드 한줄로 끝. 서버에서 키워드 리스트 가져오기       
-    });*/
 $(function() {
-
-  var availableTags = [
-
-    "알로에공장",
-
-    "백조호수",
-
-    "Swan",
-
-    "BR",
-    "R",
-    "오백오",
-    "공오공",
-    "SWAN2"
-
-  ];
-
-  $( "#mcode" ).autocomplete({
-
-    source: availableTags
-
-  });
-
-});
-
-
-
-
-
-	
-/*$(function() {
-	$("#mcode").keyup(function() { // 자동완성기능 테스트
-		if (true) {
-
+	$("#mcode").keyup(function() {
+		if ($('#mcode').val() != '') {
 			$.get("http://192.168.0.155:3000/searchid", {
-				ph : $('#mcode').val()
+				searchitem : $('#mcode').val()
 			}, function(data) {
-				$('#checkcode').html(data.result);
-				if (data.result == "된다.") {
-					$('#checkcode').css("color", "blue");
-				} 
-			});
+				console.log(data.length);
+				$('button').remove();
+				for (var i = 0; i < data.length; i++) {
+					$('<button>').appendTo('#result').html(data[i].SCNAME);
+							  
+				}
+
+			}).fail(function() {
+				$('button').remove();
+				console.log('error');
+			})
+		} else {
+			console.log("빈칸");
+			$('button').remove();
+					
 		}
 	});
-})*/
+})
 
 $(function() {
 	$("#mph").keyup(function() { // 아이디 유효성검사
@@ -194,6 +168,3 @@ function checkPwd() { // 비밀번호 유효성검사
 	}
 
 }
-
-
-

@@ -16,10 +16,6 @@
 
 
 <!-- <script src="http://code.jquery.com/jquery-1.7.js"   type="text/javascript"></script> -->
-<script type="text/javascript" src="jquery-1.8.3.js"></script>
-<script type="text/javascript" src="jquery.autocomplete.js"></script>
-
-
 
 
 <link href='Mobile_join.css' rel="stylesheet" type="text/css">
@@ -66,7 +62,7 @@
 					<label for="pwd_check">비밀번호 확인</label> <input type="password"
 						name="mpwd_check" id="mpwd_check" onkeyup="checkPwd()" />
 				</div>
-				<div id="checkPwd">&nbsp</div>
+				<div id="checkPwd"></div>
 
 				<div data-role="fieldcontain">
 					<label for="name">상호명</label> <input type="text" name="mname"
@@ -79,11 +75,13 @@
 				</div> -->
 
 				<div data-role="fieldcontain" id="code_div">
-					<label for=text id="code_label">납품업체 코드</label> <input
-						type="search" name="mcode" id="mcode"
+					<label for=text id="code_label">납품업체 코드</label>
+					 <input
+						type="text" name="mcode" id="mcode"
 						placeholder="납품업체의 코드를 입력해주세요." />
+					
 				</div>
-				<div id="suggest" style="display:; position:absolute;">&nbsp</div>
+						<h1 id=result>&nbsp</h1>
 
 				<div id="mcodeadd">
 					<button type="button" class="btn btn-default" id="CodeAdd">+</button>
@@ -112,47 +110,33 @@
 		</fieldset>
 
 	</div>
+<!-- 
+<script type="text/javascript">
+$("#mcode").keyup(function() {
+	if($('#mcode').val()!=''){
+	$.get("http://192.168.0.155:3000/searchid", {
+		searchitem : $('#mcode').val()
+	}, function(data) {
 
+		console.log(data.length);
+		$('div').remove();
+		for (var i = 0; i < data.length; i++) {
+			$('<div>').appendTo('#result').html(data[i].SCNAME);
+		}
 
-
-
-	<!-- <script>
-$(function(){
-	//자동완성 기능 처리
-	//키보드를 누를때마다 ajax로 AutoCompleteProductServlet.java 부분을 실행합니다.
-	$("#mcode").bind('keyup',function(){
-		$.ajax({
-			url:'/AutoCompleteProductSevelt',
-			// 데이터 부분에는 검색어를 넣어서 보냅니다.
-			data : {'scname' : $('#mcode').val()},
-			dataType:'html',
-			type:'post',
-			// 검색어로 검색을 성공하였을때 실행하는 부분
-			success: function(data){
-				// 여러개의 결과를 배열로 받을 때 구분값을 ',' 로 해줍니다.
-				var code = data.split(',');
-				// 자동완성 되어져서 보여지는 부분입니다.
-				$('#mlist').autocomplete({
-					source:scname,
-				// 자동완성된 결과를 클릭하였을 때 처리하는 부분입니다.
-				select : function(event, ui){
-					//returnValues(클릭되어진 값이 ? 있으면 클릭되어진 값을: 
-					//없으면 검색어를 가져갑니다.)
-					returnValues(ui.item?ui.item.label:this.value);
-				}
-				});
-			}
-		});
-	});
-	//클릭 되어진 값을 가져와서 처리하는 부분입니다.
-	function returnValues(datas){
-		//검색되어진 값을 가져와서 '/' 으로 나눕니다.
-		var scname = datas.split('/');
-		// 나눈 부분 중에 끝에서 두번째 결과를 가져와서 저장합니다.
-		alert(scname);
-	}
+	}).fail(function() {
+		$('div').remove();
+		console.log('error');
 	})
-</script> -->
+	}else{
+
+		$('div').remove();
+	}
+});
+
+
+	</script> -->
+
 
 </body>
 </html>

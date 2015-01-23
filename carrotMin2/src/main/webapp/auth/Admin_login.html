@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>관리자 로그인폼</title>
+</head>
+<script src="../js/jquery-1.11.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="Admin_login.js"></script>
+<link href='Admin_join.css' rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+
+<body>
+	<div id="wrap">
+		<div>
+			<h1>
+				<strong>관리자 로그인</strong>
+			</h1>
+		</div>
+		<fieldset>
+			<legend>
+				<strong>관리자 로그인</strong>
+			</legend>
+			<form id="loginForm" class="form-horizontal" role="form">
+
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">아이디</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="inputId"
+							placeholder="아이디" >
+					</div>	<!-- onkeyup="checkId()" -->					
+					<div id="checkMsg">&nbsp</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label">비밀번호</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="inputPassword3"
+							placeholder="Password">
+					</div>	 <!-- onkeyup="checkPwd()" -->
+				</div>
+				<div id="checkPwd">&nbsp</div>
+
+				<div class="remember_me">
+					<label> <input type="checkbox" name="remember_me"
+						id="login-save"> 아이디 저장
+					</label>
+				</div>
+
+				<div>
+
+					<button type="button" class="btn btn-default" id="btnSelect">로그인</button>
+					<button type="button" class="btn btn-default" id="joinbtnSelect">회원가입</button>
+
+				</div>
+
+			</form>
+		</fieldset>
+
+	</div>
+</body>
+</html>
+

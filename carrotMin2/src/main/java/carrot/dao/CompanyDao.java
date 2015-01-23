@@ -15,5 +15,6 @@ public interface CompanyDao {
 	  void insert(Company company);
 	  int totalSize();
 	Company existUser(HashMap<String, String> params);
+	Company auto(Company companyName);
 
 }

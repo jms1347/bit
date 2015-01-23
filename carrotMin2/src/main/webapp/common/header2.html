@@ -1,0 +1,84 @@
+
+
+<div class="main_menu">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="main.html">Swan</a>
+	</div>
+	<div class="navbar-collapse collapse navbar-responsive-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="#">당일배송확인</a></li>
+			<li><a href="#">배송관리</a></li>
+			<li><a href="#">주문관리</a></li>
+			<li><a href="../client/app.html">거래처관리</a></li>
+			<li><a href="../goods/app.html">상품관리</a></li>
+		</ul>
+		<form class="navbar-form navbar-right">
+			<ul class="hi-icon-wrap hi-icon-effect-2 hi-icon-effect-2a">
+				<li href="#" class="hi-icon hi-icon-cog">설정</a>
+				<li href="#" class="hi-icon hi-icon-list">찾기</a>
+			</ul>
+			<!-- </div> -->
+			<div class='userinfo'>
+			<div class='userinfo'>
+   <h5>아이디 : <span id='aid'></span></h5> 
+   <h5>이름 : <a id='aname' href='#'></a></h5>
+</div>
+				
+				<button id='logoutBtn' type='button' class='btn btn-warning btn-xs'
+					style='display: none'>로그아웃</button>
+				<button id='loginBtn' type='button' class='btn btn-success btn-xs'
+					style='display: none'>로그인</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+
+<script>
+	$('#logoutBtn').click(function(event) {
+		$.getJSON('/carrot/json/auth3/logout.do', function(data) {
+			location.href = '/carrot/auth/Admin_login.html';
+		});
+	});
+
+	$('#loginBtn').click(function(event) {
+		location.href = '/carrot/auth/Admin_login.html';
+	});
+
+	$(function(){
+		$.getJSON('/carrot/json/auth3/loginUser.do', function(data) {
+			if (data.status == 'fail') {
+				$('#loginBtn').css('display', '');
+
+			} else {
+				$('#logoutBtn').css('display', '');
+
+				$('#aid').html(data.loginUser.aid);
+				$('#aname').html(data.loginUser.aname);
+
+				$('#aid').click(function() {
+					alert('사용자 정보 조회 창으로 보낼 예정');
+					location.href = '/carrot/mypage/mypage.html';
+
+				});
+				$('add-goods').click(function(){
+					alert("되나");
+					$('#aid').html(data.loginUser.aid);
+					$('#aphonenum').html(data.loginUser.atel);
+					
+				})
+			}
+		});
+	})
+	
+</script>
+
+
+
+
+
+
+
+
+

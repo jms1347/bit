@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+#wrap{
+    margin: 0 auto;
+    width: 67%;
+    font-family:sans-serif;
+}
+
+#post1{
+	width:22%;
+	float : left;
+	
+}
+#minus{
+	width:8%;
+	float:left;
+	
+	margin-left: -2%;
+}
+#post2{
+	width:22%;
+	float :left;
+	margin-right: 2%;
+}
+
+#postBtn{
+	float : left;
+	width:18%;
+	margin-bottom : 1%;
+}
+
+#addr2{
+	margin-top : 1%;
+}
+
+#btnSelect{
+	margin-left : 40%;
+}
+#inputId{
+	width:70%;
+}
+#inputCompanyName{
+	width:70%;
+}
+#inputPassword3_check{
+	width:70%;
+}
+#inputPassword3{
+	width:70%;
+}
+#inputCompanyNum{
+	width:70%;
+}
+#inputRepresentative{
+	width:70%;
+}
+#inputFaxNum{
+	width:70%;
+}
+#inputIntroduce{
+	width:70%;
+}
+#addr{
+	width:70%
+}
+#addr2{
+	width:70%
+}
+#inputPhoneNum{
+	width:70%
+}
+
+#checkMsg{
+	margin-left : 19%;
+	margin-top : -2%;
+}
+#checkPwd{
+	
+	margin-left : 18%;
+	margin-top : -2%;
+}
+#checkCompanyName{
+	margin-left : 18%;
+	margin-top : -2%;
+}
+#checkCompanyNum{
+	margin-left : 18%;
+	margin-top : -2%;
+}
+#checkPhoneNum{
+	margin-left : 18%;
+	margin-top : -2%;
+}
+#checkFaxNum{
+	margin-left : 18%;
+	margin-top : -2%;
+}
+.remember_me{
+	margin-left : 18%;
+	margin-top : -1%;
+}

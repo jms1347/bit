@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <sql> 태그 사용하기 => 자주 사용되는 SQL문은 별도로 정의해두고 포함한다. -->
+
+<mapper namespace="carrot.dao.AdminDao">
+
+	<!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
+	<resultMap type="Admin" id="adminMap">
+		<!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
+		<id column="ANO" property="ano" />
+		<result column="AID" property="aid" />
+		<result column="APWD" property="apwd" />
+		<result column="ATEL" property="atel" />
+		<result column="ANAME" property="aname" />
+
+	</resultMap>
+
+<!-- 	<resultMap type="Company" id="companyListItem2Map">
+		<id column="SNO" property="sno" />
+		<result column="SID" property="sid" />
+		<result column="SPWD" property="spwd" />
+		<result column="STEL" property="stel" />
+		<result column="SCNAME" property="scname" />
+		<result column="SNAME" property="sname" />
+		<result column="SBNO" property="sbno" />
+		<result column="SPOSTNO" property="spostno" />
+		<result column="SADDR" property="saddr" />
+		<result column="SADDR_DET" property="saddr_det" />
+		<result column="SMEMO" property="smemo" />
+	</resultMap> -->
+
+	<sql id="adminSelect">
+		SELECT ANO, AID, APWD, ANAME, ATEL FROM ADMINSTER
+	</sql>
+
+	<select id="selectList" parameterType="map" resultMap="adminMap">
+		<include refid="adminSelect" />
+		<if test="pageSize > 0">
+			limit #{startIndex}, #{pageSize}
+		</if>
+	</select>
+
+	<select id="totalSize" resultType="int">
+		SELECT count(ANO) FROM ADMINSTER
+	</select>
+
+
+	<select id="existUser" parameterType="map" resultMap="adminMap">
+		SELECT *
+		FROM ADMINSTER
+		WHERE AID=#{aid} AND APWD=#{apwd}
+	</select>
+	<select id="selectOne" parameterType="int" resultMap="adminMap">
+		SELECT *
+		FROM ADMINSTER
+		WHERE AID=#{aid}
+	</select>
+	
+		<insert id="insert" parameterType="Admin" useGeneratedKeys="true"
+		keyColumn="ANO" keyProperty="no">
+		INSERT INTO ADMINSTER(AID, APWD, ANAME, ATEL)
+		VALUES
+		(#{aid},#{apwd},#{aname},#{atel})
+	</insert>
+
+</mapper>

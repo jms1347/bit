@@ -88,4 +88,10 @@ public class CompanyService {
 		return company;
 	}
 
+	public Company auto(Company companyName) {
+		Company company1 = companyDao.auto(companyName);
+		System.out.println("company1 =" + company1);
+		return company1;
+	}
+
 }

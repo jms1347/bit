@@ -11,35 +11,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import carrot.domain.Client;
-import carrot.domain.Company;
+import carrot.domain.Admin;
+import carrot.service.AdminService;
 import carrot.service.ClientService;
-import carrot.service.CompanyService;
 
 
 
-@Controller("json.mobileauthControl") 
-@RequestMapping("/json/auth2") 
-public class MobileAutoControl {
-  @Autowired CompanyService companyService;
+@Controller("json.adminControl") 
+@RequestMapping("/json/auth3") 
+public class AdminControl {
+  @Autowired AdminService adminService;
   @Autowired ClientService clientService;
   
-  @RequestMapping(value="/auto", method=RequestMethod.POST)
-  public Object auto(Company company) throws Exception {
-	  companyService.auto(company);
-	  
-	  System.out.println("company : "+company);
-	  
-	  HashMap<String,Object> resultMap = new HashMap<>();
-	    resultMap.put("status", "success");
-	    System.out.println(resultMap);
-	    return resultMap;
-  }
-  
   @RequestMapping(value="/signup", method=RequestMethod.POST)
-  public Object add(Client client) throws Exception {  
+  public Object add(Admin admin) throws Exception {  
     
-	  clientService.add(client); //insert수행
+	  adminService.add(admin); //insert수행
     
     HashMap<String,Object> resultMap = new HashMap<>();
     resultMap.put("status", "success");
@@ -69,8 +56,8 @@ public class MobileAutoControl {
   
   @RequestMapping(value="/login", method=RequestMethod.POST)
   public Object login(
-      String clientTel, 
-      String clientPassword, 
+      String aid, 
+      String apwd, 
       boolean save,
       //boolean save, String requestUrl, 
       HttpServletResponse response,
@@ -78,24 +65,24 @@ public class MobileAutoControl {
 
     
 	if (save) { // 쿠키로 아이디 저장
-      Cookie cookie = new Cookie("clientTel", clientTel);
+      Cookie cookie = new Cookie("aid", aid);
       cookie.setMaxAge(60 * 60 * 24 * 15);
       response.addCookie(cookie);
     } else {
-      Cookie cookie = new Cookie("cid", "");
+      Cookie cookie = new Cookie("aid", "");
       cookie.setMaxAge(0); // 무효화시킴
       response.addCookie(cookie);
     }
-    System.out.println(clientTel + "," +  clientPassword);
+    System.out.println(aid + "," +  apwd);
     
-    Client client = clientService.validate(clientTel, clientPassword);
+    Admin admin = adminService.validate(aid, apwd);
     
     
     HashMap<String,Object> resultMap = new HashMap<>();
     
-    if (client != null) {
+    if (admin != null) {
       resultMap.put("status", "success");
-      session.setAttribute("loginUser", client);
+      session.setAttribute("loginUser", admin);
       System.out.print(resultMap);
     } else {
       session.invalidate();
