@@ -9,7 +9,6 @@ var regExp7 = /^[0-9]+$/; // 숫자검사
 $(function() {
 	$('#mcancel').click(function() {
 		history.back();
-
 	});
 
 	$('#mjoin').click(function() {
@@ -60,7 +59,7 @@ $(function() {
 $(function() {
 	$("#mcode").keyup(function() {
 		if ($('#mcode').val() != '') {
-			$.get("http://192.168.0.155:3000/searchid", {
+			$.get("http://192.168.0.150:3000/searchid", {
 				searchitem : $('#mcode').val()
 			}, function(data) {
 				console.log(data.length);

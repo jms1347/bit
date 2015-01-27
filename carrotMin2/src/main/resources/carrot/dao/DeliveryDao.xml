@@ -3,93 +3,91 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <sql> 태그 사용하기
-=> 자주 사용되는 SQL문은 별도로 정의해두고 포함한다.
--->
+<!-- <sql> 태그 사용하기 => 자주 사용되는 SQL문은 별도로 정의해두고 포함한다. -->
 
 <mapper namespace="carrot.dao.DeliveryDao">
 
-  <!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
+	<!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
 
-  <!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
-  <resultMap type="Delivery" id="deliveryMap">
-    <!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
-    <id column="CNO" property="cno"/>
-
-    <result column="CCNAME" property="cname"/>
-    <result column="MLEVEL" property="dgrade"/>
-    <result column="DDATE" property="ddate"/>
-    <result column="TOT_MONTH" property="monthdate"/>
-    <result column="TOT_PRICE" property="monthsum"/>
-  </resultMap>
- 
-
-  <sql id="deliverySelect">
-SELECT C.CNO, C.CCNAME, M.MLEVEL,
-O.DDATE, substring(OT.TOT_MONTH,6,2), OT.TOT_PRICE
-FROM CLIENT C, MATCHING M, ORDERLIST O, ORDERTOTAL OT
-WHERE C.CNO = M.CNO 
-AND C.CNO = O.CNO AND O.SNO = M.SNO
-AND O.CNO = OT.CNO AND O.SNO = OT.SNO
-GROUP BY CCNAME
-
-    
-  </sql>
-  
-  
+	<!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
+	<resultMap type="Delivery" id="deliveryMap">
+		<!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
+		<id column="CNO" property="cno" />
+		<result column="SNO" property="sno" />
+		<result column="CCNAME" property="dname" />
+		<result column="MLEVEL" property="dgrade" />
+		<result column="DDATE" property="ddate" />
+		<result column="TOT_MONTH" property="monthdate" />
+		<result column="TOT_PRICE" property="monthsum" />
+	</resultMap>
 	<select id="selectList" parameterType="map" resultMap="deliveryMap">
 		<include refid="deliverySelect" />
-			<if test="pageSize > 0">
-				limit #{startIndex}, #{pageSize}
-			</if>
+		<if test="pageSize > 0">
+			limit #{startIndex}, #{pageSize}
+		</if>
 	</select>
-  
-<!--   
-  <select id="selectList" parameterType="map" 
-        resultMap="goodsMap">
-    <include refid="goodsSelect"/> 
-    <if test="pageSize > 0">
-      limit #{startIndex}, #{pageSize}
-    </if>
-  </select>
-   -->
-  <select id="selectOne" parameterType="int" resultMap="deliveryMap">
-    <include refid="deliverySelect"/> 
-    WHERE CNO=#{value}
-  </select>
-  
-  
-  <select id="totalSize" resultType="int">
-    SELECT count(CNO) FROM CLIENT
-  </select>
- 
-  <insert id="insert" parameterType="Delivery"
-    useGeneratedKeys="true" keyColumn="GNO" keyProperty="no">
-    INSERT INTO DELIVERY(CNAME, MLEVEL, DDATE, TOT_PRICE, TOT_MONTH) 
-    VALUES (#{cname},#{dgrade},#{ddate},#{datesum},#{monthsum})
-  </insert>
-  
-  <update id="update" parameterType="Delivery">
-    UPDATE GOODS SET 
-	    SNO=#{supplierNo},
-      GCODE=#{code},
-      GNAME=#{name},
-      GUNIT=#{unit},
-      GCAT=#{category},
-      GMEMO=#{note},
-      GPRICE_A=#{priceA},
-      GPRICE_B=#{priceB},
-      GPRICE_C=#{priceC},
-      GIMG=#{url}
-    WHERE GNO=#{no}
-  </update>
-  
 
-  
-  <delete id="delete" parameterType="int">
-    DELETE FROM CLIENT WHERE CNO=#{value}
-  </delete> 
-  
+	<sql id="deliverySelect">
+		SELECT C.CNO, C.CCNAME , M.MLEVEL ,
+		O.DDATE , OT.TOT_MONTH , OT.TOT_PRICE
+		FROM CLIENT C, MATCHING M, ORDERLIST O, ORDERTOTAL OT
+		WHERE C.CNO = M.CNO
+		AND C.CNO = O.CNO AND O.SNO = M.SNO
+		AND O.CNO = OT.CNO AND O.SNO = OT.SNO
+		<!-- GROUP BY C.CNO -->
+
+
+	</sql>
+
+	<select id="selectList" parameterType="map" resultMap="deliveryMap">
+		<include refid="deliverySelect" />
+		<if test="pageSize > 0">
+			limit #{startIndex}, #{pageSize}
+		</if>
+	</select>
+
+	<select id="selectOne" parameterType="int" resultMap="deliveryMap">
+		<!--  <include refid="deliverySelect"/>  -->
+		
+	<!-- 	AND C.SNO=#{value} -->
+		SELECT C.CNO, C.CCNAME , M.MLEVEL
+		FROM CLIENT C, MATCHING M
+		WHERE C.CNO = M.CNO
+		AND M.SNO=#{value}
+	</select>
+
+
+	<select id="totalSize" resultType="int">
+		SELECT count(CNO) FROM CLIENT
+	</select>
+
+	<insert id="insert" parameterType="Delivery" useGeneratedKeys="true"
+		keyColumn="GNO" keyProperty="no">
+		INSERT INTO DELIVERY(CNAME, MLEVEL, DDATE, TOT_PRICE, TOT_MONTH)
+		VALUES (#{dname},#{dgrade},#{ddate},#{datesum},#{monthsum})
+	</insert>
+
+	<update id="update" parameterType="Delivery">
+		UPDATE GOODS SET
+		SNO=#{supplierNo},
+		GCODE=#{code},
+		GNAME=#{name},
+		GUNIT=#{unit},
+		GCAT=#{category},
+		GMEMO=#{note},
+		GPRICE_A=#{priceA},
+		GPRICE_B=#{priceB},
+		GPRICE_C=#{priceC},
+		GIMG=#{url}
+		WHERE GNO=#{no}
+	</update>
+
+
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM CLIENT WHERE CNO=#{value}
+	</delete>
+
 </mapper>
 
 

@@ -20,8 +20,8 @@
 			<!-- </div> -->
 			<div class='userinfo'>
 			<div class='userinfo'>
-   <h5>아이디 : <span id='aid'></span></h5> 
-   <h5>이름 : <a id='aname' href='#'></a></h5>
+   <h5>아이디 :  <a id='aid' href='#'></a></h5> 
+   <h5>이름 : <span id='aname'></span></h5>
 </div>
 				
 				<button id='logoutBtn' type='button' class='btn btn-warning btn-xs'
@@ -58,7 +58,7 @@
 				$('#aname').html(data.loginUser.aname);
 
 				$('#aid').click(function() {
-					alert('사용자 정보 조회 창으로 보낼 예정');
+					
 					location.href = '/carrot/mypage/mypage.html';
 
 				});

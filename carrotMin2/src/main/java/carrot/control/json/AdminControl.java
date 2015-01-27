@@ -41,6 +41,21 @@ public class AdminControl {
   public Object loginUser(HttpSession session) throws Exception {
     HashMap<String,Object> resultMap = new HashMap<>();
     
+	Admin admin = (Admin) session.getAttribute("loginUser");
+	String aid = admin.getAid();
+	String aname = admin.getAname();
+	String atel = admin.getAtel();
+	
+	admin.setAid(aid);
+	admin.setAname(aname);
+	admin.setAtel(atel);
+	
+	System.out.println("aid = "+aid);	
+	System.out.println("aname = "+aname);
+	System.out.println("atel = "+atel);
+	
+	
+
     if (session.getAttribute("loginUser") != null) {
       resultMap.put("status", "success");
       resultMap.put("loginUser", session.getAttribute("loginUser"));

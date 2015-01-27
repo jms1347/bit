@@ -6,9 +6,9 @@
 	</div>
 	<div class="navbar-collapse collapse navbar-responsive-collapse">
 		<ul class="nav navbar-nav">
-			<li><a href="#">당일배송확인</a></li>
-			<li><a href="#">배송관리</a></li>
-			<li><a href="#">주문관리</a></li>
+			<li><a href="../supplier/app.html">당일배송확인</a></li>
+			<li><a href="delivery-list.html">배송관리</a></li>
+			<li><a href="order-list.html">주문관리</a></li>
 			<li><a href="../client/app.html">거래처관리</a></li>
 			<li><a href="../goods/app.html">상품관리</a></li>
 		</ul>
@@ -19,15 +19,8 @@
 			</ul>
 			<!-- </div> -->
 			<div class='userinfo'>
-				<div class='userinfo'>
-					<h5>
-						번호 : <span id='sno'></span>
-					</h5>
-					<h5>
-						아이디 : <a id='sid' href='#'></a>
-					</h5>
-				</div>
-
+				<img id='userPhoto' src='/web03t/images/default-user-photo.jpg'>
+				<a id='userName' href='#'></a>
 				<button id='logoutBtn' type='button' class='btn btn-warning btn-xs'
 					style='display: none'>로그아웃</button>
 				<button id='loginBtn' type='button' class='btn btn-success btn-xs'
@@ -50,31 +43,22 @@
 		location.href = '/carrot/auth/Web_login.html';
 	});
 
-	$(function() {
-		$.getJSON('/carrot/json/auth/loginUser.do', function(data) {
-			if (data.status == 'fail') {
-				$('#loginBtn').css('display', '');
+	$.getJSON('/carrot/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			$('#loginBtn').css('display', '');
 
-			} else {
-				$('#logoutBtn').css('display', '');
+		} else {
+			$('#logoutBtn').css('display', '');
 
-				$('#sid').html(data.loginUser.sid);
-				$('#sno').html(data.loginUser.sno);
-
-				$('#sid').click(function() {
-					alert('사용자 정보 조회 창으로 보낼 예정');
-					location.href = '/carrot/mypage/mypage.html';
-
-				});
-				$('add-goods').click(function() {
-					alert("되나");
-					$('#sid').html(data.loginUser.sid);
-					$('#sphonenum').html(data.loginUser.stel);
-
-				})
+			if (data.supplier) {
+				$('#userPhoto').attr('src', data.loginUser.photo);
 			}
-		});
-	})
+			$('#sid').html(data.loginUser.userName);
+			$('#sid').click(function() {
+				alert('사용자 정보 조회 창으로 보낼 예정');
+			});
+		}
+	});
 </script>
 
 

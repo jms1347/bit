@@ -17,24 +17,30 @@
 package carrot.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Delivery implements Serializable {
   private static final long serialVersionUID = 1L;
   
-  protected int dno;
-
+  protected int cno;
+  protected int sno;
   protected String dname;
   protected String dgrade;
-  protected Date ddate;
-  protected Date monthdate;
+  protected String ddate;
+  protected String monthdate;
   protected String monthsum;
   
-public int getDno() {
-	return dno;
+  
+public int getSno() {
+	return sno;
 }
-public void setDno(int dno) {
-	this.dno = dno;
+public void setSno(int sno) {
+	this.sno = sno;
+}
+public int getCno() {
+	return cno;
+}
+public void setCno(int cno) {
+	this.cno = cno;
 }
 public String getDname() {
 	return dname;
@@ -49,17 +55,17 @@ public void setDgrade(String dgrade) {
 	this.dgrade = dgrade;
 }
 
-public Date getDdate() {
+public String getDdate() {
 	return ddate;
 }
-public void setDdate(Date ddate) {
+public void setDdate(String ddate) {
 	this.ddate = ddate;
 }
 
-public Date getMonthdate() {
+public String getMonthdate() {
 	return monthdate;
 }
-public void setMonthdate(Date monthdate) {
+public void setMonthdate(String monthdate) {
 	this.monthdate = monthdate;
 }
 public String getMonthsum() {
@@ -68,12 +74,14 @@ public String getMonthsum() {
 public void setMonthsum(String monthsum) {
 	this.monthsum = monthsum;
 }
+
 @Override
 public String toString() {
-	return "Delivery [dno=" + dno + ", dname=" + dname + ", dgrade=" + dgrade
-			+ ", ddate=" + ddate + ", monthdate=" + monthdate + ", monthsum="
-			+ monthsum + "]";
+	return "Delivery [cno=" + cno + ", sno=" + sno + ", dname=" + dname
+			+ ", dgrade=" + dgrade + ", ddate=" + ddate + ", monthdate="
+			+ monthdate + ", monthsum=" + monthsum + "]";
 }
+
 
   
   

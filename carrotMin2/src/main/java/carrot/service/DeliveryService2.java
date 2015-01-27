@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import carrot.dao.ClientDao;
-import carrot.domain.Client;
+import carrot.dao.DeliveryDao2;
+import carrot.domain.Delivery2;
 
 /* Service 컴포넌트의 역할
  * => 비즈니스 로직 수행
@@ -17,9 +17,9 @@ import carrot.domain.Client;
  */
 
 @Service
-public class ClientService {
+public class DeliveryService2 {
 	@Autowired
-	ClientDao clientDao;
+	DeliveryDao2 deliveryDao2;
 
 	public List<?> getList(int pageNo, int pageSize) {
 
@@ -27,11 +27,11 @@ public class ClientService {
 		paramMap.put("startIndex", ((pageNo - 1) * pageSize));
 		paramMap.put("pageSize", pageSize);
 
-		return clientDao.selectList(paramMap);
+		return deliveryDao2.selectList2(paramMap);
 	}
 
 	public int getMaxPageNo(int pageSize) {
-		int totalSize = clientDao.totalSize();
+		int totalSize = deliveryDao2.totalSize();
 		int maxPageNo = totalSize / pageSize;
 		if ((totalSize % pageSize) > 0)
 			maxPageNo++;
@@ -44,34 +44,26 @@ public class ClientService {
 	 * 작업이 성공했을 때만 서버에 반영한다.
 	 */
 	@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
-	public void add(Client client) {
-		clientDao.insert(client);
+	public void add(Delivery2 delievery) {
+		deliveryDao2.insert(delievery);
 	}
 
 	@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
-	public void update(Client client) {
-		clientDao.update(client);
+	public void update(Delivery2 delievery) {
+		deliveryDao2.update(delievery);
 	}
 
 	@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
-	public void delete(int clientNo) {
-		clientDao.delete(clientNo);
+	public void delete(int delieveryNo) {
+		deliveryDao2.delete(delieveryNo);
 	}
 
-	public Client get(int clientNo) {
-		Client client = clientDao.selectOne(clientNo);
-		return client;
+	public Delivery2 get(int delieveryNo) {
+		Delivery2 delievery = deliveryDao2.selectOne(delieveryNo);
+		return delievery;
 	}
 
-	public Client validate(String clientTel, String clientPassword) {
-		HashMap<String, String> params = new HashMap<>();
-		params.put("clientTel", clientTel);
-		params.put("clientPassword", clientPassword);
-		return clientDao.existUser(params);
-	}
-	// public List<Client> getList() {
-	// return clientDao.selectNameList();
-	// }
+
 
 
 

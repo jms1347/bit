@@ -1,15 +1,18 @@
 var user;
-var signUpCheckEmail = false; 
+var signUpCheckEmail = false;
 var signUpCheckName = false;
 var regExp4 = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{1,20}$/;
 var regExp5 = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i; //이메일
 var regExp6 = /^[0-9a-zA-Z가-힣]([-_\.]?[0-9a-zA-Z가-힣])*$/i; //닉네임
 
 $(function() {
-	$('#btnCancel').click(function(){
+
+	$('.header2').load('../common/header2.html');
+
+	$('#btnCancel').click(function() {
 		alert("취소 아직안함");
 	});
-	
+
 	$('#btnSelect').click(function() {
 		if ($('#inputId').val().length == 0) {
 			alert('아이디 입력은 필수 입력 항목입니다.');
@@ -30,11 +33,8 @@ $(function() {
 			alert('대표자는 필수 입력 항목입니다.');
 			return false;
 		}
-		
 
-
-		$.post('../json/auth/signup.do'  
-		, {  
+		$.post('../json/auth/signup.do', {
 			//서버에 보낼 데이터를 객체에 담아 넘긴다 
 			sid : $('#inputId').val(),
 			spwd : $('#inputPassword3').val(),
@@ -47,27 +47,61 @@ $(function() {
 			sbno : $('#inputCompanyNum').val(),
 			smemo : $('#inputIntroduce').val()
 
-		}, function(resultMap) { 
+		}, function(resultMap) {
 
-		if (resultMap.status == "success") {
+			if (resultMap.status == "success") {
 				alert("회원가입이 완료 되었습니다.");
 				location.href = '../auth/Web_login.html';
 			} else {
 
 			}
-		}, 'json' )
-		 //서버가 보낸 데이터를 JSON 형식으로 처리
-		 //서버 요청이 실패했을 때 호출될 함수 등록
+		}, 'json')
+		//서버가 보낸 데이터를 JSON 형식으로 처리
+		//서버 요청이 실패했을 때 호출될 함수 등록
 		.fail(function(jqXHR, textStatus, errorThrown) {
 			alert(textStatus + ":" + errorThrown);
 		});
 	});
 
-}) 
+})
 
- $(function() {
+$(function() { //세션값 가져오기
+	$.getJSON('/carrot/json/auth3/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			$('#loginBtn').css('display', '');
+
+		} else {
+			$('#logoutBtn').css('display', '');
+			console.log("여기오나");
+			$('#inputId').html(data.loginUser.aid);
+			$('#inputRepresentative').html(data.loginUser.aname);
+			$('#inputinputPhoneNum').html(data.loginUser.atel);
+		}
+	});
+})
+
+function updateAdmin(ano) {	//업데이트
+	$.post('../json/auth3/update.do', {
+		aid : $('#aid').val(),
+		apwd : $('#apwd').val(),
+		aname : $('#aname').val(),
+		atel : $('#atel').val(),
+	}, function(result) {
+		console.log(result);
+		if (result.status == "success") {
+			$('#mypagecancel').click();
+			$('#mypageok').click();
+		} else {
+			alert("변경 실패!");
+		}
+	}, 'json').fail(function(jqXHR, textStatus, errorThrown) {
+		alert(textStatus + ":" + errorThrown);
+	});
+}
+
+$(function() {
 	$("#inputId").keyup(function() { //아이디 유효성검사
-		if(checkId()){
+		if (checkId()) {
 			$.get("http://192.168.0.155:3000/idcheck", {
 				id : $('#inputId').val()
 			}, function(data) {
@@ -76,11 +110,11 @@ $(function() {
 					$('#checkMsg').css("color", "blue");
 				} else if (data.result == "중복 된 아이디가 존재합니다.") {
 					$('#checkMsg').css("color", "red");
-				} 
+				}
 			});
 		}
 	});
-})  
+})
 
 function checkId() { //닉네임 유효성검사
 	var swanid = document.getElementById('inputId').value;
@@ -88,11 +122,11 @@ function checkId() { //닉네임 유효성검사
 		document.getElementById('checkMsg').style.color = "red";
 		document.getElementById('checkMsg').innerHTML = "아이디를 입력해주세요.";
 		return false;
-	} else if(!regExp6.test($('#inputId').val())){
+	} else if (!regExp6.test($('#inputId').val())) {
 		document.getElementById('checkMsg').style.color = "red";
 		document.getElementById('checkMsg').innerHTML = "특수문자나 공백을 사용 	할 수 없습니다.";
 		return false;
-	}else{
+	} else {
 		return true;
 	}
 }
@@ -103,8 +137,6 @@ function checkPwd() { //비밀번호 유효성검사
 
 	var rePwd = document.getElementById("inputPassword3_check").value;
 
-		
-
 	if (pwd == null || pwd.length == 0) {
 
 		document.getElementById('checkPwd').style.color = "red";
@@ -113,7 +145,7 @@ function checkPwd() { //비밀번호 유효성검사
 
 		return false;
 
-	}else if(!regExp4.test($("#inputPassword3").val())){
+	} else if (!regExp4.test($("#inputPassword3").val())) {
 
 		document.getElementById('checkPwd').style.color = "red";
 
@@ -121,7 +153,7 @@ function checkPwd() { //비밀번호 유효성검사
 
 		return false;
 
-	}else if (pwd.length < 6 || pwd.length > 16) {
+	} else if (pwd.length < 6 || pwd.length > 16) {
 
 		document.getElementById('checkPwd').style.color = "red";
 
@@ -137,16 +169,15 @@ function checkPwd() { //비밀번호 유효성검사
 
 		return false;
 
-	} else if(pwd == rePwd){
+	} else if (pwd == rePwd) {
 
 		document.getElementById('checkPwd').style.color = "blue";
 
 		document.getElementById('checkPwd').innerHTML = "비밀번호가 확인되었습니다.";
 
-		return true;;
+		return true;
+		;
 
 	}
 
 }
-
-
