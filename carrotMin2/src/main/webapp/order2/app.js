@@ -1,6 +1,5 @@
 var currPageNo;
 var maxPageNo;
-var sno;
 $(function() {
 	$('.header').load('../common/header.html');
 	$('.form').load('form.html');
@@ -45,18 +44,26 @@ function setPageNo(currPageNo, maxPageNo) {
 		$('#nextBtn').css('display', '');
 }
 
-function loadDeliveryList(pageNo, sno) {
+function loadDeliveryList(pageNo) {
 	if (pageNo <= 0)
 		pageNo = currPageNo;
 
-	$.getJSON('../json/delivery/list.do?pageNo=' + pageNo, function(data) {
+	$.getJSON('../json/order2/list.do?pageNo=' + pageNo, function(data) {
 		setPageNo(data.currPageNo, data.maxPageNo);
-		var deliverys = data.deliverys;
-
-		require([ 'text!templates/delivery-table.html' ], function(html) {
+		var orders = data.orders;
+		var oname = data.oname;
+		var oodate = data.oodate;
+		var mlevel = data.ograde;
+		
+		require([ 'text!templates/order-table.html' ], function(html) {
 			var template = Handlebars.compile(html);
 			$('#listDiv').html(template(data));
-			//console.log("deliverys : " + deliverys);
+			console.log("oname : " + oname);
+			console.log("odate : " + oodate);
+			console.log("mlevel : " + mlevel);
+			$('#listDiv').html(template(data));
+			$('#titleDiv').html(oname);
+			$('#titleDiv2').html(oodate);
 		});
 	});
 }

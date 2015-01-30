@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import carrot.dao.DeliveryDao;
+import carrot.dao.OrderDao;
 
 /* Service 컴포넌트의 역할
  * => 비즈니스 로직 수행
@@ -14,14 +14,14 @@ import carrot.dao.DeliveryDao;
  */
 
 @Service
-public class DeliveryService {
+public class OrderService {
 	@Autowired
-	DeliveryDao deliveryDao;
+	OrderDao orderDao;
 
 
 
 	public int getMaxPageNo(int pageSize) {
-		int totalSize = deliveryDao.totalSize();
+		int totalSize = orderDao.totalSize();
 		int maxPageNo = totalSize / pageSize;
 		if ((totalSize % pageSize) > 0)
 			maxPageNo++;
@@ -39,7 +39,7 @@ public class DeliveryService {
 		paramMap.put("sno", sno);
 
 	
-		return deliveryDao.selectList2(paramMap);
+		return orderDao.selectList2(paramMap);
 	}
 
 

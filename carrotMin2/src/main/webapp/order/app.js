@@ -49,11 +49,11 @@ function loadDeliveryList(pageNo, sno) {
 	if (pageNo <= 0)
 		pageNo = currPageNo;
 
-	$.getJSON('../json/delivery/list.do?pageNo=' + pageNo, function(data) {
+	$.getJSON('../json/order/list.do?pageNo=' + pageNo, function(data) {
 		setPageNo(data.currPageNo, data.maxPageNo);
-		var deliverys = data.deliverys;
+		var orders = data.orders;
 
-		require([ 'text!templates/delivery-table.html' ], function(html) {
+		require([ 'text!templates/order-table.html' ], function(html) {
 			var template = Handlebars.compile(html);
 			$('#listDiv').html(template(data));
 			//console.log("deliverys : " + deliverys);

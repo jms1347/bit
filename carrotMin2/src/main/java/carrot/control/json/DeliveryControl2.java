@@ -3,16 +3,17 @@ package carrot.control.json;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import carrot.domain.Delivery2;
+import carrot.domain.Company;
+import carrot.domain.Delivery;
 import carrot.service.DeliveryService2;
 
 @Controller("json.deliveryControl2")
@@ -20,36 +21,56 @@ import carrot.service.DeliveryService2;
 public class DeliveryControl2 {
 	static Logger log = Logger.getLogger(DeliveryControl2.class);
 	static final int PAGE_DEFAULT_SIZE = 5;
-
+	String dname;
+	String ddate;
+	String dgrade;
+	
 	@Autowired DeliveryService2 deliveryService2;
 	@Autowired ServletContext servletContext;
+	
+	@RequestMapping(value="/title", method=RequestMethod.POST)
+	  public Object add(Delivery delivery) throws Exception {  
+	    System.out.println("delivery : "+delivery);
+	    
+	    HashMap<String,Object> resultMap = new HashMap<>();
+	    resultMap.put("dname",delivery.getDname());
+	    resultMap.put("ddate", delivery.getDdate());
+	    resultMap.put("dgrade",delivery.getDgrade());
+	    System.out.println(resultMap);
+	    dname = delivery.getDname();
+	    ddate = delivery.getDdate();
+	    dgrade = delivery.getDgrade();
+	    System.out.println("dname : "+dname);
+	    System.out.println("ddate : "+ddate);
+	    System.out.println("dgrade : "+dgrade);
+/*	    if(dgrade =="A"){
+	    	System.out.println("A");
+	    } else if(dgrade =="B"){
+	    	System.out.println("B");
+	    } else if(dgrade =="C"){
+	    	System.out.println("C");
+	    } else{
+	    	System.out.println("엘쓰");
+	    }*/
+	    return resultMap;
+	  }
 
-	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public Object add(Delivery2 delivery2) throws Exception {  
-
-		deliveryService2.add(delivery2);
-
-
-		HashMap<String, Object> resultMap = new HashMap<>();
-		resultMap.put("status", "success");
-
-		return resultMap;
-	}
-
-	@RequestMapping("/delete")
-	public Object delete(int no) throws Exception {
-		deliveryService2.delete(no);
-
-		HashMap<String,Object> resultMap = new HashMap<>();
-		resultMap.put("status", "success");
-		return resultMap;
-	}
 
 	@RequestMapping("/list")
 	public Object list(
 			@RequestParam(defaultValue="1") int pageNo,
-			@RequestParam(defaultValue="5") int pageSize) throws Exception {
+			@RequestParam(defaultValue="20") int pageSize,
+			HttpSession session) throws Exception {
+		
+		Company supplier = (Company)session.getAttribute("loginUser");
+		int sno = supplier.getSno();
+		String sname = supplier.getSname();
+		
+		supplier.setSno(sno);
+		supplier.setSname(sname);
+		
 
+		
 		if (pageSize <= 0)
 			pageSize = PAGE_DEFAULT_SIZE;
 
@@ -57,33 +78,20 @@ public class DeliveryControl2 {
 
 		if (pageNo <= 0) pageNo = 1;
 		if (pageNo > maxPageNo) pageNo = maxPageNo;
-
+		
 		HashMap<String,Object> resultMap = new HashMap<>();
 		resultMap.put("status", "success");
 		resultMap.put("currPageNo", pageNo);
 		resultMap.put("maxPageNo", maxPageNo);
-		resultMap.put("deliverys", deliveryService2.getList(pageNo,pageSize));
+		resultMap.put("ccname", dname);
+		resultMap.put("oddate", ddate);
+		resultMap.put("deliverys", deliveryService2.getList2(pageNo,pageSize,dname, ddate));
+
+		//resultMap.put("deliverys", deliveryService2.getList(pageNo,pageSize));
 
 		return resultMap;
 	}
+	
 
-	@RequestMapping("/update")
-	public Object update(Delivery2 delivery) throws Exception {
-		deliveryService2.update(delivery);
-
-		HashMap<String,Object> resultMap = new HashMap<>();
-		resultMap.put("status", "success");
-		return resultMap;
-	}
-
-	@RequestMapping("/view")
-	public Object view(int no, Model model) throws Exception {
-		Delivery2 delivery = deliveryService2.get(no);
-
-		HashMap<String,Object> resultMap = new HashMap<>();
-		resultMap.put("status", "success");
-		resultMap.put("delivery", delivery);
-		return resultMap;
-	}
 }
 

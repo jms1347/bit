@@ -12,7 +12,7 @@ import java.util.List;
  * => 메서드 이름은 SQL 아이디와 같아야 한다.
  * => 인터페이스 패키지도 SQL 맵퍼 파일의 네임스페이스와 같아야 한다. 
  */
-public interface DeliveryDao {
+public interface OrderDao {
 
 
 	int totalSize();

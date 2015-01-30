@@ -5,18 +5,18 @@
 
 <!-- <sql> 태그 사용하기 => 자주 사용되는 SQL문은 별도로 정의해두고 포함한다. -->
 
-<mapper namespace="carrot.dao.DeliveryDao2">
+<mapper namespace="carrot.dao.OrderDao2">
 
 	<!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
 
 	<!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
-	<resultMap type="Delivery2" id="deliveryMap2">
+	<resultMap type="Order2" id="orderMap2">
 		<!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
 		<id column="GNO" property="gno" />
 		<result column="SNO" property="sno" />
-		<result column="CCNAME" property="ccname"/>
+		<result column="CCNAME" property="oname"/>
 		<result column="RDATE" property="oddate" />
-		
+		<result column="ODATE" property="oodate"/>
 		<result column="GNAME" property="gname" />
 		<result column="GCAT" property="gcat" />
 		<result column="GUNIT" property="gunit" />
@@ -26,7 +26,7 @@
 	</resultMap>
 
 
-	<select id="selectList2" parameterType="map" resultMap="deliveryMap2">
+	<select id="selectList2" parameterType="map" resultMap="orderMap2">
 		<!-- <include refid="deliverySelect2" /> -->
 		SELECT G.GNO, C.CCNAME ,M.SNO, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, G.GMEMO
 		FROM GOODS G, ORDERLIST O, SUPPLIER S, MATCHING M, CLIENT C
@@ -34,7 +34,7 @@
 		AND O.SNO = M.SNO AND M.CNO = O.CNO
 		AND G.GNO = O.GNO AND G.SNO = O.SNO		
 		AND G.SNO = S.SNO 
-		AND C.CCNAME = #{ccname} AND O.RDATE = #{oddate}
+		AND C.CCNAME = #{oname} AND O.ODATE = #{oodate}
 		GROUP BY G.GNO
 		<if test="pageSize > 0">
 			limit #{startIndex}, #{pageSize}

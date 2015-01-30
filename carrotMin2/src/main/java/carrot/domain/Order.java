@@ -18,17 +18,19 @@ package carrot.domain;
 
 import java.io.Serializable;
 
-public class Delivery implements Serializable {
+public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	protected int cno;
 	protected int sno;
-	protected String dname;
-	protected String dgrade;
-	protected String ddate;
+	protected String oname;
+	protected String ograde;
+	protected String oddate;
+	protected String oodate;
 	protected String oprice;
-	//protected String monthsum;
+	protected String monthsum;
 	protected String del_stat;
+	
 	protected String gcode;
 	protected String gunit;
 	protected String omemo;
@@ -49,29 +51,41 @@ public class Delivery implements Serializable {
 	public void setSno(int sno) {
 		this.sno = sno;
 	}
-	public String getDname() {
-		return dname;
+	public String getOname() {
+		return oname;
 	}
-	public void setDname(String dname) {
-		this.dname = dname;
+	public void setOname(String oname) {
+		this.oname = oname;
 	}
-	public String getDgrade() {
-		return dgrade;
+	public String getOgrade() {
+		return ograde;
 	}
-	public void setDgrade(String dgrade) {
-		this.dgrade = dgrade;
+	public void setOgrade(String ograde) {
+		this.ograde = ograde;
 	}
-	public String getDdate() {
-		return ddate;
+	public String getOddate() {
+		return oddate;
 	}
-	public void setDdate(String ddate) {
-		this.ddate = ddate;
+	public void setOddate(String oddate) {
+		this.oddate = oddate;
+	}
+	public String getOodate() {
+		return oodate;
+	}
+	public void setOodate(String oodate) {
+		this.oodate = oodate;
 	}
 	public String getOprice() {
 		return oprice;
 	}
 	public void setOprice(String oprice) {
 		this.oprice = oprice;
+	}
+	public String getMonthsum() {
+		return monthsum;
+	}
+	public void setMonthsum(String monthsum) {
+		this.monthsum = monthsum;
 	}
 	public String getDel_stat() {
 		return del_stat;
@@ -123,14 +137,14 @@ public class Delivery implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Delivery [cno=" + cno + ", sno=" + sno + ", dname=" + dname
-				+ ", dgrade=" + dgrade + ", ddate=" + ddate + ", oprice="
-				+ oprice + ", del_stat=" + del_stat + ", gcode=" + gcode
-				+ ", gunit=" + gunit + ", omemo=" + omemo + ", ocode=" + ocode
+		return "Order [cno=" + cno + ", sno=" + sno + ", oname=" + oname
+				+ ", ograde=" + ograde + ", oddate=" + oddate + ", oodate="
+				+ oodate + ", oprice=" + oprice + ", monthsum=" + monthsum
+				+ ", del_stat=" + del_stat + ", gcode=" + gcode + ", gunit="
+				+ gunit + ", omemo=" + omemo + ", ocode=" + ocode
 				+ ", gprice_a=" + gprice_a + ", gprice_b=" + gprice_b
 				+ ", gprice_c=" + gprice_c + "]";
 	}
 
 	
-
 }

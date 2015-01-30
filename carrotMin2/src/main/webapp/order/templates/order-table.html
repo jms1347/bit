@@ -1,5 +1,5 @@
 
-<table id='deliveryTable' class="table table-striped table-hover">
+<table id='orderTable' class="table table-striped table-hover">
 	<thead>
 		<tr class="table_head">
 			<th><input type="checkbox" class="check-all"></th>
@@ -7,6 +7,7 @@
 			<th>거래처명</th>
 			<th>등급</th>
 			<th>배송일자</th>
+			<th>주문일자</th>
 			<th>일총액</th>
 			<th>배송상태</th>
 			<th>메모</th>
@@ -14,16 +15,18 @@
 		</tr>
 	</thead>
 
-	{{#each deliverys}}
+	{{#each orders}}
 	<tr class="data-row">
 		<td><input type="checkbox" data-no="{{ocode}}" class="ab"></td>
 		<td>{{ocode}}</td>
-		<td>{{dname}}</td>
-		<td>{{dgrade}}</td>
-		<td>{{ddate}}</td>
-		<td>{{gprice_a}}</td>
+		<td>{{oname}}</td>
+		<td>{{ograde}}</td>
+		<td>{{oddate}}</td>
+		<td>{{oodate}}</td>
+		<td>{{oprice}}</td>
 		<td>{{del_stat}}</td>
 		<td>{{omemo}}</td>
+		<td><button id='ok'>확인</button></td>
 	</tr>
 	{{/each}}
 
@@ -36,35 +39,32 @@
 
 		});
 	});
-		
-		
-	$(document).on('click', '#deliveryTable tr', function(e) {
 
-		$dname = $(this).find('td:eq(2)').html(); // 거래처명
-		$ddate = $(this).find('td:eq(4)').html(); // 배송일자
-		$dgrade = $(this).find('td:eq(3)').html(); 
-		console.log("dgrade : " + $dgrade);
-		/* console.log("dname:" + $dname);
-		console.log("ddate:" + $ddate); */
+	$(document).on('click', '#orderTable tr', function(e) {
+
+		$oname = $(this).find('td:eq(2)').html(); // 거래처명
+		$oodate = $(this).find('td:eq(5)').html(); // 주문일자
+		$ograde = $(this).find('td:eq(3)').html(); // 거래처등급
+		
 		var currPageNo;
 		var maxPageNo;
-		$.post('../json/delivery2/title.do', {
+		$.post('../json/order2/title.do', {
 			//서버에 보낼 데이터를 객체에 담아 넘긴다 
-			dname : $dname,
-			ddate : $ddate,
-			dgrade : $dgrade,
+			oname : $oname,
+			oodate : $oodate,
+			ograde : $ograde,
 
 		}, function(resultMap) {
 
-			if (resultMap.dname != null && resultMap.ddate != null ) {
-				dname = resultMap.dname;
-				ddate = resultMap.ddate;
-				dgrade = resultMap.dgrade;
+			if (resultMap.oname != null && resultMap.oodate != null) {
+				oname = resultMap.oname;
+				oodate = resultMap.oodate;
+				ograde = resultMap.ograde;
 
-				console.log("dname2 : " + dname);
-				console.log("ddate2 : " + ddate);
-				console.log("dgrade2 : " + dgrade);
-				location.href = "../delivery2/app.html";
+				console.log("oname2 : " + oname);
+				console.log("oodate2 : " + oodate);
+				console.log("ograde2 : " + ograde);
+				location.href = "../order2/app.html";
 			} else {
 
 			}

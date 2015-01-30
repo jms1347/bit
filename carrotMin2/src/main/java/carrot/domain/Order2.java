@@ -18,18 +18,18 @@ package carrot.domain;
 
 import java.io.Serializable;
 
-public class Delivery2 implements Serializable {
+public class Order2 implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	protected int gno;
 	protected int sno;
-	protected String ccname;
+	protected String oname;
 	protected String gname;
 	protected String gcat;
 	protected String gunit;
 	protected String oqty;
 	protected String oddate;
-	protected String ordate;
+	protected String oodate;
 	protected String gmemo;
 	protected String oprice;
 	
@@ -42,12 +42,12 @@ public class Delivery2 implements Serializable {
 		this.oprice = oprice;
 	}
 
-	public String getCcname() {
-		return ccname;
+	public String getOname() {
+		return oname;
 	}
 
-	public void setCcname(String ccname) {
-		this.ccname = ccname;
+	public void setOname(String oname) {
+		this.oname = oname;
 	}
 
 	public String getGmemo() {
@@ -114,20 +114,20 @@ public class Delivery2 implements Serializable {
 		this.oddate = oddate;
 	}
 
-	public String getOrdate() {
-		return ordate;
+	public String getOodate() {
+		return oodate;
 	}
 
-	public void setOrdate(String ordate) {
-		this.ordate = ordate;
+	public void setOodate(String oodate) {
+		this.oodate = oodate;
 	}
 
 	@Override
 	public String toString() {
-		return "Delivery2 [gno=" + gno + ", sno=" + sno + ", ccname=" + ccname
+		return "Delivery2 [gno=" + gno + ", sno=" + sno + ", oname=" + oname
 				+ ", gname=" + gname + ", gcat=" + gcat + ", gunit=" + gunit
-				+ ", oqty=" + oqty + ", oddate=" + oddate + ", ordate="
-				+ ordate + ", gmemo=" + gmemo + ", oprice=" + oprice + "]";
+				+ ", oqty=" + oqty + ", oddate=" + oddate + ", oodate="
+				+ oodate + ", gmemo=" + gmemo + ", oprice=" + oprice + "]";
 	}
 
 	

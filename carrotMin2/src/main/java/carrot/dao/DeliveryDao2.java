@@ -1,9 +1,7 @@
 package carrot.dao;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import carrot.domain.Delivery2;
 
 /* myBatis에서 DAO 클래스를 만들 때 
  * 다음 인터페이스에 선언된 규칙에 따라 만들 것이다.
@@ -15,12 +13,9 @@ import carrot.domain.Delivery2;
  * => 인터페이스 패키지도 SQL 맵퍼 파일의 네임스페이스와 같아야 한다. 
  */
 public interface DeliveryDao2 {
-	Delivery2 selectOne(int no);
-  void update(Delivery2 delievery);
-  void delete(int no);
-  List<?> selectList2(Map<String,Object> params);
-  void insert(Delivery2 delivery);
   int totalSize();
+  List<?> selectList2(HashMap<String, Object> paramMap);
+
 }
 
 

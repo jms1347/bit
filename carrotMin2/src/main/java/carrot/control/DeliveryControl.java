@@ -28,11 +28,11 @@ public class DeliveryControl {
     return "redirect:list.do";
   }
 
-  @RequestMapping("/delete")
+/*  @RequestMapping("/delete")
   public String delete(int no) throws Exception {
 	  deliveryService.delete(no);
     return "redirect:list.do";
-  }
+  }*/
   
   @RequestMapping("/list")
   public String list(
@@ -49,8 +49,8 @@ public class DeliveryControl {
     if (pageNo <= 0) pageNo = 1;
     if (pageNo > maxPageNo) pageNo = maxPageNo;
     
-    model.addAttribute("deliverys", deliveryService.getList(pageNo, pageSize));
-    model.addAttribute("currPageNo", pageNo);
+/*    model.addAttribute("deliverys", deliveryService.getList(pageNo, pageSize));
+    model.addAttribute("currPageNo", pageNo);*/
     
     if (pageNo > 1) {
       model.addAttribute("prevPageNo", (pageNo - 1));
@@ -63,7 +63,7 @@ public class DeliveryControl {
     return "delivery/DeliveryList";
   }
   
-  @RequestMapping("/update")
+/*  @RequestMapping("/update")
   public String update(Delivery delivery) throws Exception {
 	  deliveryService.update(delivery);
     return "redirect:list.do";
@@ -75,7 +75,7 @@ public class DeliveryControl {
     model.addAttribute("delivery", delivery);
     
     return "delivery/DeliveryView";
-  }
+  }*/
 }
 
 
