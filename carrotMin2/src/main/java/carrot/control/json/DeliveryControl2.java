@@ -43,15 +43,8 @@ public class DeliveryControl2 {
 	    System.out.println("dname : "+dname);
 	    System.out.println("ddate : "+ddate);
 	    System.out.println("dgrade : "+dgrade);
-/*	    if(dgrade =="A"){
-	    	System.out.println("A");
-	    } else if(dgrade =="B"){
-	    	System.out.println("B");
-	    } else if(dgrade =="C"){
-	    	System.out.println("C");
-	    } else{
-	    	System.out.println("엘쓰");
-	    }*/
+	    
+	    
 	    return resultMap;
 	  }
 
@@ -85,6 +78,8 @@ public class DeliveryControl2 {
 		resultMap.put("maxPageNo", maxPageNo);
 		resultMap.put("ccname", dname);
 		resultMap.put("oddate", ddate);
+		resultMap.put("mlevel", dgrade);
+		
 		resultMap.put("deliverys", deliveryService2.getList2(pageNo,pageSize,dname, ddate));
 
 		//resultMap.put("deliverys", deliveryService2.getList(pageNo,pageSize));

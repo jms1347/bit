@@ -16,17 +16,17 @@
 		<result column="SNO" property="sno" />
 		<result column="CCNAME" property="dname" />
 		<result column="MLEVEL" property="dgrade" />
-		<result column="RDATE" property="ddate" />
+		<result column="ORDATE" property="ddate" />
 		<result column="OPRICE" property="oprice" />
 		<!-- <result column="TOT_PRICE" property="monthsum" /> -->
-		<result column="DEL_STAT" property="del_stat" />
+		<result column="ODEL_STAT" property="del_stat" />
 		<result column="GCODE" property="gcode" />
 		<result column="GUNIT" property="gunit" />
 		<result column="OMEMO" property="omemo" />
 		<result column="GPRICE_A" property="gprice_a" />
 		<result column="GPRICE_B" property="gprice_b" />
 		<result column="GPRICE_C" property="gprice_c" />
-		<result column="OCODE" property="ocode" />
+		<result column="ONO" property="ocode" />
 
 	</resultMap>
 
@@ -35,15 +35,14 @@
 	<select id="selectList2" parameterType="map" resultMap="deliveryMap">
 		<!-- <include refid="selectOne2" /> -->
 
-		SELECT O.OCODE, C.CCNAME , M.MLEVEL , O.RDATE , O.OPRICE ,
-		O.DEL_STAT, O.OMEMO
+		SELECT O.ONO, C.CCNAME , M.MLEVEL , O.ORDATE , O.OPRICE ,
+		O.ODEL_STAT, O.OMEMO
 		FROM CLIENT C, MATCHING M, ORDERLIST O, GOODS G
 		WHERE C.CNO = M.CNO
 		AND O.CNO = M.CNO AND M.SNO = O.SNO
-		AND G.GNO =
-		O.GNO AND O.SNO = G.SNO
+		AND G.GCODE = O.GCODE AND O.SNO = G.SNO
 		AND O.SNO=#{sno}
-		ORDER BY O.RDATE DESC
+		ORDER BY O.ORDATE DESC
 		<if test="pageSize > 0">
 			limit #{startIndex}, #{pageSize}
 		</if>

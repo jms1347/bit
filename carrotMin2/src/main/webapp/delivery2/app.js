@@ -58,7 +58,15 @@ function loadDeliveryList(pageNo) {
 		var deliverys = data.deliverys;
 		var ccname = data.ccname;
 		var oddate = data.oddate;
-		var mlevel = data.dgrade;
+		var mlevel = data.mlevel;
+		
+		/*if(mlevel == '1'){
+			$.post('../json/delivery2/title.do'),{
+				mlevel : mlevel,
+			}, function(resultMap){
+				
+			}
+		}*/
 
 		require(['text!templates/delivery-table.html'], function(html) {
 			var template = Handlebars.compile(html);
@@ -68,6 +76,12 @@ function loadDeliveryList(pageNo) {
 			$('#listDiv').html(template(data));
 			$('#titleDiv').html(ccname);
 			$('#titleDiv2').html(oddate);
+			$('#sumDiv').html(mlevel);
+			/*if(mlevel == "1"){
+				
+			}*/
+			
+	/*		.css('display', 'none')*/
 		});
 	});
 }

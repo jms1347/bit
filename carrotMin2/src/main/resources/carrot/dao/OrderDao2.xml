@@ -12,10 +12,10 @@
 	<!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
 	<resultMap type="Order2" id="orderMap2">
 		<!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
-		<id column="GNO" property="gno" />
+		<id column="GCODE" property="gno" />
 		<result column="SNO" property="sno" />
 		<result column="CCNAME" property="oname"/>
-		<result column="RDATE" property="oddate" />
+		<result column="ORDATE" property="oddate" />
 		<result column="ODATE" property="oodate"/>
 		<result column="GNAME" property="gname" />
 		<result column="GCAT" property="gcat" />
@@ -28,11 +28,11 @@
 
 	<select id="selectList2" parameterType="map" resultMap="orderMap2">
 		<!-- <include refid="deliverySelect2" /> -->
-		SELECT G.GNO, C.CCNAME ,M.SNO, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, G.GMEMO
+		SELECT G.GCODE, C.CCNAME , G.GNAME, G.GCAT, G.GUNIT, O.OQTY, G.GMEMO
 		FROM GOODS G, ORDERLIST O, SUPPLIER S, MATCHING M, CLIENT C
 		WHERE S.SNO = M.SNO AND C.CNO = M.CNO
 		AND O.SNO = M.SNO AND M.CNO = O.CNO
-		AND G.GNO = O.GNO AND G.SNO = O.SNO		
+		AND G.GCODE = O.GCODE AND G.SNO = O.SNO		
 		AND G.SNO = S.SNO 
 		AND C.CCNAME = #{oname} AND O.ODATE = #{oodate}
 		GROUP BY G.GNO

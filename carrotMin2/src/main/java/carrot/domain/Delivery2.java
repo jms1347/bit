@@ -32,8 +32,36 @@ public class Delivery2 implements Serializable {
 	protected String ordate;
 	protected String gmemo;
 	protected String oprice;
+	protected String gprice_a;
+	protected String gprice_b;
+	protected String gprice_c;
 	
 	
+	
+	public String getGprice_a() {
+		return gprice_a;
+	}
+
+	public void setGprice_a(String gprice_a) {
+		this.gprice_a = gprice_a;
+	}
+
+	public String getGprice_b() {
+		return gprice_b;
+	}
+
+	public void setGprice_b(String gprice_b) {
+		this.gprice_b = gprice_b;
+	}
+
+	public String getGprice_c() {
+		return gprice_c;
+	}
+
+	public void setGprice_c(String gprice_c) {
+		this.gprice_c = gprice_c;
+	}
+
 	public String getOprice() {
 		return oprice;
 	}
@@ -127,9 +155,12 @@ public class Delivery2 implements Serializable {
 		return "Delivery2 [gno=" + gno + ", sno=" + sno + ", ccname=" + ccname
 				+ ", gname=" + gname + ", gcat=" + gcat + ", gunit=" + gunit
 				+ ", oqty=" + oqty + ", oddate=" + oddate + ", ordate="
-				+ ordate + ", gmemo=" + gmemo + ", oprice=" + oprice + "]";
+				+ ordate + ", gmemo=" + gmemo + ", oprice=" + oprice
+				+ ", gprice_a=" + gprice_a + ", gprice_b=" + gprice_b
+				+ ", gprice_c=" + gprice_c + "]";
 	}
 
+	
 	
 
 	
