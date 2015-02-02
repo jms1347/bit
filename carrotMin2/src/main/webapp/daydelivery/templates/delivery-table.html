@@ -1,4 +1,4 @@
-	<table id='deliveryTable' class="table table-striped table-hover">
+<table id='daydeliveryTable' class="table table-striped table-hover">
 	<thead>
 		<tr class="table_head">
 			<th><input type="checkbox" class="check-all"></th>
@@ -13,7 +13,7 @@
 		</tr>
 	</thead>
 
-	{{#each deliverys}}
+	{{#each daydeliverys}}
 	<tr class="data-row">
 		<td><input type="checkbox" data-no="{{ocode}}" class="ab"></td>
 		<td>{{ocode}}</td>	
@@ -37,7 +37,7 @@
 	});
 		
 		
-	$(document).on('click', '#deliveryTable tr', function(e) {
+	$(document).on('click', '#daydeliveryTable tr', function(e) {
 
 		$dname = $(this).find('td:eq(2)').html(); // 거래처명
 		$ddate = $(this).find('td:eq(4)').html(); // 배송일자
@@ -47,7 +47,7 @@
 		console.log("ddate:" + $ddate); */
 		var currPageNo;
 		var maxPageNo;
-		$.post('../json/delivery2/title.do', {
+		$.post('../json/daydelivery2/title.do', {
 			//서버에 보낼 데이터를 객체에 담아 넘긴다 
 			dname : $dname,
 			ddate : $ddate,
@@ -63,7 +63,7 @@
 				console.log("dname2 : " + dname);
 				console.log("ddate2 : " + ddate);
 				console.log("dgrade2 : " + dgrade);
-				location.href = "../delivery2/app.html";
+				location.href = "../daydelivery2/app.html";
 			} else {
 
 			}

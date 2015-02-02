@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <sql> 태그 사용하기 => 자주 사용되는 SQL문은 별도로 정의해두고 포함한다. -->
+
+<mapper namespace="carrot.dao.DaydeliveryDao">
+
+	<!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
+
+	<!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
+	<resultMap type="Daydelivery" id="daydeliveryMap">
+		<!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
+		<id column="CNO" property="cno" />
+		<result column="SNO" property="sno" />
+		<result column="CCNAME" property="dname" />
+		<result column="MLEVEL" property="dgrade" />
+		<result column="ORDATE" property="ddate" />
+		<result column="OPRICE" property="oprice" />
+		<!-- <result column="TOT_PRICE" property="monthsum" /> -->
+		<result column="ODEL_STAT" property="del_stat" />
+		<result column="GCODE" property="gcode" />
+		<result column="GUNIT" property="gunit" />
+		<result column="OMEMO" property="omemo" />
+		<result column="GPRICE_A" property="gprice_a" />
+		<result column="GPRICE_B" property="gprice_b" />
+		<result column="GPRICE_C" property="gprice_c" />
+		<result column="ONO" property="ocode" />
+
+	</resultMap>
+
+
+
+	<select id="selectList2" parameterType="map" resultMap="daydeliveryMap">
+		<!-- <include refid="selectOne2" /> -->
+
+		SELECT O.ONO, C.CCNAME , M.MLEVEL , O.ORDATE , O.OPRICE ,
+		O.ODEL_STAT, O.OMEMO
+		FROM CLIENT C, MATCHING M, ORDERLIST O, GOODS G
+		WHERE C.CNO = M.CNO
+		AND O.CNO = M.CNO AND M.SNO = O.SNO
+		AND G.GCODE = O.GCODE 
+		AND O.SNO=#{sno} AND O.ORDATE = CURDATE()
+		ORDER BY O.ORDATE DESC
+		<if test="pageSize > 0">
+			limit #{startIndex}, #{pageSize}
+		</if>
+	</select>
+
+
+	<select id="totalSize" resultType="int">
+		SELECT count(CNO) FROM CLIENT
+	</select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,7 +11,7 @@
 			<th>일총액</th>
 			<th>배송상태</th>
 			<th>메모</th>
-			<th>&nbsp;</th>
+			<th>확인</th>
 		</tr>
 	</thead>
 
@@ -39,18 +39,22 @@
 			$('.ab').prop('checked', this.checked);
 
 		});
-		$('#ok').click(function() {
-			
-		});
 		
-	
 	});
-
-	$(document).on('click', 'orderTable tr', function(e) {
+	/* $('#orderTable tr').find('td:eq(9)').click(function() {
+	var c1;
+	console.log("삭제");
+	
+	}); */
+	/* 	$(document).on('click', 'orderTable td:eq(9)'), function(e){
+	 console.log("삭제");
+	 } */
+	 $("#")
+	$(document).on('click', '#orderTable tr', function(e) {
 		$oname = $(this).find('td:eq(2)').html(); // 거래처명
 		$oodate = $(this).find('td:eq(5)').html(); // 주문일자
 		$ograde = $(this).find('td:eq(3)').html(); // 거래처등급
-		
+
 		var currPageNo;
 		var maxPageNo;
 		$.post('../json/order2/title.do', {
@@ -69,8 +73,7 @@
 				console.log("oodate2 : " + oodate);
 				console.log("ograde2 : " + ograde);
 				location.href = "../order2/app.html";
-				
-				
+
 			} else {
 
 			}
@@ -81,7 +84,4 @@
 			alert(textStatus + ":" + errorThrown);
 		});
 	});
-	
-
-	
 </script>
