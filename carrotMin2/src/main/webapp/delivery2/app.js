@@ -76,10 +76,8 @@ function loadDeliveryList(pageNo) {
 			$('#listDiv').html(template(data));
 			$('#titleDiv').html(ccname);
 			$('#titleDiv2').html(oddate);
-			$('#sumDiv').html(mlevel);
-			/*if(mlevel == "1"){
-				
-			}*/
+			$('#sumDiv').html(mlevel).css('display', 'none');
+			
 			
 	/*		.css('display', 'none')*/
 		});

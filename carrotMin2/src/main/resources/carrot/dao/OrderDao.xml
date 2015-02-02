@@ -42,6 +42,7 @@
 		WHERE C.CNO = M.CNO 
 		AND M.SNO = O.SNO AND O.CNO = M.CNO
 		AND M.SNO=#{sno}
+		GROUP BY C.CCNAME
 		ORDER BY O.ODATE DESC
 		<if test="pageSize > 0">
 			limit #{startIndex}, #{pageSize}

@@ -35,7 +35,7 @@
 		AND G.GCODE = O.GCODE AND G.SNO = O.SNO		
 		AND G.SNO = S.SNO 
 		AND C.CCNAME = #{oname} AND O.ODATE = #{oodate}
-		GROUP BY G.GNO
+		GROUP BY C.CCNAME
 		<if test="pageSize > 0">
 			limit #{startIndex}, #{pageSize}
 		</if>

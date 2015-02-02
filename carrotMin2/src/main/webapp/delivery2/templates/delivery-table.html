@@ -1,82 +1,70 @@
 <table id='deliveryTable' class="table table-striped table-hover">
 	<thead>
 		<tr class="table_head">
-		<th><input type="checkbox" class="check-all"></th>
+			<th><input type="checkbox" class="check-all"></th>
 			<th>상품코드</th>
 			<th>상품명</th>
 			<th>분류</th>
 			<th>단위</th>
 			<th>수량</th>
-			<th id='a'>가격</th>
-			<th id='b'>가격</th>
-			<th id='c'>가격</th>
+			<th>가격</th>
 			<th>메모</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
-		{{#each deliverys}}
-		<tr class="data-row">
-			<td><input type="checkbox" data-no="{{gno}}" class="ab"></td>
-			<td>{{gno}}</td>
-			<td>{{gname}}</td>
-			<td>{{gcat}}</td>
-			<td>{{gunit}}</td>
-			<td>{{oqty}}</td> 
-			<td id='aa'>{{gprice_a}}</td>
-			<td id='bb'>{{gprice_b}}</td>
-			<td id='cc'>{{gprice_c}}</td>
-			<td>{{gmemo}}</td>
+	{{#each deliverys}}
+	<tr class="data-row">
+		<td><input type="checkbox" data-no="{{gno}}" class="ab"></td>
+		<td>{{gno}}</td>
+		<td>{{gname}}</td>
+		<td>{{gcat}}</td>
+		<td>{{gunit}}</td>
+		<td>{{oqty}}</td>
+		<td>{{oprice}}</td>
+		<td>{{gmemo}}</td>
 
-			<!-- <td><button data-no='{{gno}}' class='my-delete-btn btn btn-danger'>삭제</button></td> -->
-		</tr>												
-		{{/each}}
-		
-</table> 
+		<!-- <td><button data-no='{{gno}}' class='my-delete-btn btn btn-danger'>삭제</button></td> -->
+	</tr>
+	{{/each}}
+	
+</table>
+<div>주문총액 : <span id="sum"></span></div>
 <script>
-var mlevel;
-$(document).ready(function() {
-	$('.check-all').click(function() {
-		$('.ab').prop('checked',this.checked);
+	var mlevel;
+	$(document).ready(function() {
+		$('.check-all').click(function() {
+			$('.ab').prop('checked', this.checked);
+		});
+		mlevel = $('span').text();
+		console.log("mlevel : ", mlevel);
+
+		var sum = 0;
+
+		var MyRows = $('#deliveryTable').find('tr');
+		for (var i = 1; i < MyRows.length; i++) {
+			var a = $(MyRows[i]).find('td:eq(5)').html();
+			var b = $(MyRows[i]).find('td:eq(6)').html();
+			var c = a * b;
+			sum = sum + c;
+			console.log("수량 : ",a);
+			console.log("가격 : ",b);
+			console.log("수량*가격 : ",c);
+			console.log("합계 : ",sum);
+		}
+		$('#sum').html(sum);
+
+		
 	});
-	mlevel = $('span').text();
-	console.log("mlevel : ", mlevel);
+
+	/* 
+	 $(document).on('click', '#deliveryTable tr', function(e) {
+
+	 $dname = $(this).find('td:eq(2)').html(); // 거래처명 */
+	/* $('#sumDiv').html(mlevel); */
+	/*if(mlevel == "1"){
 	
-	if(mlevel=='1'){
-		console.log("1등급");
-		 $('#deliveryTable tr').find('td:eq(7)').css('display','none');
-		$('#deliveryTable tr').find('td:eq(8)').css('display','none');
-		$('#b').css('display','none');
-		$('#c').css('display','none');
-		
-		
-		/* var aprice = ((int)$('#aa').find('td:eq(6)').text);
-		var aqty = ((int)$('#aa').find('td:eq(5)').text);
-		console.log("aprice : ", aprice*aqty); */
-	} else if (mlevel =='2'){
-		console.log("2등급");
-		 $('#deliveryTable tr').find('td:eq(6)').css('display','none');
-		$('#deliveryTable tr').find('td:eq(8)').css('display','none');
-		$('#a').css('display','none');
-		$('#c').css('display','none');
-	} else if(mlevel =='3'){
-		console.log("2등급");
-		 $('#deliveryTable tr').find('td:eq(6)').css('display','none');
-		$('#deliveryTable tr').find('td:eq(7)').css('display','none');
-		$('#a').css('display','none');
-		$('#b').css('display','none');
-	}
-});
+	 }*/
 
-/* 
-$(document).on('click', '#deliveryTable tr', function(e) {
-
-	$dname = $(this).find('td:eq(2)').html(); // 거래처명 */
-/* $('#sumDiv').html(mlevel); */
-/*if(mlevel == "1"){
-	
-}*/
-
-/*		.css('display', 'none')*/
-
+	/*		.css('display', 'none')*/
 </script>

@@ -42,7 +42,9 @@
 		AND O.CNO = M.CNO AND M.SNO = O.SNO
 		AND G.GCODE = O.GCODE AND O.SNO = G.SNO
 		AND O.SNO=#{sno}
+		GROUP BY O.ORDATE
 		ORDER BY O.ORDATE DESC
+		
 		<if test="pageSize > 0">
 			limit #{startIndex}, #{pageSize}
 		</if>
