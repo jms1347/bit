@@ -26,6 +26,7 @@
 		<result column="GPRICE_A" property="gprice_a" />
 		<result column="GPRICE_B" property="gprice_b" />
 		<result column="GPRICE_C" property="gprice_c" />
+		<result column="oprice2" property="sum_oprice"/>
 		<result column="ONO" property="ocode" />
 
 	</resultMap>
@@ -34,15 +35,33 @@
 
 	<select id="selectList2" parameterType="map" resultMap="daydeliveryMap">
 		<!-- <include refid="selectOne2" /> -->
-
-		SELECT O.ONO, C.CCNAME , M.MLEVEL , O.ORDATE , O.OPRICE ,
+		
+		select 
+		a.ono, d.ccname, c.mlevel,a.ORDATE ,b.oprice2 sum_oprice, a.ODEL_STAT, a.OMEMO
+		from 
+		(select a.* from orderlist a where a.sno = #{sno} and a.ORDATE = curdate()) a
+		left outer join 
+		(select sno,odate,sum(oprice) oprice2 from orderlist 
+		group by sno,odate
+		order by sno,odate
+		) b 
+		on a.sno = b.sno
+		and a.odate = b.odate
+        left outer join matching c 
+        on a.sno = c.sno and a.cno = c.cno 
+        left outer join client d
+        on c.cno = d.cno
+        group by ORDATE
+        order by ORDATE
+        
+		<!-- SELECT O.ONO, C.CCNAME , M.MLEVEL , O.ORDATE , O.OPRICE ,
 		O.ODEL_STAT, O.OMEMO
 		FROM CLIENT C, MATCHING M, ORDERLIST O, GOODS G
 		WHERE C.CNO = M.CNO
 		AND O.CNO = M.CNO AND M.SNO = O.SNO
 		AND G.GCODE = O.GCODE 
 		AND O.SNO=#{sno} AND O.ORDATE = CURDATE()
-		ORDER BY O.ORDATE DESC
+		ORDER BY O.ORDATE DESC -->
 		<if test="pageSize > 0">
 			limit #{startIndex}, #{pageSize}
 		</if>

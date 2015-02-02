@@ -27,15 +27,35 @@
 		<result column="GPRICE_B" property="gprice_b" />
 		<result column="GPRICE_C" property="gprice_c" />
 		<result column="ONO" property="ocode" />
-
+		<result column="OQTY" property="oqty"/>
+		<result column="oprice2" property="sum_oprice"/>
 	</resultMap>
 
 
 
 	<select id="selectList2" parameterType="map" resultMap="deliveryMap">
 		<!-- <include refid="selectOne2" /> -->
+		
+		select 
+		a.ono, d.ccname, c.mlevel,a.ORDATE ,b.oprice2 sum_oprice, a.ODEL_STAT, a.OMEMO
+		from 
+		(select a.* from orderlist a where a.sno = #{sno}) a
+		left outer join 
+		(select sno,odate,sum(oprice) oprice2 from orderlist 
+		group by sno,odate
+		order by sno,odate
+		) b 
+		on a.sno = b.sno
+		and a.odate = b.odate
+        left outer join matching c 
+        on a.sno = c.sno and a.cno = c.cno 
+        left outer join client d
+        on c.cno = d.cno
+        group by ORDATE
+        order by ORDATE
+        
 
-		SELECT O.ONO, C.CCNAME , M.MLEVEL , O.ORDATE , O.OPRICE ,
+		<!-- SELECT O.ONO, C.CCNAME , M.MLEVEL , O.ORDATE , O.OPRICE ,
 		O.ODEL_STAT, O.OMEMO
 		FROM CLIENT C, MATCHING M, ORDERLIST O, GOODS G
 		WHERE C.CNO = M.CNO
@@ -43,7 +63,21 @@
 		AND G.GCODE = O.GCODE AND O.SNO = G.SNO
 		AND O.SNO=#{sno}
 		GROUP BY O.ORDATE
-		ORDER BY O.ORDATE DESC
+		ORDER BY O.ORDATE DESC 
+		
+		select 
+		a.* ,b.oprice2 sum_oprice
+		from
+		(select a.* from orderlist a where a.sno = #{sno}) a
+		left outer join 
+		(select 
+		sno,odate,sum(oprice) oprice2
+		from orderlist 
+		group by sno,odate
+		order by sno,odate
+		) b
+		on a.sno = b.sno
+		and a.odate = b.odate; -->
 		
 		<if test="pageSize > 0">
 			limit #{startIndex}, #{pageSize}

@@ -32,11 +32,20 @@ public class Daydelivery implements Serializable {
 	protected String gcode;
 	protected String gunit;
 	protected String omemo;
-
+	
+	protected String sum_oprice;
 	protected String ocode;
 	protected String gprice_a;
 	protected String gprice_b;
 	protected String gprice_c;
+	
+	
+	public String getSum_oprice() {
+		return sum_oprice;
+	}
+	public void setSum_oprice(String sum_oprice) {
+		this.sum_oprice = sum_oprice;
+	}
 	public int getCno() {
 		return cno;
 	}
@@ -123,13 +132,14 @@ public class Daydelivery implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Delivery [cno=" + cno + ", sno=" + sno + ", dname=" + dname
+		return "Daydelivery [cno=" + cno + ", sno=" + sno + ", dname=" + dname
 				+ ", dgrade=" + dgrade + ", ddate=" + ddate + ", oprice="
 				+ oprice + ", del_stat=" + del_stat + ", gcode=" + gcode
-				+ ", gunit=" + gunit + ", omemo=" + omemo + ", ocode=" + ocode
-				+ ", gprice_a=" + gprice_a + ", gprice_b=" + gprice_b
-				+ ", gprice_c=" + gprice_c + "]";
+				+ ", gunit=" + gunit + ", omemo=" + omemo + ", sum_oprice="
+				+ sum_oprice + ", ocode=" + ocode + ", gprice_a=" + gprice_a
+				+ ", gprice_b=" + gprice_b + ", gprice_c=" + gprice_c + "]";
 	}
+	
 
 	
 

@@ -38,7 +38,7 @@ public class DeliveryService {
 		paramMap.put("pageSize", pageSize);
 		paramMap.put("sno", sno);
 
-	
+		
 		return deliveryDao.selectList2(paramMap);
 	}
 

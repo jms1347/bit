@@ -65,8 +65,10 @@ public class DaydeliveryControl {
 		resultMap.put("currPageNo", pageNo);
 		resultMap.put("maxPageNo", maxPageNo);		
 		//resultMap.put("sno", sno);
+		
 		resultMap.put("daydeliverys", daydeliveryService.getList2(pageNo,pageSize,sno));
 		//resultMap.put("deliverys", deliveryService.getList(pageNo,pageSize));
+		System.out.println("daydeliverys : "+resultMap);
 		return resultMap;
 	}
 

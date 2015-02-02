@@ -67,7 +67,9 @@ public class DeliveryControl {
 		resultMap.put("currPageNo", pageNo);
 		resultMap.put("maxPageNo", maxPageNo);		
 		//resultMap.put("sno", sno);
+		
 		resultMap.put("deliverys", deliveryService.getList2(pageNo,pageSize,sno));
+		System.out.println("deliverys : "+resultMap);
 		//resultMap.put("deliverys", deliveryService.getList(pageNo,pageSize));
 		return resultMap;
 	}

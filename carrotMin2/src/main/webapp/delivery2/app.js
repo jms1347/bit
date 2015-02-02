@@ -59,14 +59,6 @@ function loadDeliveryList(pageNo) {
 		var ccname = data.ccname;
 		var oddate = data.oddate;
 		var mlevel = data.mlevel;
-		
-		/*if(mlevel == '1'){
-			$.post('../json/delivery2/title.do'),{
-				mlevel : mlevel,
-			}, function(resultMap){
-				
-			}
-		}*/
 
 		require(['text!templates/delivery-table.html'], function(html) {
 			var template = Handlebars.compile(html);
@@ -76,7 +68,6 @@ function loadDeliveryList(pageNo) {
 			$('#listDiv').html(template(data));
 			$('#titleDiv').html(ccname);
 			$('#titleDiv2').html(oddate);
-			$('#sumDiv').html(mlevel).css('display', 'none');
 			
 			
 	/*		.css('display', 'none')*/

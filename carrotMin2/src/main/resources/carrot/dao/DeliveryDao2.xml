@@ -32,7 +32,7 @@
 
 	<select id="selectList2" parameterType="map" resultMap="deliveryMap2">
 		<!-- <include refid="deliverySelect2" /> -->
-		SELECT G.GCODE, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, G.GPRICE_A, G.GPRICE_B, G.GPRICE_C,G.GMEMO
+		SELECT G.GCODE, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, O.OPRICE, G.GMEMO
 		FROM GOODS G, ORDERLIST O, SUPPLIER S, MATCHING M, CLIENT C
 		WHERE S.SNO = M.SNO AND C.CNO = M.CNO
 		AND O.SNO = M.SNO AND M.CNO = O.CNO
