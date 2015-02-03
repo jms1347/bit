@@ -32,8 +32,18 @@ public class Order2 implements Serializable {
 	protected String oodate;
 	protected String gmemo;
 	protected String oprice;
+	protected String oprice2;
 	
 	
+	
+	public String getOprice2() {
+		return oprice2;
+	}
+
+	public void setOprice2(String oprice2) {
+		this.oprice2 = oprice2;
+	}
+
 	public String getOprice() {
 		return oprice;
 	}
@@ -124,11 +134,14 @@ public class Order2 implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Delivery2 [gno=" + gno + ", sno=" + sno + ", oname=" + oname
+		return "Order2 [gno=" + gno + ", sno=" + sno + ", oname=" + oname
 				+ ", gname=" + gname + ", gcat=" + gcat + ", gunit=" + gunit
 				+ ", oqty=" + oqty + ", oddate=" + oddate + ", oodate="
-				+ oodate + ", gmemo=" + gmemo + ", oprice=" + oprice + "]";
+				+ oodate + ", gmemo=" + gmemo + ", oprice=" + oprice
+				+ ", oprice2=" + oprice2 + "]";
 	}
+
+	
 
 	
 

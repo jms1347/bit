@@ -62,9 +62,10 @@ function loadDeliveryList(pageNo) {
 
 		require(['text!templates/delivery-table.html'], function(html) {
 			var template = Handlebars.compile(html);
-			console.log("dname : " + ccname);
+			/*console.log("dname : " + ccname);
 			console.log("ddate : " + oddate);
-			console.log("mlevel : " + mlevel);
+			console.log("mlevel : " + mlevel);*/
+			console.log(data);
 			$('#listDiv').html(template(data));
 			$('#titleDiv').html(ccname);
 			$('#titleDiv2').html(oddate);

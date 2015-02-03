@@ -23,12 +23,13 @@
 		<result column="OQTY" property="oqty" />
 		
 		<result column="GMEMO" property="gmemo"/>
+			<result column="OPRICE2" property="oprice2"/>
 	</resultMap>
 
 
 	<select id="selectList2" parameterType="map" resultMap="orderMap2">
 		<!-- <include refid="deliverySelect2" /> -->
-		SELECT G.GCODE, C.CCNAME , G.GNAME, G.GCAT, G.GUNIT, O.OQTY, G.GMEMO
+		SELECT G.GCODE, C.CCNAME , G.GNAME, G.GCAT, G.GUNIT, O.OQTY, ROUND((O.OPRICE/O.OQTY),0) OPRICE2, G.GMEMO
 		FROM GOODS G, ORDERLIST O, SUPPLIER S, MATCHING M, CLIENT C
 		WHERE S.SNO = M.SNO AND C.CNO = M.CNO
 		AND O.SNO = M.SNO AND M.CNO = O.CNO

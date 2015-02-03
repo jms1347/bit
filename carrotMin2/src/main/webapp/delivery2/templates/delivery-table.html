@@ -21,7 +21,7 @@
 		<td>{{gcat}}</td>
 		<td>{{gunit}}</td>
 		<td>{{oqty}}</td>
-		<td>{{oprice}}</td>
+		<td>{{oprice2}}</td>
 		<td>{{gmemo}}</td>
 
 		<!-- <td><button data-no='{{gno}}' class='my-delete-btn btn btn-danger'>삭제</button></td> -->
@@ -43,13 +43,11 @@
 
 		var MyRows = $('#deliveryTable').find('tr');
 		for (var i = 1; i < MyRows.length; i++) {
-			var a = $(MyRows[i]).find('td:eq(5)').html();
+			
 			var b = $(MyRows[i]).find('td:eq(6)').html();
-			var c = a * b;
-			sum = sum + c;
-			console.log("수량 : ",a);
-			console.log("가격 : ",b);
-			console.log("수량*가격 : ",c);
+			
+			sum = sum + b;
+			console.log("수량*가격 : ",b);
 			console.log("합계 : ",sum);
 		}
 		$('#sum').html(sum);

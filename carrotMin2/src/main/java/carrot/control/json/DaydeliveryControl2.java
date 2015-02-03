@@ -83,7 +83,6 @@ public class DaydeliveryControl2 {
 		resultMap.put("daydeliverys", daydeliveryService2.getList2(pageNo,pageSize,dname, ddate));
 
 		//resultMap.put("deliverys", deliveryService2.getList(pageNo,pageSize));
-
 		return resultMap;
 	}
 	

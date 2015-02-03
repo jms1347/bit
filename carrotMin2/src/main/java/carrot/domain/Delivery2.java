@@ -35,9 +35,19 @@ public class Delivery2 implements Serializable {
 	protected String gprice_a;
 	protected String gprice_b;
 	protected String gprice_c;
+	protected String oprice2;
 	
 	
 	
+	
+	public String getOprice2() {
+		return oprice2;
+	}
+
+	public void setOprice2(String oprice2) {
+		this.oprice2 = oprice2;
+	}
+
 	public String getGprice_a() {
 		return gprice_a;
 	}
@@ -157,12 +167,6 @@ public class Delivery2 implements Serializable {
 				+ ", oqty=" + oqty + ", oddate=" + oddate + ", ordate="
 				+ ordate + ", gmemo=" + gmemo + ", oprice=" + oprice
 				+ ", gprice_a=" + gprice_a + ", gprice_b=" + gprice_b
-				+ ", gprice_c=" + gprice_c + "]";
+				+ ", gprice_c=" + gprice_c + ", oprice2=" + oprice2 + "]";
 	}
-
-	
-	
-
-	
-
 }

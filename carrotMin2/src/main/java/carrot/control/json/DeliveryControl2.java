@@ -83,7 +83,7 @@ public class DeliveryControl2 {
 		resultMap.put("deliverys", deliveryService2.getList2(pageNo,pageSize,dname, ddate));
 
 		//resultMap.put("deliverys", deliveryService2.getList(pageNo,pageSize));
-
+		System.out.println("deliverys2 : "+resultMap);
 		return resultMap;
 	}
 	

@@ -27,12 +27,14 @@
 		<result column="GPRICE_A" property="gprice_a" />
 		<result column="GPRICE_B" property="gprice_b" />
 		<result column="GPRICE_C" property="gprice_c" />
+		<result column="OPRICE2" property="oprice2"/>
 	</resultMap>
 
 
 	<select id="selectList2" parameterType="map" resultMap="deliveryMap2">
 		<!-- <include refid="deliverySelect2" /> -->
-		SELECT G.GCODE, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, O.OPRICE, G.GMEMO
+		<!-- SELECT G.GCODE, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, ROUND((O.OQTY/O.OPRICE),0) OPRICE2, G.GMEMO -->
+		SELECT G.GCODE, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, ROUND((O.OPRICE/O.OQTY),0) OPRICE2, G.GMEMO
 		FROM GOODS G, ORDERLIST O, SUPPLIER S, MATCHING M, CLIENT C
 		WHERE S.SNO = M.SNO AND C.CNO = M.CNO
 		AND O.SNO = M.SNO AND M.CNO = O.CNO

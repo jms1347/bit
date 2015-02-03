@@ -23,7 +23,7 @@
 		<result column="OQTY" property="oqty" />
 		
 		<result column="GMEMO" property="gmemo"/>
-		
+		<result column="OPRICE2" property="oprice2"/>
 		<result column="GPRICE_A" property="gprice_a" />
 		<result column="GPRICE_B" property="gprice_b" />
 		<result column="GPRICE_C" property="gprice_c" />
@@ -32,7 +32,7 @@
 
 	<select id="selectList2" parameterType="map" resultMap="daydeliveryMap2">
 		<!-- <include refid="deliverySelect2" /> -->
-		SELECT G.GCODE, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, G.GPRICE_A, G.GPRICE_B, G.GPRICE_C,G.GMEMO
+		SELECT G.GCODE, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, ROUND((O.OPRICE/O.OQTY),0) OPRICE2, G.GMEMO
 		FROM GOODS G, ORDERLIST O, SUPPLIER S, MATCHING M, CLIENT C
 		WHERE S.SNO = M.SNO AND C.CNO = M.CNO
 		AND O.SNO = M.SNO AND M.CNO = O.CNO

@@ -8,6 +8,7 @@
 			<th>분류</th>
 			<th>단위</th>
 			<th>수량</th>
+			<th>가격</th>
 			<th>메모</th>
 			<th>&nbsp;</th>
 		</tr>
@@ -21,11 +22,13 @@
 		<td>{{gcat}}</td>
 		<td>{{gunit}}</td>
 		<td>{{oqty}}</td>
+		<td>{{oprice2}}</td>
 		<td>{{gmemo}}</td>
 	</tr>
 	{{/each}}
 
 </table>
+<div>주문총액 : <span id="sum"></span></div>
 <script>
 	$(document).ready(function() {
 
@@ -35,6 +38,22 @@
 		});
 	});
 		
-		
+	$(document).ready(function() {
+		$('.check-all').click(function() {
+			$('.ab').prop('checked',this.checked);
+		});
+	});
+	var sum = 0;
+
+	var MyRows = $('#orderTable').find('tr');
+	for (var i = 1; i < MyRows.length; i++) {
+		var a = $(MyRows[i]).find('td:eq(5)').html(); 
+		var b = $(MyRows[i]).find('td:eq(6)').html();
+		var c = a*b;
+		sum = sum + c;
+		console.log("수량*가격 : ",c);
+		console.log("합계 : ",sum);
+	}
+	$('#sum').html(sum);
 	
 </script>
