@@ -15,7 +15,10 @@ public class Client implements Serializable {
 	protected String clientAddress;
 	protected String clientAddressDet;
 	protected String clientMemo;
+	protected String scname;
 	
+	
+
 	@Override
 	public String toString() {
 		return "Client [no=" + no + ", clientCorName=" + clientCorName
@@ -23,8 +26,20 @@ public class Client implements Serializable {
 				+ clientPassword + ", clientTel=" + clientTel + ", clientMail="
 				+ clientMail + ", clientPostNo=" + clientPostNo
 				+ ", clientAddress=" + clientAddress + ", clientAddressDet="
-				+ clientAddressDet + ", clientMemo=" + clientMemo + "]";
+				+ clientAddressDet + ", clientMemo=" + clientMemo + ", scname="
+				+ scname + "]";
 	}
+	
+	
+	public String getScname() {
+		return scname;
+	}
+
+
+	public void setScname(String scname) {
+		this.scname = scname;
+	}
+
 
 	public int getNo() {
 		return no;

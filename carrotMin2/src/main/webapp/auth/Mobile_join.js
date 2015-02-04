@@ -38,6 +38,9 @@ $(function() {
 			clientTel : $('#mph').val(),
 			clientPassword : $('#mpwd').val(),
 			clientCorName : $('#mname').val(),
+			sname : $('#mcode').val(),
+			clientMemo : $('mmemo').val(),
+			
 
 		}, function(resultMap) {
 
@@ -62,12 +65,26 @@ $(function() {
 			$.get("http://192.168.0.109:3000/searchid", {
 				searchitem : $('#mcode').val()
 			}, function(data) {
-				console.log(data.length);
 				$('button').remove();
 				for (var i = 0; i < data.length; i++) {
-					$('<button>').appendTo('#result').html(data[i].SCNAME);
-							  
+					
+					$('<button>').appendTo('#result')
+					.attr("id","test"+i).attr("class","test")
+					.attr("type","button").attr("dataname",data[i].SCNAME)
+					.html(data[i].SCNAME);	
+		
 				}
+				
+				$('.test').click(function(){
+					$('#test'+$('.test').index(this)).click(function(){
+						console.log($('#test'+$('.test').index(this)).attr('dataname'));
+						$('#mcode').val($('#test'+$('.test').index(this)).attr('dataname'));
+						$('.test').css('display','none');
+						
+					});
+				});
+				
+				
 
 			}).fail(function() {
 				$('button').remove();
