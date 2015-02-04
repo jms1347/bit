@@ -59,7 +59,7 @@ $(function() {
 $(function() {
 	$("#mcode").keyup(function() {
 		if ($('#mcode').val() != '') {
-			$.get("http://192.168.0.150:3000/searchid", {
+			$.get("http://192.168.0.109:3000/searchid", {
 				searchitem : $('#mcode').val()
 			}, function(data) {
 				console.log(data.length);
@@ -74,7 +74,6 @@ $(function() {
 				console.log('error');
 			})
 		} else {
-			console.log("빈칸");
 			$('button').remove();
 					
 		}
@@ -84,7 +83,7 @@ $(function() {
 $(function() {
 	$("#mph").keyup(function() { // 아이디 유효성검사
 		if (checkph()) {
-			$.get("http://192.168.0.155:3000/phcheck", {
+			$.get("http://192.168.0.109:3000/phcheck", {
 				ph : $('#mph').val()
 			}, function(data) {
 				$('#checkMsg').html(data.result);

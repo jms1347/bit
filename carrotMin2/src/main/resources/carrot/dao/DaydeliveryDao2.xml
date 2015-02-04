@@ -32,13 +32,21 @@
 
 	<select id="selectList2" parameterType="map" resultMap="daydeliveryMap2">
 		<!-- <include refid="deliverySelect2" /> -->
+		
 		SELECT G.GCODE, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, ROUND((O.OPRICE/O.OQTY),0) OPRICE2, G.GMEMO
 		FROM GOODS G, ORDERLIST O, SUPPLIER S, MATCHING M, CLIENT C
 		WHERE S.SNO = M.SNO AND C.CNO = M.CNO
 		AND O.SNO = M.SNO AND M.CNO = O.CNO
 		AND G.GCODE = O.GCODE 	
 		AND C.CCNAME = #{ccname} AND O.ORDATE = CURDATE()
-		GROUP BY C.CCNAME
+		ORDER BY ORDATE
+<!-- 		SELECT G.GCODE, G.GNAME, G.GCAT, G.GUNIT, O.OQTY, ROUND((O.OPRICE/O.OQTY),0) OPRICE2, G.GMEMO
+		FROM GOODS G, ORDERLIST O, SUPPLIER S, MATCHING M, CLIENT C
+		WHERE S.SNO = M.SNO AND C.CNO = M.CNO
+		AND O.SNO = M.SNO AND M.CNO = O.CNO
+		AND G.GCODE = O.GCODE 	
+		AND C.CCNAME = #{ccname} AND O.ORDATE = CURDATE()
+		GROUP BY C.CCNAME -->
 		<if test="pageSize > 0">
 			limit #{startIndex}, #{pageSize}
 		</if>

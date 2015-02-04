@@ -51,8 +51,8 @@ function loadDeliveryList(pageNo) {
 	$.getJSON('../json/order2/list.do?pageNo=' + pageNo, function(data) {
 		setPageNo(data.currPageNo, data.maxPageNo);
 		var orders = data.orders;
-		var oname = data.oname;
-		var oodate = data.oodate;
+		var oname = "거래처명	:	"+data.oname;
+		var oodate = "주문일자	:	"+data.oodate;
 		var mlevel = data.ograde;
 		
 		require([ 'text!templates/order-table.html' ], function(html) {

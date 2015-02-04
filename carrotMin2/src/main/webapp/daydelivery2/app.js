@@ -56,8 +56,8 @@ function loadDeliveryList(pageNo) {
 		setPageNo(data.currPageNo, data.maxPageNo);
 		
 		var deliverys = data.deliverys;
-		var ccname = data.ccname;
-		var oddate = data.oddate;
+		var ccname = "거래처명	:	"+data.ccname;
+		var oddate = "배송일자	:	"+data.oddate;
 		var mlevel = data.mlevel;
 		
 		/*if(mlevel == '1'){

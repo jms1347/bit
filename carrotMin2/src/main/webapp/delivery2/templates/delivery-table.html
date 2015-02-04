@@ -29,7 +29,7 @@
 	{{/each}}
 	
 </table>
-<div>주문총액 : <span id="sum"></span></div>
+<div>주문총액 : <span id="sum"></span>원</div>
 <script>
 	var mlevel;
 	$(document).ready(function() {
@@ -43,11 +43,13 @@
 
 		var MyRows = $('#deliveryTable').find('tr');
 		for (var i = 1; i < MyRows.length; i++) {
-			
+			var a = $(MyRows[i]).find('td:eq(5)').html(); 
 			var b = $(MyRows[i]).find('td:eq(6)').html();
-			
-			sum = sum + b;
-			console.log("수량*가격 : ",b);
+			var c = a*b;
+			sum = sum + c;
+			console.log("수량:",a);
+			console.log("가격:",b);
+			console.log("수량*가격 : ",c);
 			console.log("합계 : ",sum);
 		}
 		$('#sum').html(sum);
@@ -55,14 +57,5 @@
 		
 	});
 
-	/* 
-	 $(document).on('click', '#deliveryTable tr', function(e) {
-
-	 $dname = $(this).find('td:eq(2)').html(); // 거래처명 */
-	/* $('#sumDiv').html(mlevel); */
-	/*if(mlevel == "1"){
 	
-	 }*/
-
-	/*		.css('display', 'none')*/
 </script>

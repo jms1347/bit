@@ -35,24 +35,40 @@
 
 	<select id="selectList2" parameterType="map" resultMap="deliveryMap">
 		<!-- <include refid="selectOne2" /> -->
-		
-		select 
+				select 
+		a.ono, d.ccname, c.mlevel,a.ORDATE ,b.oprice2 sum_oprice, a.ODEL_STAT, a.OMEMO
+		from 
+		(select a.* from ORDERLIST a where a.sno = #{sno}) a
+		left outer join 
+		(select ono,sno,cno,ordate,sum(oprice) oprice2 from ORDERLIST where sno=#{sno}
+		group by sno,cno,ordate
+		order by ordate
+		) b 
+		on a.sno = b.sno 
+		and a.ono = b.ono
+        left outer join MATCHING c 
+        on a.sno = c.sno and a.cno = c.cno 
+        left outer join CLIENT d
+        on c.CNO = d.CNO
+		group by CCNAME
+        order by ORDATE
+        
+	<!-- 	select 
 		a.ono, d.ccname, c.mlevel,a.ORDATE ,b.oprice2 sum_oprice, a.ODEL_STAT, a.OMEMO
 		from 
 		(select a.* from orderlist a where a.sno = #{sno}) a
 		left outer join 
-		(select sno,odate,sum(oprice) oprice2 from orderlist 
-		group by sno,odate
-		order by sno,odate
+		(select sno,ordate,sum(oprice) oprice2 from orderlist 
+		group by sno,ordate
+		order by sno,ordate
 		) b 
 		on a.sno = b.sno
-		and a.odate = b.odate
         left outer join matching c 
         on a.sno = c.sno and a.cno = c.cno 
         left outer join client d
         on c.cno = d.cno
-        group by ORDATE
-        order by ORDATE
+        group by CCNAME
+        order by ORDATE -->
         
 
 		<!-- SELECT O.ONO, C.CCNAME , M.MLEVEL , O.ORDATE , O.OPRICE ,

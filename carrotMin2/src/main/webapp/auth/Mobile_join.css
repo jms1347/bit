@@ -1,22 +1,25 @@
 @CHARSET "UTF-8";
-#wrap{
-    margin: 0 auto;
-    width: 60%;
-    font-family:sans-serif;
+
+#wrap {
+	margin: 0 auto;
+	width: 60%;
+	font-family: sans-serif;
 }
 
-#CodeAdd{
-	width : 10%;
-	float : right;	
-} 
-
-#checkPwd{
-	margin-left : 23%;
+#checkPwd {
+	margin-left: 23%;
 }
 
-#checkMsg{
-	margin-left : 23%;
+#checkMsg {
+	margin-left: 23%;
 }
-#checkcode{
-	border : 1px solid red;
+
+#checkcode {
+	border: 1px solid red;
+}
+
+#result {
+	/* border : 1px solid green; */
+	float: center;
+	margin-left: 23%;
 }

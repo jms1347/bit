@@ -47,13 +47,12 @@
 		order by sno,odate
 		) b 
 		on a.sno = b.sno
-		and a.odate = b.odate
         left outer join matching c 
         on a.sno = c.sno and a.cno = c.cno 
         left outer join client d
         on c.cno = d.cno
-        group by ORDATE
-        order by ORDATE
+        group by ODATE
+        order by ODATE
 		
 		<!-- 
 		SELECT O.ONO, C.CCNAME , M.MLEVEL , O.ORDATE, O.ODATE , O.OPRICE ,
