@@ -23,6 +23,8 @@ public interface ClientDao {
   int totalSize();
   List<Client> selectNameList();
   Client existUser(Map<String,String> params);
+  int sno(Client client);
+  void insert2(Client client);
   
 }
 

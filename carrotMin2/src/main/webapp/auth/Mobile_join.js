@@ -38,7 +38,7 @@ $(function() {
 			clientTel : $('#mph').val(),
 			clientPassword : $('#mpwd').val(),
 			clientCorName : $('#mname').val(),
-			sname : $('#mcode').val(),
+			scname : $('#mcode').val(),
 			clientMemo : $('mmemo').val(),
 			
 

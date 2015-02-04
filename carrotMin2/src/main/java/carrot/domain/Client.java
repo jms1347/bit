@@ -16,7 +16,9 @@ public class Client implements Serializable {
 	protected String clientAddressDet;
 	protected String clientMemo;
 	protected String scname;
-	
+	protected int sno;
+	//protected int cno;
+	protected String mdate;
 	
 
 	@Override
@@ -27,10 +29,30 @@ public class Client implements Serializable {
 				+ clientMail + ", clientPostNo=" + clientPostNo
 				+ ", clientAddress=" + clientAddress + ", clientAddressDet="
 				+ clientAddressDet + ", clientMemo=" + clientMemo + ", scname="
-				+ scname + "]";
+				+ scname + ", sno=" + sno + ", mdate=" + mdate + "]";
 	}
+
 	
-	
+	public String getMdate() {
+		return mdate;
+	}
+
+
+	public void setMdate(String mdate) {
+		this.mdate = mdate;
+	}
+
+
+	public int getSno() {
+		return sno;
+	}
+
+
+	public void setSno(int sno) {
+		this.sno = sno;
+	}
+
+
 	public String getScname() {
 		return scname;
 	}

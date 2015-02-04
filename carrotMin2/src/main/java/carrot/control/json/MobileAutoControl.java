@@ -23,7 +23,8 @@ import carrot.service.CompanyService;
 public class MobileAutoControl {
   @Autowired CompanyService companyService;
   @Autowired ClientService clientService;
-  String scname;
+ // String scname;
+  //int sno;
   
   @RequestMapping(value="/auto", method=RequestMethod.POST)
   public Object auto(Company company) throws Exception {
@@ -39,18 +40,22 @@ public class MobileAutoControl {
   
   @RequestMapping(value="/signup", method=RequestMethod.POST)
   public Object add(Client client) throws Exception {  
-	 
-	  
-	  clientService.add(client); //insert수행
-    
-    HashMap<String,Object> resultMap = new HashMap<>();
-    
-   
+	    System.out.println("client : "+client);
 	
-	resultMap.put("scname", client.getScname());
-	 scname = client.getScname();
-	  System.out.println("scname : "+scname);
+		 HashMap<String,Object> resultMap = new HashMap<>();
+		 //resultMap.put("scname", scname);
+		 //Client client2 = clientService.getSno(client);
+		 clientService.add(client); //insert수행
+		 client.setSno(clientService.getSno(client));
+		 System.out.println("client2 : "+client);
+		// System.out.println("client2 : "+client2);
+		 //System.out.println("sno : "+sno);
 	  
+	  
+	  clientService.add2(client);
+	
+ 
+	
     resultMap.put("status", "success");
     System.out.println(resultMap);
     return resultMap;

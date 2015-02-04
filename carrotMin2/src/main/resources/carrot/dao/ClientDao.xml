@@ -23,31 +23,12 @@ VALUES ('01','111-1111','1111','cor01','c01@c01','c01','111-111','서울','강�
     <result column="CADDR" property="clientAddress"/>
     <result column="CADDR_DET" property="clientAddressDet"/>
     <result column="CMEMO" property="clientMemo"/>
+    <result column="SCNAME" property="scname"/>
+    <result column="SNO" property="sno"/>
+      <result column="MDATE" property="mdate"/>
   </resultMap>
 
- <!-- 
-  <resultMap type="GoodsListItem" id="goodsListItemMap">
-    PK 컬럼은 id 태그를 사용하여 지정한다.
-    <id column="PNO" property="no"/>
-    <result column="PNAME" property="name"/>
-    <result column="QTY" property="quantity"/>
-    <result column="MKNO" property="makerNo"/>
-    <result column="MKNAME" property="maker"/>
-  </resultMap>
--->  
 
-  <resultMap type="map" id="clientListItem2Map">
-    <id column="CNO" property="no"/>
-    <result column="CCNAME" property="clientCorName"/>
-    <result column="CNAME" property="clientName"/>
-    <result column="CPWD" property="clientPassword"/>
-    <result column="CTEL" property="clientTel"/>
-    <result column="CMAIL" property="clientMail"/>
-    <result column="CPOSTNO" property="clientPostNo"/>
-    <result column="CADDR" property="clientAddress"/>
-    <result column="CADDR_DET" property="clientAddressDet"/>
-    <result column="CMEMO" property="clientMemo"/>
-  </resultMap>
 
   <sql id="clientSelect">
     SELECT CNO, CCNAME, CNAME, CPWD, CTEL, CMAIL, CPOSTNO, CADDR, CADDR_DET, CMEMO
@@ -78,6 +59,20 @@ VALUES ('01','111-1111','1111','cor01','c01@c01','c01','111-111','서울','강�
     INSERT INTO CLIENT(CCNAME, CNAME, CPWD, CTEL, CMAIL, CPOSTNO, CADDR, CADDR_DET, CMEMO) 
     VALUES (#{clientCorName},#{clientName},#{clientPassword},#{clientTel},#{clientMail},#{clientPostNo},#{clientAddress},#{clientAddressDet},#{clientMemo});
   </insert>
+  
+   
+  <insert id="insert2" parameterType="Client">
+    INSERT INTO MATCHING(CNO,SNO, MDATE) 
+    VALUES (#{no}, #{sno}, CURDATE());
+  </insert>
+  
+
+  <select id="sno" parameterType="Client" 
+        resultType="int">
+        SELECT SNO
+    	FROM SUPPLIER 
+        WHERE SCNAME = #{scname}
+  </select>
   
   <update id="update" parameterType="Client">
     UPDATE CLIENT SET 

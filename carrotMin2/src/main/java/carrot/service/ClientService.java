@@ -47,6 +47,12 @@ public class ClientService {
 	public void add(Client client) {
 		clientDao.insert(client);
 	}
+	
+	@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+	public void add2(Client client) {
+		clientDao.insert2(client);
+	}
+
 
 	@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
 	public void update(Client client) {
@@ -72,6 +78,12 @@ public class ClientService {
 	// public List<Client> getList() {
 	// return clientDao.selectNameList();
 	// }
+
+	public int getSno(Client client) {
+		System.out.println("getSno client : "+client);
+
+		return clientDao.sno(client);	
+	}
 
 
 
