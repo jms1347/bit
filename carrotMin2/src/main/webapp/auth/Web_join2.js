@@ -72,7 +72,7 @@ $(function() {
  $(function() {
 	$("#inputId").keyup(function() { //아이디 유효성검사
 		if(checkId()){
-			$.get("http://192.168.0.155:3000/idcheck", {
+			$.get("http://192.168.0.109:3000/idcheck", {
 				id : $('#inputId').val()
 			}, function(data) {
 				$('#checkMsg').html(data.result);
